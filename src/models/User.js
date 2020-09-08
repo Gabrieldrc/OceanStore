@@ -24,7 +24,7 @@ class User {
   }
 
   setOk(bool = false) {
-    this._ok = false;
+    this._ok = bool;
   }
 
   getUserName() {
