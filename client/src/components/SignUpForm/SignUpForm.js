@@ -16,12 +16,16 @@ const styleError = {
   color: "red",
 };
 
+const styleCheck = {
+  color: "lawngreen",
+};
+
 function SignUpForm() {
   const [user_name, setUserName] = useState('');
   const [password, setpassword] = useState('');
   const [password_compare, setpasswordCompare] = useState('');
-  const [error, setError] = useState(' ');
-  const [redirect, setRedirect] = useState(false);
+  const [error, setError] = useState('');
+  const [check, setCheck] = useState('');
 
   function handleClick(event) {
 
@@ -35,8 +39,7 @@ function SignUpForm() {
 
     axios.post(url, data)
     .then(response => {
-      console.log(response.data);
-      setRedirect(true);
+      setCheck(response.data);
     })
     .catch((error) => {
       setError(error.response.data);
@@ -44,27 +47,36 @@ function SignUpForm() {
 
   }
 
-  function ifRedirect() {
-    if (redirect) {
-      return <Redirect to='/login' />;
+  function response() {
+    if (error === '' && check === '') {
+      return <label> </label>;
     }
-    return(
-      <div>
-        <form style={styleForm} id="registerForm">
-          <label> Enter your username: {user_name}</label>
-          <input type="text" name="user_name" onChange={event => setUserName(event.target.value)} required/>
-          <label> Enter your password: {password}</label>
-          <input type="password" name="password" onChange={event => setpassword(event.target.value)} required/>
-          <label> Enter the same password: {password_compare}</label>
-          <input type="password" name="password_compare" onChange={event => setpasswordCompare(event.target.value)} required/>  
-          <button type="submit" onClick={event => handleClick(event)}>Submit</button>
-          <label style={styleError}>{error}</label>
-        </form>
-      </div>
-    );
+    if (error != '') {
+      const label = <label style={styleError}>{error}</label>;
+      setError('');
+    }
+    if (check != '') {
+      const label = <label style={styleCheck}>{check}</label>;
+      setCheck('');
+      return label;
+    }
+    
   }
 
-  return ifRedirect();
+  return(
+    <div>
+      <form style={styleForm} id="registerForm">
+        <label> Enter your username: {user_name}</label>
+        <input type="text" name="user_name" onChange={event => setUserName(event.target.value)} required/>
+        <label> Enter your password: {password}</label>
+        <input type="password" name="password" onChange={event => setpassword(event.target.value)} required/>
+        <label> Enter the same password: {password_compare}</label>
+        <input type="password" name="password_compare" onChange={event => setpasswordCompare(event.target.value)} required/>  
+        <button type="submit" onClick={event => handleClick(event)}>Submit</button>
+        {response()}
+      </form>
+    </div>
+  );
 }
 
 
