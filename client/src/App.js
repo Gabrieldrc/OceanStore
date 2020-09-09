@@ -5,15 +5,15 @@ import {
   Route,
 } from 'react-router-dom';
 import './App.css';
-import SignUpForm from './components/SignUpForm/SignUpForm';
+import RegisterPage from './components/RegisterPage/RegisterPage';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/sign_up">
-            <SignUpForm />
+          <Route path="/register">
+            <RegisterPage />
           </Route>
           <Route exact path="/">
             <h1>HOME</h1>

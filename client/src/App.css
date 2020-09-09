@@ -1,3 +1,6 @@
 .App {
   text-align: justify;
+  width: 1400px;
+  margin: auto;
+  /* background-color: gainsboro; */
 }
