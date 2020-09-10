@@ -56,7 +56,7 @@ class UserService {
       // with the ok true and the message
       return returned.then(result => {
         userModel.setOk(true);
-        userModel.setMessage(`User ${userModel.getUserName()} created!`);
+        userModel.setMessage(`User @${userModel.getUserName()} created!`);
         return userModel;
       });
 
@@ -81,6 +81,43 @@ class UserService {
       });
     });
   }
+
+  //Check if the userModel it recieve,
+  // has the same data of the database
+  //RETURNS a promise
+  login(userModel) {
+    //create an userError instance if something goes wrong
+    const userError = new UserError();
+    
+    //Send the username to the findUser function that returns a promise
+    const resultPromise = this.findUser(userModel.getUserName());
+    return resultPromise.then(result => {
+
+      //check if the result array is not empty
+      if (result.length === 0) {
+        //if it is, returns a userError instance, because the user not exist
+        userError.setMessage('the user_name not exists');
+        return userError;
+      };
+
+      const userData = {
+        user_name: result[0]['user_name'],
+        password: result[0]['password'],
+      };
+      if ( userData.password !== userModel.getPassword()) {
+        userError.setMessage('the password is wrong');
+        return userError;
+      }
+
+      //if everything is ok return the same user instance it recieve
+      // with the ok true and the message
+      userModel.setOk(true);
+      userModel.setMessage(`User @${userModel.getUserName()} is logged!`);
+      return userModel;
+
+    });
+  }
+
 }
 
 const userService = new UserService(connection);

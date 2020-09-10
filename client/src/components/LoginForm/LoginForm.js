@@ -45,15 +45,14 @@ function LoginForm() {
 
   function ifRedirect() {
     if (redirect) {
-      setRedirect(false);
-      return <Redirect to='/login' />;
+      return <Redirect to='/home' />;
     }
     return(
       <div>
-        <form style={styleForm} id="registerForm">
-          <label> Enter your username: {user_name}</label>
+        <form style={styleForm} id="loginForm">
+          <label> Enter your username:</label>
           <input type="text" name="user_name" onChange={event => setUserName(event.target.value)} required/>
-          <label> Enter your password: {password}</label>
+          <label> Enter your password:</label>
           <input type="password" name="password" onChange={event => setpassword(event.target.value)} required/>
           <button type="submit" onClick={event => handleClick(event)}>Submit</button>
           <label style={styleError}>{error}</label>
