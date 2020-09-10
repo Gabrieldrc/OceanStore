@@ -1,6 +1,7 @@
-const connection = require('../config/connection');
 const User = require('../models/User');
 const UserError = require('../models/UserError');
+const connection = require('../config/connection');
+const bcrypt = require('bcrypt');
 
 class UserService {
   
@@ -30,36 +31,41 @@ class UserService {
       };
 
       //if is empty the result array...
-      const query = 'INSERT INTO Users (user_name, password )'
+      //With bcript we encrypt the password and @hash is the new value that
+      // it's gonna be save in the DB
+      return bcrypt.hash(userModel.getPassword(), 10)
+      .then(hash => {
+        const query = 'INSERT INTO Users (user_name, password )'
         +' VALUES (?,?);';
-      const variables = [
-        userModel.getUserName(),
-        userModel.getPassword(),
-      ];
-      
-      //create a promise and with the connection, make a request to the database
-      // to insert the user data into the Users table
-      const returned = new Promise ((resolve,reject) => {
-        this._connection.query(query,variables,(error, results, fields) => {
-          if (error) {
-            console.error('\n\nERROR (insert user)\n\n');
-            return reject(error);
-          }
-          return resolve();
-        });
+        let variables = [
+          userModel.getUserName(),
+          hash,
+        ];
+        //create a promise and with the connection, make a request to the database
+        // to insert the user data into the Users table
+        return new Promise ((resolve,reject) => {
+            this._connection.query(query,variables,(error, results, fields) => {
+              if (error) {
+                console.error('\n\nERROR (insert user)\n\n');
+                return reject(error);
+              }
+              return resolve();
+            });
+          })
+          .then(result => {
+            //if everything is ok return the same user instance it recieve
+            // with the ok true and the message
+            userModel.setOk(true);
+            userModel.setMessage(`User @${userModel.getUserName()} created!`);
+            return userModel;
+          })
+          .catch(error => {
+            throw error;
+          });
       })
       .catch(error => {
         throw error;
       });
-
-      //if everything is ok return the same user instance it recieve
-      // with the ok true and the message
-      return returned.then(result => {
-        userModel.setOk(true);
-        userModel.setMessage(`User @${userModel.getUserName()} created!`);
-        return userModel;
-      });
-
     });
 
   }
