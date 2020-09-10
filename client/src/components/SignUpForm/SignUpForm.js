@@ -20,13 +20,21 @@ const styleCheck = {
 function SignUpForm() {
   const [user_name, setUserName] = useState('');
   const [password, setpassword] = useState('');
-  const [password_compare, setpasswordCompare] = useState('');
+  const [password_confirm, setpasswordConfirm] = useState('');
+  const [passwordsMatch, setPasswordsMatch] = useState('');
   const [res, setRes] = useState({});
 
   function handleClick(event) {
 
     event.preventDefault();
-  
+    
+    if (password !== password_confirm) {
+      setPasswordsMatch('dont match');
+      return;
+    }
+
+    setPasswordsMatch('');
+
     const url = '/server/users/new_user';
     const data = {
       'user_name': user_name,
@@ -61,12 +69,12 @@ function SignUpForm() {
   return(
     <div>
       <form style={styleForm} id="signupForm">
-        <label> Enter your username:</label>
+        <label> Username:</label>
         <input type="text" name="user_name" onChange={event => setUserName(event.target.value)} required/>
-        <label> Enter your password:</label>
+        <label> Password:</label>
         <input type="password" name="password" onChange={event => setpassword(event.target.value)} required/>
-        <label> Enter the same password:</label>
-        <input type="password" name="password_compare" onChange={event => setpasswordCompare(event.target.value)} required/>  
+        <label> Confirm Password: {passwordsMatch}</label>
+        <input type="password" name="password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
         <button type="submit" onClick={event => handleClick(event)}>Submit</button>
         {labelResponse()}
       </form>
