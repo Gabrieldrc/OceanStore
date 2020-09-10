@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SignUpForm from '../SignUpForm/SignUpForm';
 import LoginForm from '../LoginForm/LoginForm';
 
@@ -10,8 +10,6 @@ const stylePage = {
 };
 
 function RegisterPage() {
-  // const [user_name, setUserName] = useState('');
-
   return (
     <div style={stylePage}>
       <div>

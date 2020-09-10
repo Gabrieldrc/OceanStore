@@ -1,6 +1,7 @@
-const connection = require('../config/connection');
 const User = require('../models/User');
 const UserError = require('../models/UserError');
+const connection = require('../config/connection');
+const bcrypt = require('bcrypt');
 
 class UserService {
   
@@ -30,36 +31,36 @@ class UserService {
       };
 
       //if is empty the result array...
-      const query = 'INSERT INTO Users (user_name, password )'
+      //With bcript we encrypt the password and @hash is the new value that
+      // it's gonna be save in the DB
+      return bcrypt.hash(userModel.getPassword(), 10)
+      .then(hash => {
+        const query = 'INSERT INTO Users (user_name, password )'
         +' VALUES (?,?);';
-      const variables = [
-        userModel.getUserName(),
-        userModel.getPassword(),
-      ];
-      
-      //create a promise and with the connection, make a request to the database
-      // to insert the user data into the Users table
-      const returned = new Promise ((resolve,reject) => {
+        let variables = [
+          userModel.getUserName(),
+          hash,
+        ];
+        //create a promise and with the connection, make a request to the database
+        // to insert the user data into the Users table
         this._connection.query(query,variables,(error, results, fields) => {
           if (error) {
             console.error('\n\nERROR (insert user)\n\n');
-            return reject(error);
+            throw error;
           }
-          return resolve();
+          return true;
         });
+      })
+      .then(() => {
+        //if everything is ok return the same user instance it recieve
+        // with the ok true and the message
+        userModel.setOk(true);
+        userModel.setMessage(`User @${userModel.getUserName()} created!`);
+        return userModel;
       })
       .catch(error => {
         throw error;
       });
-
-      //if everything is ok return the same user instance it recieve
-      // with the ok true and the message
-      return returned.then(result => {
-        userModel.setOk(true);
-        userModel.setMessage(`User ${userModel.getUserName()} created!`);
-        return userModel;
-      });
-
     });
 
   }
@@ -81,6 +82,46 @@ class UserService {
       });
     });
   }
+
+  //Check if the userModel it recieve,
+  // has the same data of the database
+  //RETURNS a promise
+  login(userModel) {
+    //create an userError instance if something goes wrong
+    const userError = new UserError();
+    
+    //Send the username to the findUser function that returns a promise
+    const resultPromise = this.findUser(userModel.getUserName());
+    return resultPromise.then(result => {
+
+      //check if the result array is not empty
+      if (result.length === 0) {
+        //if it is, returns a userError instance, because the user not exist
+        userError.setMessage('the user_name not exists');
+        return userError;
+      };
+
+      const userData = {
+        user_name: result[0]['user_name'],
+        password: result[0]['password'],
+      };
+      //with bcrypt compare if the password encrypted and the password recieve in userModel are the same
+      return bcrypt.compare(userModel.getPassword(), userData.password).then(function(result) {
+        if (result) {
+          //if everything is ok return the same user instance it recieve
+          // with the ok true and the message
+          userModel.setOk(true);
+          userModel.setMessage(`User @${userModel.getUserName()} is logged!`);
+          return userModel;
+        }
+        //Otherwise, return an userError instance with a message
+        userError.setMessage('the password is wrong');
+        return userError;
+      });
+  
+    });
+  }
+
 }
 
 const userService = new UserService(connection);

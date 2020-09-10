@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "awilix": "^4.2.6",
+    "bcrypt": "^5.0.0",
     "express": "^4.17.1",
     "http-proxy-middleware": "^1.0.5",
     "mysql": "^2.18.1",
