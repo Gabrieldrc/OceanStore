@@ -43,25 +43,20 @@ class UserService {
         ];
         //create a promise and with the connection, make a request to the database
         // to insert the user data into the Users table
-        return new Promise ((resolve,reject) => {
-            this._connection.query(query,variables,(error, results, fields) => {
-              if (error) {
-                console.error('\n\nERROR (insert user)\n\n');
-                return reject(error);
-              }
-              return resolve();
-            });
-          })
-          .then(result => {
-            //if everything is ok return the same user instance it recieve
-            // with the ok true and the message
-            userModel.setOk(true);
-            userModel.setMessage(`User @${userModel.getUserName()} created!`);
-            return userModel;
-          })
-          .catch(error => {
+        this._connection.query(query,variables,(error, results, fields) => {
+          if (error) {
+            console.error('\n\nERROR (insert user)\n\n');
             throw error;
-          });
+          }
+          return true;
+        });
+      })
+      .then(() => {
+        //if everything is ok return the same user instance it recieve
+        // with the ok true and the message
+        userModel.setOk(true);
+        userModel.setMessage(`User @${userModel.getUserName()} created!`);
+        return userModel;
       })
       .catch(error => {
         throw error;
@@ -110,17 +105,20 @@ class UserService {
         user_name: result[0]['user_name'],
         password: result[0]['password'],
       };
-      if ( userData.password !== userModel.getPassword()) {
+      //with bcrypt compare if the password encrypted and the password recieve in userModel are the same
+      return bcrypt.compare(userModel.getPassword(), userData.password).then(function(result) {
+        if (result) {
+          //if everything is ok return the same user instance it recieve
+          // with the ok true and the message
+          userModel.setOk(true);
+          userModel.setMessage(`User @${userModel.getUserName()} is logged!`);
+          return userModel;
+        }
+        //Otherwise, return an userError instance with a message
         userError.setMessage('the password is wrong');
         return userError;
-      }
-
-      //if everything is ok return the same user instance it recieve
-      // with the ok true and the message
-      userModel.setOk(true);
-      userModel.setMessage(`User @${userModel.getUserName()} is logged!`);
-      return userModel;
-
+      });
+  
     });
   }
 
