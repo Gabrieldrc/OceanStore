@@ -15,7 +15,7 @@ function App() {
           <Route exact path="/">
             <RegisterPage />
           </Route>
-          <Route path="/home">
+          <Route exact path="/home">
             <h1>HOME</h1>
           </Route>
         </Switch>
