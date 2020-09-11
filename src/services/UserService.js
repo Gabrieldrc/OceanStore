@@ -1,9 +1,7 @@
-const User = require('../models/User');
 const UserError = require('../models/UserError');
-const connection = require('../config/connection');
 const bcrypt = require('bcrypt');
 
-class UserService {
+module.exports = class UserService {
   
   _connection;
 
@@ -123,7 +121,3 @@ class UserService {
   }
 
 }
-
-const userService = new UserService(connection);
-
-module.exports = userService; 

@@ -1,6 +1,6 @@
 const express = require('express');
 const userController = express.Router();
-const userService = require('../services/UserService');
+const { userService } = require('../config/services');
 const User = require('../models/User');
 
 //PATH TO ADD AN USER
