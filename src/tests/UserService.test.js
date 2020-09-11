@@ -1,22 +1,12 @@
 const Userservice = require('../services/UserService');
 const mysql = require('mysql');
-const connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'password',
+const createConnectionEnviroment = require('./dbEviroment/connectionTest');
+
+
+beforeAll(() => {
+  createConnection();
+  uservice = new Userservice(connection);
 });
-
-let uservice, userData;
-
-test('if it connect', async () => {
-  
-  expect(connection.connect()).toBeTruthy();
-});
-
-// beforeAll(() => {
-//   createConnection();
-//   uservice = new Userservice(connection);
-// });
 
 // describe('matching cities to foods', () => {
 //   beforeEach(() => {
