@@ -10,10 +10,8 @@ const createConnectionEnviroment = async () => {
   
   await connection.connect(err => {
     if (err) {
-      console.error('error connecting: ' + err.stack);
-      return;
+      return error;
     }
-    console.log('It\'s connected to TEST');
   });
   
   const userTablePlaystoredb = 'CREATE TABLE IF NOT EXISTS Users ('
@@ -24,10 +22,7 @@ const createConnectionEnviroment = async () => {
   
   await connection.query(userTablePlaystoredb, (error, results, fields) => {
     if (error) {
-      console.error(error);
-      return;
-    } else {
-      console.log('TABLE playstoredb Users:',results);
+      return error;
     }
   });
 

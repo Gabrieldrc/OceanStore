@@ -13,7 +13,7 @@ module.exports = class UserService {
   //ADD a new USER to the Users table
   //Recieve an instance of an user
   //RETURNS a promise
-  newUser(userModel) {
+  createUser(userModel) {
     //create an userError instance if something goes wrong
     const userError = new UserError();
     
