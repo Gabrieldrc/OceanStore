@@ -1,9 +1,7 @@
-const User = require('../models/User');
 const UserError = require('../models/UserError');
-const connection = require('../config/connection');
 const bcrypt = require('bcrypt');
 
-class UserService {
+module.exports = class UserService {
   
   _connection;
 
@@ -15,7 +13,7 @@ class UserService {
   //ADD a new USER to the Users table
   //Recieve an instance of an user
   //RETURNS a promise
-  newUser(userModel) {
+  createUser(userModel) {
     //create an userError instance if something goes wrong
     const userError = new UserError();
     
@@ -123,7 +121,3 @@ class UserService {
   }
 
 }
-
-const userService = new UserService(connection);
-
-module.exports = userService; 

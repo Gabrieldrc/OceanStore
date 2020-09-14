@@ -1,6 +1,6 @@
 const express = require('express');
 const userController = express.Router();
-const userService = require('../services/UserService');
+const { userService } = require('../config/services');
 const User = require('../models/User');
 
 //PATH TO ADD AN USER
@@ -14,7 +14,7 @@ userController.post('/new_user', (req, res) => {
   //create a user instance with the data from the @req
   //and sended to the user service
   const user = new User(req.body['user_name'], req.body['password']);
-  const returnedPromise = userService.newUser(user);
+  const returnedPromise = userService.createUser(user);
   //returns a promise
 
   returnedPromise.then(result => {

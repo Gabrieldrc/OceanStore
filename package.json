@@ -1,28 +1,27 @@
 {
-  "name": "jsplaystore",
+  "name": "jsstore",
   "version": "1.0.0",
-  "description": "playstore app",
-  "main": "index.js",
+  "description": "client and server",
   "scripts": {
+    "iclient": "cd client && npm install",
+    "iserver": "cd server && npm install",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "nodemon server.js",
+    "server": "cd server/ && npm run start",
     "client": "node start-client.js",
-    "test": "cd client && npm run test"
+    "test:client": "cd client && npm run test",
+    "test:server": "cd server && npm run test"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gabrieldrc/JSstore.git"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "awilix": "^4.2.6",
-    "bcrypt": "^5.0.0",
-    "express": "^4.17.1",
-    "http-proxy-middleware": "^1.0.5",
-    "mysql": "^2.18.1",
-    "react-router-dom": "^5.2.0"
+  "bugs": {
+    "url": "https://github.com/Gabrieldrc/JSPlaystore/issues"
   },
-  "devDependencies": {
-    "concurrently": "^5.3.0",
-    "nodemon": "^2.0.4",
-    "typescript": "^4.0.2"
-  },
-  "proxy": "http://localhost:3306"
+  "homepage": "https://github.com/Gabrieldrc/JSstore#readme"
 }
