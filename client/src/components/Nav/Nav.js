@@ -1,5 +1,6 @@
 import React from 'react';
 import './Nav.css';
+import { Link } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import NavLink from '../NavLink/NavLink';
 
@@ -7,7 +8,7 @@ function Nav() {
   return(
     <div className="Nav">
       <div className="logo">
-        <img src="./images/logo.jpg" alt="Logo" className="logoJpg"/>
+        <a href="/store" ><img src="./images/logo.jpg" alt="Logo" className="logoJpg"/></a>
       </div>
       <SearchBar />
       <NavLink 
