@@ -3,10 +3,11 @@ import SignUpForm from '../SignUpForm/SignUpForm';
 import LoginForm from '../LoginForm/LoginForm';
 
 const stylePage = {
+  width: "1600px",
+  margin: "auto",
   display: "grid",
   gridTemplateColumns: "auto auto",
   gridColumnGap: "50px",
-  padding: "50px",
 };
 
 function RegisterPage() {

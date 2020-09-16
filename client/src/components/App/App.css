@@ -1,0 +1,19 @@
+.App {
+  text-align: justify;
+  display: grid;
+  grid-template-areas:
+    'header'
+    'body';
+}
+
+.Header {
+  grid-area: header;
+  min-height: 10vh;
+  background-color: black;
+}
+
+.Body {
+  grid-area: body;
+  min-height: 90vh;
+  background-color: white;
+}
