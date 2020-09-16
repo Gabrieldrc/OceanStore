@@ -45,7 +45,7 @@ function LoginForm() {
 
   function ifRedirect() {
     if (redirect) {
-      return <Redirect to='/me/store' />;
+      return <Redirect to='/store' />;
     }
     return(
       <div>

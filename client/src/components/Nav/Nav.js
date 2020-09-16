@@ -1,9 +1,7 @@
 import React from 'react';
-import {
-  Link,
-} from 'react-router-dom';
 import './Nav.css';
 import SearchBar from '../SearchBar/SearchBar';
+import NavLink from '../NavLink/NavLink';
 
 function Nav() {
   return(
@@ -12,12 +10,22 @@ function Nav() {
         <img src="./images/logo.jpg" alt="Logo" className="logoJpg"/>
       </div>
       <SearchBar />
-      <div className="categories">
-        <Link to="/categories">Categories</Link>
-      </div>
-      <div className="wishlist">yes</div>
-      <div className="car">syess</div>
-      <div className="profile">Yo</div>
+      <NavLink 
+        destiny="/categories"  
+        setClassName="categories"
+        label="Categories"/>
+      <NavLink 
+        destiny="/wishlist"  
+        setClassName="wishlist"
+        label="Wishlist"/>
+      <NavLink 
+        destiny="/car"  
+        setClassName="car"
+        label="Car"/>
+      <NavLink 
+        destiny="/profile"  
+        setClassName="profile"
+        label="Profile"/>
     </div>
   );
 }
