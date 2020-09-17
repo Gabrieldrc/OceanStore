@@ -1,6 +1,5 @@
 import React from 'react';
 import './Nav.css';
-import { Link } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import NavLink from '../NavLink/NavLink';
 
