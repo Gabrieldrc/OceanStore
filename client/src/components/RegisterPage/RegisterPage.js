@@ -6,17 +6,20 @@ const stylePage = {
   display: "grid",
   gridTemplateColumns: "auto auto",
   gridColumnGap: "50px",
-  padding: "50px",
+};
+
+const styleGrid = {
+  justifyContent: "center",
 };
 
 function RegisterPage() {
   return (
     <div style={stylePage}>
-      <div>
+      <div style={styleGrid}>
         <h1>Sign up here:</h1>
         <SignUpForm />
       </div>
-      <div>
+      <div style={styleGrid}>
         <h1>Login here:</h1>
         <LoginForm />
       </div>

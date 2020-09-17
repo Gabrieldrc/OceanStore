@@ -1,0 +1,37 @@
+.Nav {
+  width: 1200px;
+  height: inherit;
+  margin: 0px auto;
+  /* background-color: blue; */
+  display: grid;
+  grid-template-areas:
+    'logo searchbar searchbar searchbar . profile'
+    'logo categories . wishlist car profile';
+  grid-gap: 10px;
+}
+
+.Nav .logo {
+  grid-area: logo;
+  margin-left: 0px;
+}
+
+.Nav .logo .logoJpg {
+  height: 95px;
+  border-radius: 50px;
+}
+
+.Nav .categories {
+  grid-area: categories;
+}
+
+.Nav .wishlist {
+  grid-area: wishlist;
+}
+
+.Nav .car {
+  grid-area: car;
+}
+
+.Nav .profile {
+  grid-area: profile;
+}
