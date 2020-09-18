@@ -1,7 +1,8 @@
 import React from 'react';
 import './Nav.css';
 import SearchBar from '../SearchBar/SearchBar';
-import NavLink from '../NavLink/NavLink';
+import NavLinkItem from '../NavLinkItem/NavLinkItem';
+import NavMenu from '../NavMenu/NavMenu';
 
 function Nav() {
   return(
@@ -10,22 +11,31 @@ function Nav() {
         <a href="/store" ><img src="./images/logo.jpg" alt="Logo" className="logoJpg"/></a>
       </div>
       <SearchBar />
-      <NavLink 
+      <NavLinkItem
+        key="/categories"
         destiny="/categories"  
         setClassName="categories"
         label="Categories"/>
-      <NavLink 
+      <NavLinkItem
+        key="/wishlist"
         destiny="/wishlist"  
         setClassName="wishlist"
         label="Wishlist"/>
-      <NavLink 
+      <NavLinkItem
+        key="/car"
         destiny="/car"  
         setClassName="car"
         label="Car"/>
-      <NavLink 
+      <NavMenu
+        list={[
+          {value: "Settings", url: "/settings"},
+          {value: "Sell", url: "/sell"},
+          {value: "My Apps", url: "/apps"},
+          {value: "Log Out", url: "/logOut"},
+        ]} 
         destiny="/profile"  
-        setClassName="profile"
-        label="Profile"/>
+        className="profile"
+        title="Profile"/>
     </div>
   );
 }

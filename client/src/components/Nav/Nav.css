@@ -2,11 +2,10 @@
   width: 1200px;
   height: inherit;
   margin: 0px auto;
-  /* background-color: blue; */
   display: grid;
   grid-template-areas:
-    'logo searchbar searchbar searchbar . profile'
-    'logo categories . wishlist car profile';
+    'logo searchbar searchbar searchbar . . .'
+    'logo categories . . wishlist car profile';
   grid-gap: 10px;
 }
 
