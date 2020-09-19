@@ -61,11 +61,11 @@ function NewAppForm() {
     <div>
       <form style={styleForm} id="new_app_form" encType="multipart/form-data">
         <label> Name:</label>
-        <input type="text" name="app_name" onChange={event => setAppName(event.target.value)} required/>
+        <input type="text" name="app_name"  required/>
         <label> Price:</label>
-        <input type="number" name="app_price" min="0" max="100" onChange={event => setPrice(event.target.value)} required/>
+        <input type="number" name="app_price" min="0" max="100"  required/>
         <label> Category:</label>
-        <input type="text" name="app_category" onChange={event => setCategory(event.target.value)} required/>  
+        <input type="text" name="app_category" required/>
         <label> Image or Logo:</label>
         <input type="file" name="app_image" />
         <button type="submit" onClick={event => handleClick(event)}>Submit</button>
