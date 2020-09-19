@@ -1,13 +1,24 @@
 const express = require('express');
-const app = express();
 const router = require('./src/config/router');
+const bodyParser = require('body-parser');
+const multer  = require('multer');
+const upload = multer({ dest: 'src/uploads/' });
+
+
+const app = express();
+
 try {
   
   app.set("port", process.env.PORT || 3001);
   
-  app.use(express.json()) // for parsing application/json
-  app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+  // for parsing application/json
+  app.use(bodyParser.json());
+  // for parsing application/x-www-form-urlencoded
+  app.use(bodyParser.urlencoded({ extended: true }));
   
+  // for parsing multipart/form-data
+  // app.use(upload.array());
+
   // Express only serves static assets in production
   if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
