@@ -67,7 +67,7 @@ function NewAppForm() {
         <label> Category:</label>
         <input type="text" name="app_category" required/>
         <label> Image or Logo:</label>
-        <input type="file" name="app_image" />
+        <input type="file" name="image" disabled/>
         <button type="submit" onClick={event => handleClick(event)}>Submit</button>
         {labelResponse()}
       </form>

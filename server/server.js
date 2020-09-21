@@ -1,9 +1,9 @@
 const express = require('express');
 const router = require('./src/config/router');
 const bodyParser = require('body-parser');
-const multer  = require('multer');
-const upload = multer({ dest: 'src/uploads/' });
+const db = require("./src/models");
 
+global.__basedir = __dirname;
 
 const app = express();
 
@@ -26,10 +26,16 @@ try {
 
   app.use('/server', router);  
 
+  db.sequelize.sync();
+  // db.sequelize.sync({ force: true }).then(() => {
+  //   console.log("Drop and re-sync db.");
+  // });
   app.listen(app.get("port"), () => {
     console.log(`Listening at: localhost:${app.get("port")}/server/`);
   });
   
 } catch (error) {
- console.log('ERROR::::'+error); 
+  console.log('\n\n');
+  console.log('ERROR::::'+error); 
+  console.log('\n\n');
 }
