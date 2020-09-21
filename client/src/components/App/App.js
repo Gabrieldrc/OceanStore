@@ -7,6 +7,8 @@ import {
 import './App.css';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Nav from '../Nav/Nav';
+import Store from '../Store/Store';
+import NewAppForm from '../NewAppForm/NewAppForm';
 
 const headerConteinerStyle = {
   gridArea: "header",
@@ -39,7 +41,12 @@ function App() {
                 <RegisterPage />
               </Route>
               <Route exact path="/store">
-                <h1>Store</h1>
+                <Store />
+              </Route>
+              <Route exact path="/sell">
+                <div>
+                  <NewAppForm />
+                </div>
               </Route>
             </Switch>
           </div>

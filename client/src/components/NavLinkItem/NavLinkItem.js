@@ -1,24 +1,26 @@
 import React , { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 
-function NavLink(props) {
-  const {destiny, setClassName, label} = props;
+function NavLinkItem(props) {
+  const {destiny, setClassName, label, textAlign, padding} = props;
   const [color, setColor] = useState("white");
   let LinkStyle = {
     color: color,
-    textAlign: "center",
+    textAlign: textAlign? textAlign : "center",
     verticalAlign: "text-bottom",
-    paddingTop: "0.4rem",
+    paddingTop: padding? padding: "0.4rem",
     textDecoration: "none",
   };
 
   function setPathName(destiny) {
     const pathName = window.location.pathname;
-    if (pathName === "/" || pathName.search(destiny) < 0 ) {
-      return destiny;
-    } 
-    return pathName+destiny;
+    if (pathName.search(destiny) >= 0) {
+      return "";
+    }
+    if (pathName === "/") {
+      return destiny.slice(0);
+    }
+    return destiny;
   }
 
   function handlerMouseOver() {
@@ -30,17 +32,17 @@ function NavLink(props) {
   }
 
   return(
-    <Link 
+    <a
       className={setClassName}
-      to={setPathName(destiny)}
+      href={setPathName(destiny)}
       style={LinkStyle}
       onMouseOver={() => handlerMouseOver()}
       onMouseOut={() => handlerMouseOut()}
       >{label}
-    </Link>
+    </a>
   );
 }
 
 
   
-export default NavLink;
+export default NavLinkItem;

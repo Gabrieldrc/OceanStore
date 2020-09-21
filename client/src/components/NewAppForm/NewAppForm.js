@@ -17,28 +17,17 @@ const styleCheck = {
   color: "lawngreen",
 };
 
-function SignUpForm() {
-  const [password, setpassword] = useState('');
-  const [password_confirm, setpasswordConfirm] = useState('');
-  const [passwordsMatch, setPasswordsMatch] = useState('');
+function NewAppForm() {
   const [res, setRes] = useState({});
 
   function handleClick(event) {
 
     event.preventDefault();
     
-    if (password !== password_confirm) {
-      setPasswordsMatch('dont match');
-      return;
-    }
-
-    setPasswordsMatch('');
-
-    const url = '/server/users/new_user';
-    const form = document.getElementById('sign_up_form');
-    const formData = new FormData(form);
+    const url = '/server/apps/new_app';
     
-
+    const form = document.getElementById('new_app_form');
+    const formData = new FormData(form);
     axios.post(url, formData)
     .then(response => {
       setRes({
@@ -65,14 +54,20 @@ function SignUpForm() {
   }
 
   return(
+    // Nombre.
+    // Precio de venta,
+    // Categoría.
+    // Imagen o logo.
     <div>
-      <form style={styleForm} id="sign_up_form">
-        <label> Username:</label>
-        <input type="text" name="user_name" required/>
-        <label> Password:</label>
-        <input type="password" name="user_password" onChange={event => setpassword(event.target.value)} required/>
-        <label> Confirm Password: {passwordsMatch}</label>
-        <input type="password" name="user_password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
+      <form style={styleForm} id="new_app_form" encType="multipart/form-data">
+        <label> Name:</label>
+        <input type="text" name="app_name"  required/>
+        <label> Price:</label>
+        <input type="number" name="app_price" min="0" max="100"  required/>
+        <label> Category:</label>
+        <input type="text" name="app_category" required/>
+        <label> Image or Logo:</label>
+        <input type="file" name="image" disabled/>
         <button type="submit" onClick={event => handleClick(event)}>Submit</button>
         {labelResponse()}
       </form>
@@ -82,4 +77,4 @@ function SignUpForm() {
 
 
   
-export default SignUpForm;
+export default NewAppForm;

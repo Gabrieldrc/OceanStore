@@ -9,16 +9,13 @@
 }
 
 .searchbar .searchInput {
-  border-color: white;
+  border-color: transparent;
   background-color: white;
   height: inherit;
+  outline: none;
 }
 
 .searchbar .searchIcon {
   height: inherit;
   margin: auto;
-}
-
-.searchbar .searchInput:focus {
-  outline: none;
 }

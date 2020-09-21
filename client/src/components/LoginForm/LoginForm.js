@@ -17,8 +17,6 @@ const styleError = {
 };
 
 function LoginForm() {
-  const [user_name, setUserName] = useState('');
-  const [password, setpassword] = useState('');
   const [error, setError] = useState(' ');
   const [redirect, setRedirect] = useState(false);
 
@@ -27,12 +25,10 @@ function LoginForm() {
     event.preventDefault();
   
     const url = '/server/users/login';
-    const data = {
-      'user_name': user_name,
-      'password': password,
-    };
+    const form = document.getElementById('log_in_form');
+    const formData = new FormData(form);
 
-    axios.post(url, data)
+    axios.post(url, formData)
     .then(response => {
       console.log(response.data);
       setRedirect(true);
@@ -49,11 +45,11 @@ function LoginForm() {
     }
     return(
       <div>
-        <form style={styleForm} id="loginForm">
+        <form style={styleForm} id="log_in_form" encType="multipart/form-data">
           <label> Enter your username:</label>
-          <input type="text" name="user_name" onChange={event => setUserName(event.target.value)} required/>
+          <input type="text" name="user_name" required/>
           <label> Enter your password:</label>
-          <input type="password" name="password" onChange={event => setpassword(event.target.value)} required/>
+          <input type="password" name="user_password" required/>
           <button type="submit" onClick={event => handleClick(event)}>Submit</button>
           <label style={styleError}>{error}</label>
         </form>
