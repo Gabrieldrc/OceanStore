@@ -1,12 +1,9 @@
 const express = require('express');
 const appsController = express.Router();
-const upload = require("../middleware/upload")
+const upload = require("../middleware/upload");
 const appService = require('../services/appService');
 const fs = require("fs");
-// const { userService } = require('../config/services');
-// const User = require('../models/User');
 
-//PATH TO ADD AN USER
 appsController.post('/new_app',upload.single('image'), async (req, res) => {
   try{
     // if (req.file == undefined) {
@@ -30,13 +27,13 @@ appsController.post('/new_app',upload.single('image'), async (req, res) => {
     // };
     await appService.createApp(appData);
     // await appService.createAppImage(imgData);
-    
+
     return res.status(201).send(`app created: ${app_name}`);
+
   }catch(error) {
-    console.log('\n\nController Error');
-    console.log(error);
+
     return res.status(400).send(error);
-    
+
   }
 });
 

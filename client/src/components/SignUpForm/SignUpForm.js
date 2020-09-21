@@ -18,7 +18,6 @@ const styleCheck = {
 };
 
 function SignUpForm() {
-  const [user_name, setUserName] = useState('');
   const [password, setpassword] = useState('');
   const [password_confirm, setpasswordConfirm] = useState('');
   const [passwordsMatch, setPasswordsMatch] = useState('');
@@ -36,12 +35,11 @@ function SignUpForm() {
     setPasswordsMatch('');
 
     const url = '/server/users/new_user';
-    const data = {
-      'user_name': user_name,
-      'password': password,
-    };
+    const form = document.getElementById('sign_up_form');
+    const formData = new FormData(form);
+    
 
-    axios.post(url, data)
+    axios.post(url, formData)
     .then(response => {
       setRes({
         message: response.data,
@@ -68,13 +66,13 @@ function SignUpForm() {
 
   return(
     <div>
-      <form style={styleForm} id="signupForm">
+      <form style={styleForm} id="sign_up_form">
         <label> Username:</label>
-        <input type="text" name="user_name" onChange={event => setUserName(event.target.value)} required/>
+        <input type="text" name="user_name" required/>
         <label> Password:</label>
-        <input type="password" name="password" onChange={event => setpassword(event.target.value)} required/>
+        <input type="password" name="user_password" onChange={event => setpassword(event.target.value)} required/>
         <label> Confirm Password: {passwordsMatch}</label>
-        <input type="password" name="password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
+        <input type="password" name="user_password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
         <button type="submit" onClick={event => handleClick(event)}>Submit</button>
         {labelResponse()}
       </form>

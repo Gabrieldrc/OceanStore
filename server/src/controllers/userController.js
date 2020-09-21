@@ -1,58 +1,50 @@
-// const express = require('express');
-// const userController = express.Router();
-// const { userService } = require('../config/services');
-// const User = require('../models/User');
+const express = require('express');
+const userController = express.Router();
+const userService = require('../services/userService');
 
-// //PATH TO ADD AN USER
-// userController.post('/new_user', (req, res) => {
-//   //check if recieve by @req the user_name AND password
-//   if (!req.body['user_name'] || !req.body['password']) {
-//     //if not response a 400 status
-//     return res.status(400).send('Send user_name and password');
-//   } 
-  
-//   //create a user instance with the data from the @req
-//   //and sended to the user service
-//   const user = new User(req.body['user_name'], req.body['password']);
-//   const returnedPromise = userService.createUser(user);
-//   //returns a promise
+userController.post('/new_user', async (req, res) => {
+  const {user_name, user_password} = req.body;
+  if (!user_name || !user_password) {
 
-//   returnedPromise.then(result => {
-//     //@result is an instance of User
-//     // check if the @ok propertie of @result is true
-//     console.log(result);
-//     if (result.ok()) {
-//       //if it is, send a 201 status with the message of the from the user instance function
-//       return res.status(201).send(result.message());
-//     }
-//     //if it's NOT, send a 400 status with the message of the from the user instance function with the ERROR message
-//     return res.status(400).send(result.message());
-//   });
-// });
+  return res.status(400).send(`Send 'user_name' and 'password'`);
 
-// //PATH TO LOG AN USER
-// userController.post('/login', (req, res) => {
-//   //check if recieve by @req the user_name AND password
-//   if (!req.body['user_name'] || !req.body['password']) {
-//     //if not response a 400 status
-//     return res.status(400).send('Send user_name and password');
-//   } 
-  
-//   //create a user instance with the data from the @req
-//   //and sended to the user service
-//   const user = new User(req.body['user_name'], req.body['password']);
-//   const returnedPromise = userService.login(user);
+  }
+  const userData = {
+    user_name: user_name,
+    password: user_password,
+  }
+  const result = await userService.createUser(userData);
 
-//   returnedPromise.then(result => {
-//     //@result is an instance of User
-//     // check if the @ok propertie of @result is true
-//     if (result.ok()) {
-//       //if it is, send a 201 status with the message of the from the user instance function
-//       return res.status(200).send(result.message());
-//     }
-//     //if it's NOT, send a 400 status with the message of the from the user instance function with the ERROR message
-//     return res.status(400).send(result.message());
-//   });
-// });
+  if (!result.ok) {
 
-// module.exports = userController;
+    return res.status(400).send(result.message);
+
+  }
+
+  return res.status(201).send(`user created: @${user_name}`);
+
+});
+
+userController.post('/login', async (req, res) => {
+  const {user_name, user_password} = req.body;
+  if (!user_name || !user_password) {
+
+    return res.status(400).send(`Send 'user_name' and 'password'`);
+
+  }
+  const userData = {
+    user_name: user_name,
+    password: user_password,
+  }
+  const result = await userService.loginUser(userData);
+  if (!result.ok) {
+
+    return res.status(400).send(result.message);
+
+  }
+
+  return res.status(201).send(`user @${user_name} ${result.message}`);
+
+});
+
+module.exports = userController;

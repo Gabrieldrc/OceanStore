@@ -10,7 +10,9 @@ const createApp = async (appData) => {
       category: appData.category? appData.category : "none",
       creator: appData.creator,
     })
+
     return `created succesfully app: ${appData.name}`;
+
   }catch(error) {
     console.log('\n\ncreateApp');
     console.log(error)
@@ -26,7 +28,9 @@ const createAppImage = async (imgData) => {
       app: imgData.app,
       data: imgData.data,
     })
+
     return `created succesfully image: ${imgData.name}`;
+
   }catch(error) {
     console.log('\n\ncreateImage');
     console.log(error)

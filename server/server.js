@@ -2,6 +2,7 @@ const express = require('express');
 const router = require('./src/config/router');
 const bodyParser = require('body-parser');
 const db = require("./src/models");
+const upload = require("./src/middleware/upload")
 
 global.__basedir = __dirname;
 
@@ -16,6 +17,7 @@ try {
   // for parsing application/x-www-form-urlencoded
   app.use(bodyParser.urlencoded({ extended: true }));
   
+  app.use(upload.single('image'));
   // for parsing multipart/form-data
   // app.use(upload.array());
 
