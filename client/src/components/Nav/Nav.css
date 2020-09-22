@@ -4,8 +4,8 @@
   margin: 0px auto;
   display: grid;
   grid-template-areas:
-    'logo searchbar searchbar searchbar . . .'
-    'logo categories . . wishlist car profile';
+    'logo searchbar searchbar searchbar searchbar . . .'
+    'logo categories store . . wishlist car profile';
   grid-gap: 10px;
 }
 
@@ -29,6 +29,10 @@
 
 .Nav .car {
   grid-area: car;
+}
+
+.Nav .store {
+  grid-area: store;
 }
 
 .Nav .profile {

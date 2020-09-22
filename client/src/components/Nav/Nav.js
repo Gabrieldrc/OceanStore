@@ -17,6 +17,11 @@ function Nav() {
         setClassName="categories"
         label="Categories"/>
       <NavLinkItem
+        key="/store"
+        destiny="/store"  
+        setClassName="store"
+        label="Store"/>
+      <NavLinkItem
         key="/wishlist"
         destiny="/wishlist"  
         setClassName="wishlist"
