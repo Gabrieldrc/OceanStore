@@ -38,7 +38,19 @@ const createAppImage = async (imgData) => {
   }
 }
 
+const findAllApps = async () => {
+  try {
+    const apps = await App.findAll();
+    return apps.map(app => app);
+  } catch (error) {
+    console.log('\n\nfindAppps');
+    console.log(error)
+    throw error;
+  }
+}
+
 module.exports = {
   createApp,
   createAppImage,
+  findAllApps,
 }
