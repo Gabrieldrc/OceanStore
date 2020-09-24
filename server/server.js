@@ -23,6 +23,7 @@ try {
   // for parsing multipart/form-data
   // app.use(upload.array());
 
+  // for start a session
   app.use(session);
 
   // Express only serves static assets in production
