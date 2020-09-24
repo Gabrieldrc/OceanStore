@@ -7,6 +7,7 @@ const styleForm = {
   gridTemplateRows: "auto",
   width: "fit-content",
   gridRowGap: "10px",
+  color: "white",
 };
 
 const styleError = {

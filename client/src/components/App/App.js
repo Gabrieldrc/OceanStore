@@ -9,6 +9,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import Nav from '../Nav/Nav';
 import Store from '../Store/Store';
 import NewAppForm from '../NewAppForm/NewAppForm';
+import Title from '../Title/Title';
 
 const headerConteinerStyle = {
   gridArea: "header",
@@ -19,7 +20,7 @@ const headerConteinerStyle = {
 const bodyConteinerStyle = {
   gridArea: "body",
   minHeight: "90vh",
-  backgroundColor: "white",
+  backgroundColor: "rgb(50, 50, 50)",
 };
 
 const bodyContentStyle = {
@@ -45,6 +46,7 @@ function App() {
               </Route>
               <Route exact path="/sell">
                 <div>
+                  <Title>Upload an app</Title>
                   <NewAppForm />
                 </div>
               </Route>

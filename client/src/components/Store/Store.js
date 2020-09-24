@@ -1,5 +1,6 @@
 import React, {useState, useRef, useEffect} from "react";
 import AppGridStore from '../AppGridStore/AppGridStore';
+import Title from "../Title/Title";
 const axios = require('axios');
 
 const fadeTime = 10000 // 10 sec 
@@ -69,14 +70,13 @@ function Store() {
     
   };
   const styleContainer = {
-    display: "inline-grid",
-    gridTemplateColumns: "auto auto auto auto auto auto auto auto auto",
-    gridGap: "100px 20px",
+    display: "block",
+    height: "auto",
   };
 
   return (
     <div className="Store">
-      <h1>Store posta</h1>
+      <Title>Store posta</Title>
       <div style={styleContainer}>
         {renderApps(apps)}
       </div>
