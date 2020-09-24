@@ -3,5 +3,6 @@ module.exports = {
   USER: 'root',
   PASSWORD: '',
   DB: 'playstoredb',
+  DBSESSION: 'sessiondb',
   dialect: "mysql",
 };

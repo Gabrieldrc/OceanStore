@@ -20,12 +20,15 @@ userController.post('/new_user', async (req, res) => {
     return res.status(400).send(result.message);
 
   }
-
+  req.session.userName = user_name;
   return res.status(201).send(`user created: @${user_name}`);
 
 });
 
 userController.post('/login', async (req, res) => {
+  console.log('\n\nuserSession');
+  console.log(req.session.userName);
+  console.log('\n\n');
   const {user_name, user_password} = req.body;
   if (!user_name || !user_password) {
 
