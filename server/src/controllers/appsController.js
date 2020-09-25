@@ -5,6 +5,10 @@ const appService = require('../services/appService');
 const fs = require("fs");
 
 appsController.post('/new_app', async (req, res) => {
+  const resObject = {
+    success: false,
+    message: "",
+  };
   try{
     // if (req.file == undefined) {
     //   return res.status(400).send(`You must select a file.`);
@@ -12,8 +16,9 @@ appsController.post('/new_app', async (req, res) => {
     const {app_name, app_price, app_category, app_creator} = req.body;
 
     if (!app_name || !app_price || !app_category) {
+      resObject.message = `You must send name, price and category.`;
 
-      return res.status(400).send(`You must send name, price and category.`);
+      return res.status(400).send(resObject);
 
     }
     const appData = {
@@ -33,21 +38,30 @@ appsController.post('/new_app', async (req, res) => {
     await appService.createApp(appData);
     // await appService.createAppImage(imgData);
 
-    return res.status(201).send(`app created: ${app_name}`);
+    resObject.success = true;
+    resObject.message = `app created: ${app_name}`;
+
+    return res.status(201).send(resObject);
 
   }catch(error) {
-
-    return res.status(400).send(error);
+    resObject.message = error;
+    return res.status(400).send(resObject);
 
   }
 });
 
 appsController.get('/store', async (req, res) => {
+  const resObject = {
+    success: false,
+    message: "",
+  };
   try {
     const apps = await appService.findAllApps();
+    
     return res.status(200).send(apps);
   } catch (error) {
-    return res.status(400).send(error);
+    resObject.message = error;
+    return res.status(400).send(resObject);
   }
 })
 

@@ -1,0 +1,27 @@
+[
+  {
+    "group": "user",
+    "permissions": [
+      {
+        "resource": "*",
+        "methods": "*",
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "guest",
+    "permissions": [
+      {
+        "resource": "users/*",
+        "methods": "*",
+        "action": "allow"
+      },
+      {
+        "resource": "apps/*",
+        "methods": ["GET"],
+        "action": "allow"
+      }
+    ]
+  }
+]

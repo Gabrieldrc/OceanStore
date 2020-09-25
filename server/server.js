@@ -5,6 +5,7 @@ const
   db = require("./src/models"),
   upload = require("./src/middleware/upload"),
   session = require('./src/config/session.config'),
+  security = require('./src/middleware/security.js'),
   app = express();
 
 global.__basedir = __dirname;
@@ -26,6 +27,8 @@ try {
   // for start a session
   app.use(session);
 
+  app.use(security.security);
+
   // Express only serves static assets in production
   if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
@@ -44,5 +47,6 @@ try {
 } catch (error) {
   console.log('\n\n');
   console.log('ERROR::::'+error); 
+  console.log(error); 
   console.log('\n\n');
 }

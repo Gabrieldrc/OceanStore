@@ -34,7 +34,7 @@ function LoginForm() {
       setRedirect(true);
     })
     .catch((error) => {
-      setError(error.response.data);
+      setError(error.response.data.message);
     });
 
   }
