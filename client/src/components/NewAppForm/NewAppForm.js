@@ -32,13 +32,13 @@ function NewAppForm() {
     axios.post(url, formData)
     .then(response => {
       setRes({
-        message: response.data,
+        message: response.data.message,
         type: 'check',
       });
     })
     .catch((error) => {
       setRes({
-        message: error.response.data,
+        message: error.response.data.message,
         type: 'error',
       });
     });

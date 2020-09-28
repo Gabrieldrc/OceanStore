@@ -12,13 +12,13 @@ const security = (req, res, next) => {
   }
   if (req.session.auth) {
     console.log('Si auth')
-    req.decode = {role: 'user'};
-    console.log(req.decode);
+    req.session.role = 'user';
+    console.log(req.session.role);
     next();
   } else {
     console.log('No auth')
-    req.decode = {role: 'guest'};
-    console.log(req.decode);
+    req.session.role = 'guest';
+    console.log(req.session.role);
     next();
   }
 };

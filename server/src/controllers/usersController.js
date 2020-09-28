@@ -2,17 +2,25 @@ const express = require('express');
 const usersController = express.Router();
 const userService = require('../services/userService');
 const jwtService = require('../services/jwtService');
+const ac = require('../config/ac');
 
 usersController.post('/new_user', async (req, res) => {
+  const permission = ac.can(req.session.role).createAny('user');
   const {user_name, user_password} = req.body;
   const resObject = {
-    success: false,
-    message: "",
+    status: 'Access Denied',
+    message: '',
   };
+  if (!permission.granted) {
+    resObject.message = 'You are not authorized to access this resource';
+
+    return res.status(403).json(resObject);
+
+  }
   if (!user_name || !user_password) {
     resObject.message = `Send 'user_name' and 'password'`;
 
-    return res.status(400).send(resObject);
+    return res.status(400).json(resObject);
 
   }
   const userData = {
@@ -27,7 +35,7 @@ usersController.post('/new_user', async (req, res) => {
     return res.status(400).send(resObject);
 
   }
-  resObject.success = true;
+  resObject.status = 'ok';
   resObject.message = `user created: @${user_name}`;
   return res.status(201).send(resObject);
 
@@ -36,13 +44,13 @@ usersController.post('/new_user', async (req, res) => {
 usersController.post('/login', async (req, res) => {
   const {user_name, user_password} = req.body;
   const resObject = {
-    success: false,
+    status: 'Access Denied',
     message: "",
   };
   if (!user_name || !user_password) {
     resObject.message = `Send 'user_name' and 'password'`;
 
-    return res.status(400).send(resObject);
+    return res.status(400).json(resObject);
 
   }
   const userData = {
@@ -54,13 +62,14 @@ usersController.post('/login', async (req, res) => {
   if (!result.ok) {
     resObject.message = result.message;
 
-    return res.status(400).send(resObject);
+    return res.status(400).json(resObject);
 
   }
   req.session.auth = true;
+  resObject.status = 'ok';
   resObject.message = result.message;
 
-  return res.status(201).send(resObject);
+  return res.status(201).json(resObject);
 
 });
 
