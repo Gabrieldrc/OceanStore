@@ -42,13 +42,14 @@ function SignUpForm() {
     axios.post(url, formData)
     .then(response => {
       setRes({
-        message: response.data,
+        message: response.data.message,
         type: 'check',
       });
     })
     .catch((error) => {
+      console.log(error.response.data);
       setRes({
-        message: error.response.data,
+        message: error.response.data.message,
         type: 'error',
       });
     });

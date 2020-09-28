@@ -1,11 +1,13 @@
 import React from 'react';
 import SignUpForm from '../SignUpForm/SignUpForm';
 import LoginForm from '../LoginForm/LoginForm';
+import Title from '../Title/Title';
 
 const stylePage = {
   display: "grid",
   gridTemplateColumns: "auto auto",
   gridColumnGap: "50px",
+  color: "white",
 };
 
 const styleGrid = {
@@ -16,11 +18,11 @@ function RegisterPage() {
   return (
     <div style={stylePage}>
       <div style={styleGrid}>
-        <h1>Sign up here:</h1>
+        <Title>Sign up here:</Title>
         <SignUpForm />
       </div>
       <div style={styleGrid}>
-        <h1>Login here:</h1>
+        <Title>Login here:</Title>
         <LoginForm />
       </div>
     </div>
