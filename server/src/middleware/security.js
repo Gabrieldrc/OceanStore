@@ -10,8 +10,17 @@ const security = (req, res, next) => {
       }
     });
   }
-  req.decode = {role: 'guest'};
-  next();
+  if (req.session.auth) {
+    console.log('Si auth')
+    req.decode = {role: 'user'};
+    console.log(req.decode);
+    next();
+  } else {
+    console.log('No auth')
+    req.decode = {role: 'guest'};
+    console.log(req.decode);
+    next();
+  }
 };
 
 module.exports = {
