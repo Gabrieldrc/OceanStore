@@ -1,12 +1,13 @@
-const 
-  express = require('express'),
-  router = require('./src/config/router'),
-  bodyParser = require('body-parser'),
-  db = require("./src/models"),
-  upload = require("./src/middleware/upload"),
-  session = require('./src/config/session.config'),
-  security = require('./src/middleware/security.js'),
-  app = express();
+const express = require('express');
+const router = require('./src/config/router');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const morgan = require('morgan');
+const db = require("./src/models");
+const upload = require("./src/middleware/upload");
+const session = require('./src/config/session.config');
+const security = require('./src/middleware/security.js');
+const app = express();
 
 global.__basedir = __dirname;
 
@@ -17,6 +18,7 @@ try {
 
   // for parsing application/json
   app.use(bodyParser.json());
+  app.use(morgan('tiny'));
   // for parsing application/x-www-form-urlencoded
   app.use(bodyParser.urlencoded({ extended: true }));
   

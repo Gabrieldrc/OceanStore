@@ -3,7 +3,7 @@ const appsController = express.Router();
 const upload = require("../middleware/upload");
 const appService = require('../services/appService');
 const fs = require("fs");
-const ac = require('../config/ac');
+const ac = require('../config/ac.config');
 
 appsController.post('/new_app', async (req, res) => {
   const permission = ac.can(req.session.role).createOwn('app');

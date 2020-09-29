@@ -2,7 +2,7 @@ const express = require('express');
 const usersController = express.Router();
 const userService = require('../services/userService');
 const jwtService = require('../services/jwtService');
-const ac = require('../config/ac');
+const ac = require('../config/ac.config');
 
 usersController.post('/new_user', async (req, res) => {
   const permission = ac.can(req.session.role).createAny('user');
