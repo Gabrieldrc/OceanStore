@@ -59,7 +59,7 @@ appsController.post('/new_app',authJwt.middleware, async (req, res) => {
   }
 });
 
-appsController.get('/store', async (req, res) => {
+appsController.get('/all', async (req, res) => {
   const permission = ac.can(req.session.user.role).readAny('app');
   const resObject = {
     status: 'Access Denied',
