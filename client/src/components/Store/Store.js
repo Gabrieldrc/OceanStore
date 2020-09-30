@@ -1,7 +1,7 @@
 import React, {useState, useRef, useEffect} from "react";
 import AppGridStore from '../AppGridStore/AppGridStore';
 import Title from "../Title/Title";
-const axios = require('axios');
+import AppService from '../../services/app.service';
 
 const fadeTime = 10000 // 10 sec 
 
@@ -33,7 +33,7 @@ function Store() {
   }
 
   function fetchData() {
-    axios.get('/server/apps/all')
+    AppService.getAllApps()
     .then(response => {
       setApps(response.data);
     })

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-const axios = require('axios');
+import AuthService from '../../services/auth.service';
 
 const styleForm = {
   display: "grid",
@@ -34,12 +34,10 @@ function SignUpForm() {
 
     setPasswordsMatch('');
 
-    const url = '/server/users/signup';
     const form = document.getElementById('sign_up_form');
     const formData = new FormData(form);
-    
 
-    axios.post(url, formData)
+    AuthService.signup(formData)
     .then(response => {
       setRes({
         message: response.data.message,

@@ -1,5 +1,5 @@
+import AuthHeader from './authHeader';
 const axios = require('axios');
-const authHeader = require('./authHeader');
 
 const API_URL = '/server/apps/';
 
@@ -8,7 +8,7 @@ const getAllApps = () => {
 };
 
 const createNewApp = (formData) => {
-  const authHeaderObject = authHeader();
+  const authHeaderObject = AuthHeader();
   return axios.post(API_URL + 'new_app', formData, {
     headers: {
       'Content-Type': 'multipart/form-data',

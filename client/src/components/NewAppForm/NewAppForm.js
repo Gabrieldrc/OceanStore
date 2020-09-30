@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-const axios = require('axios');
+import AppService from '../../services/app.service';
 
 const styleForm = {
   display: "grid",
@@ -29,10 +29,8 @@ function NewAppForm() {
     
     const form = document.getElementById('new_app_form');
     const formData = new FormData(form);
-    console.log('\n\nformdata HEADERS');
-    console.log(formData.get('headers'));
-    console.log('\n\n');
-    axios.post(url, formData)
+
+    AppService.createNewApp(formData)
     .then(response => {
       setRes({
         message: response.data.message,

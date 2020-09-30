@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
   Redirect
 } from "react-router-dom";
-const axios = require('axios');
+import AuthService from '../../services/auth.service';
 
 const styleForm = {
   display: "grid",
@@ -23,20 +23,18 @@ function LoginForm() {
   function handleClick(event) {
 
     event.preventDefault();
-  
-    const url = '/server/users/signin';
+
     const form = document.getElementById('log_in_form');
     const formData = new FormData(form);
 
-    axios.post(url, formData)
+    AuthService.signin(formData)
     .then(response => {
-      console.log(response.data);
+      console.log(response);
       setRedirect(true);
     })
     .catch((error) => {
       setError(error.response.data.message);
     });
-
   }
 
   function ifRedirect() {
