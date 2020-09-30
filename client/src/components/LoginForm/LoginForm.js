@@ -24,7 +24,7 @@ function LoginForm() {
 
     event.preventDefault();
   
-    const url = '/server/users/login';
+    const url = '/server/users/signin';
     const form = document.getElementById('log_in_form');
     const formData = new FormData(form);
 

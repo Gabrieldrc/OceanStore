@@ -1,12 +1,10 @@
 const express = require('express');
 const router = require('./src/config/router');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const morgan = require('morgan');
 const db = require("./src/models");
-const upload = require("./src/middleware/upload");
 const session = require('./src/config/session.config');
-const security = require('./src/middleware/security.js');
+const publicAuth = require('./src/middleware/publicAuth');
 const app = express();
 
 global.__basedir = __dirname;
@@ -21,15 +19,11 @@ try {
   app.use(morgan('tiny'));
   // for parsing application/x-www-form-urlencoded
   app.use(bodyParser.urlencoded({ extended: true }));
-  
-  app.use(upload.single('image'));
-  // for parsing multipart/form-data
-  // app.use(upload.array());
 
   // for start a session
   app.use(session);
 
-  app.use(security.security);
+  app.use(publicAuth.middleware);
 
   // Express only serves static assets in production
   if (process.env.NODE_ENV === "production") {
@@ -48,7 +42,7 @@ try {
   
 } catch (error) {
   console.log('\n\n');
-  console.log('ERROR::::'+error); 
+  console.log('ERROR::::'); 
   console.log(error); 
   console.log('\n\n');
 }

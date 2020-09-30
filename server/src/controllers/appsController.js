@@ -1,13 +1,12 @@
 const express = require('express');
 const appsController = express.Router();
-const upload = require("../middleware/upload");
 const appService = require('../services/appService');
-const fs = require("fs");
+// const fs = require('fs');
+const authJwt = require('../middleware/authJwt');
 const ac = require('../config/ac.config');
 
-appsController.post('/new_app', async (req, res) => {
-  const permission = ac.can(req.session.role).createOwn('app');
-  console.log(permission.granted);
+appsController.post('/new_app',authJwt.middleware, async (req, res) => {
+  const permission = ac.can(req.session.user.role).createOwn('app');
   const resObject = {
     status: 'Access Denied',
     message: '',
@@ -61,10 +60,17 @@ appsController.post('/new_app', async (req, res) => {
 });
 
 appsController.get('/store', async (req, res) => {
+  const permission = ac.can(req.session.user.role).readAny('app');
   const resObject = {
     status: 'Access Denied',
     message: "",
   };
+  if (!permission.granted) {
+    resObject.message = 'You are not authorized to access this resource';
+
+    return res.status(403).json(resObject);
+    
+  }
   try {
     const apps = await appService.findAllApps();
 

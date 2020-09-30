@@ -34,7 +34,7 @@ function SignUpForm() {
 
     setPasswordsMatch('');
 
-    const url = '/server/users/new_user';
+    const url = '/server/users/signup';
     const form = document.getElementById('sign_up_form');
     const formData = new FormData(form);
     
