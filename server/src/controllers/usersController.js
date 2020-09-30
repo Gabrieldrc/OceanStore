@@ -2,10 +2,10 @@ const express = require('express');
 const usersController = express.Router();
 const userService = require('../services/userService');
 const jwtService = require('../services/jwtService');
-const ac = require('../config/ac');
+const ac = require('../config/ac.config');
 
-usersController.post('/new_user', async (req, res) => {
-  const permission = ac.can(req.session.role).createAny('user');
+usersController.post('/signup', async (req, res) => {
+  const permission = ac.can(req.session.user.role).createAny('user');
   const {user_name, user_password} = req.body;
   const resObject = {
     status: 'Access Denied',
@@ -41,9 +41,9 @@ usersController.post('/new_user', async (req, res) => {
 
 });
 
-usersController.post('/login', async (req, res) => {
+usersController.post('/signin', async (req, res) => {
   const {user_name, user_password} = req.body;
-  const resObject = {
+  let resObject = {
     status: 'Access Denied',
     message: "",
   };
@@ -53,23 +53,24 @@ usersController.post('/login', async (req, res) => {
     return res.status(400).json(resObject);
 
   }
-  const userData = {
+  let userData = {
     user_name: user_name,
-    password: user_password,
-    role: 'user',
+    role: 'user'
   }
-  const result = await userService.loginUser(userData);
+  const result = await userService.loginUser({...userData, ...{password: user_password}});
   if (!result.ok) {
     resObject.message = result.message;
 
     return res.status(400).json(resObject);
 
   }
+  const token = jwtService.generateToken(userData);
   req.session.auth = true;
   resObject.status = 'ok';
   resObject.message = result.message;
+  resObject.accessToken = token;
 
-  return res.status(201).json(resObject);
+  return res.status(201).json({...resObject, ...userData});
 
 });
 
