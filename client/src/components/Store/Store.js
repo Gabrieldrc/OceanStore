@@ -33,7 +33,7 @@ function Store() {
   }
 
   function fetchData() {
-    axios.get('/server/apps/store')
+    axios.get('/server/apps/all')
     .then(response => {
       setApps(response.data);
     })

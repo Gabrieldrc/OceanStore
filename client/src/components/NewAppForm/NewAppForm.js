@@ -29,6 +29,9 @@ function NewAppForm() {
     
     const form = document.getElementById('new_app_form');
     const formData = new FormData(form);
+    console.log('\n\nformdata HEADERS');
+    console.log(formData.get('headers'));
+    console.log('\n\n');
     axios.post(url, formData)
     .then(response => {
       setRes({

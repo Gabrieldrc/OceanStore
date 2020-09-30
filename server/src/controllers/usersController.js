@@ -57,7 +57,7 @@ usersController.post('/signin', async (req, res) => {
     user_name: user_name,
     role: 'user'
   }
-  const result = await userService.loginUser({...userData, ...{password: user_password}});
+  const result = await userService.loginUser({...userData, password: user_password});
   if (!result.ok) {
     resObject.message = result.message;
 
@@ -66,11 +66,9 @@ usersController.post('/signin', async (req, res) => {
   }
   const token = jwtService.generateToken(userData);
   req.session.auth = true;
-  resObject.status = 'ok';
-  resObject.message = result.message;
-  resObject.accessToken = token;
+  userData.accessToken = token;
 
-  return res.status(201).json({...resObject, ...userData});
+  return res.status(201).json(userData);
 
 });
 
