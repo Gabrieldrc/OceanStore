@@ -10,10 +10,10 @@ function SigninPage(props) {
         <Title style={{fontWeight: "200"}}>SIGN IN <span style={{fontSize: '1.5rem'}}>with your OS account</span></Title>
         <SignInForm 
           setSignInStatus={props.setSignInStatus}/>
-        <span class="border border-top"></span>
-        <span class="border border-right"></span>
-        <span class="border border-bottom"></span>
-        <span class="border border-left"></span>
+        <span className="border border-top"></span>
+        <span className="border border-right"></span>
+        <span className="border border-bottom"></span>
+        <span className="border border-left"></span>
       </div>
     </div>
   );

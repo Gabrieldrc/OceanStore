@@ -25,8 +25,6 @@ function NewAppForm() {
 
     event.preventDefault();
     
-    const url = '/server/apps/new_app';
-    
     const form = document.getElementById('new_app_form');
     const formData = new FormData(form);
 
