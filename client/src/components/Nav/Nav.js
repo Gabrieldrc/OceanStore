@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import NavStyle from './Nav.style';
 
 import AuthService from '../../services/auth.service';
@@ -32,6 +32,12 @@ const publicRoutes = [
 function Nav(props) {
   
   const { currentUser } = props;
+
+  useEffect(() => {
+    if (typeof currentUser !== 'undefined') {
+      console.log('seteó(?)');
+    }
+  }, [currentUser]);
 
   const printRoutesList = (routesArray) => {
     return routesArray.map((element, index) => {

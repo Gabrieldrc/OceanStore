@@ -36,7 +36,7 @@ const AuthService = {
   },
 
   authHeader() {
-    const user = JSON.parse(token);
+    const user = this.getCurrentUser();
   
     if (user && user.accessToken) {
       return { 'x-access-token': user.accessToken };

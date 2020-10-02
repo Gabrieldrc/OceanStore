@@ -23,11 +23,8 @@ function App() {
     const user = AuthService.getCurrentUser();
 
     if (user) {
-      console.log('seteó(?)');
       setCurrentUser(user);
     }
-    console.log('Se ejecutó');
-    console.log(user);
   }, [signinStatus]);
 
   return (
