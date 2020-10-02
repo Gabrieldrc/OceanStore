@@ -2,7 +2,7 @@ import React , {useState} from 'react';
 import NavLinkItem from '../NavLinkItem/NavLinkItem';
 
 function NavMenu(props) {
-  const {list, title, className} = props;
+  const {routes, label} = props;
   const [colorTitle, setColorTitle] = useState("white");
   const [visibility, setVisibility] = useState("hidden");
   let TitleStyle = {
@@ -35,20 +35,29 @@ function NavMenu(props) {
   }
 
   return(<div 
-    key={title}
-    className={className} 
+    key={label} 
     style={TitleStyle}
     onMouseOver={() => handlerMouseOver("deepskyblue")}
     onMouseOut={() => handlerMouseOut()}
-    >{title}
+    >{label}
     <div style={SubMenuStyle}>
-      {list.map( obj => {
-        return <NavLinkItem
-            key={obj.url}
+      {routes.map( obj => {
+        if (obj.func !== undefined) {
+          return <NavLinkItem
+            key={obj.route}
             textAlign="left"
-            destiny={obj.url}
-            label={obj.value}
+            destiny={obj.route}
+            label={obj.label}
+            onClick={obj.func}
           />;
+        } else {
+          return <NavLinkItem
+              key={obj.route}
+              textAlign="left"
+              destiny={obj.route}
+              label={obj.label}
+            />;
+        }
       })}
     </div>
   </div>);

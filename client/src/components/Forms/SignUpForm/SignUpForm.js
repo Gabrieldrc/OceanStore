@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AuthService from '../../services/auth.service';
+import AuthService from '../../../services/auth.service';
 
 const styleForm = {
   display: "grid",
@@ -7,6 +7,12 @@ const styleForm = {
   gridTemplateRows: "auto",
   width: "fit-content",
   gridRowGap: "10px",
+  color: "#b4b2b1",
+};
+
+const inputStyle = {
+  marginBottom: "20px",
+  height: "1.6rem",
 };
 
 const styleError = {
@@ -14,7 +20,7 @@ const styleError = {
 };
 
 const styleCheck = {
-  color: "lawngreen",
+  color: "deepskyblue",
 };
 
 function SignUpForm() {
@@ -66,12 +72,12 @@ function SignUpForm() {
   return(
     <div>
       <form style={styleForm} id="sign_up_form">
-        <label> Username:</label>
-        <input type="text" name="user_name" required/>
-        <label> Password:</label>
-        <input type="password" name="user_password" onChange={event => setpassword(event.target.value)} required/>
-        <label> Confirm Password: {passwordsMatch}</label>
-        <input type="password" name="user_password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
+        <label> Username</label>
+        <input style={inputStyle} type="text" name="user_name" required/>
+        <label> Password</label>
+        <input style={inputStyle} type="password" name="user_password" onChange={event => setpassword(event.target.value)} required/>
+        <label> Confirm Password      {passwordsMatch}</label>
+        <input style={inputStyle} type="password" name="user_password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
         <button type="submit" onClick={event => handleClick(event)}>Submit</button>
         {labelResponse()}
       </form>
