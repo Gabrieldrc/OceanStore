@@ -1,46 +1,72 @@
-import React from 'react';
-import './Nav.css';
-import SearchBar from '../SearchBar/SearchBar';
-import NavLinkItem from '../NavLinkItem/NavLinkItem';
-import NavMenu from '../NavMenu/NavMenu';
+import React, { useEffect, useState } from 'react';
+import NavStyle from './Nav.style';
 
-function Nav() {
+import AuthService from '../../services/auth.service';
+
+import SearchBar from './SearchBar/SearchBar';
+import NavLinkItem from './NavLinkItem/NavLinkItem';
+import NavMenu from './NavMenu/NavMenu';
+
+const fixedRoutes = [
+  {label: 'Categories', route: '/categories'},
+  {label: 'Gift Cards', route: '/gift-cards'},
+];
+
+const verifiedRoutes = [
+  {label: 'Wishlist', route: '/wishlist'},
+  {label: 'Car',      route: '/car'},
+  {label: 'Car',      routes: [
+    {label: "Settings", route: "/settings"},
+    {label: "Sell",     route: "/sell"},
+    {label: "My Apps",  route: "/apps"},
+    {label: "Log Out",  route: "/signin", func: AuthService.logout},
+  ]},
+];
+
+const publicRoutes = [
+  {label: 'Sign Up', route: '/signup'},
+  {label: 'Sign In',      route: '/signin'},
+  {label: 'Sell',      route: '/sell'},
+];
+
+function Nav(props) {
+  
+  const { currentUser } = props;
+
+  const printRoutesList = (routesArray) => {
+    return routesArray.map((element, index) => {
+      const key = "_key_";
+      if (element.routes) {
+        return <NavMenu
+          key={index+key+element.route}
+          routes={element.routes}
+          label={"@"+currentUser.user_name}/>
+      }
+      return <NavLinkItem
+        key={index+key+element.route}
+        destiny={element.route}
+        label={element.label}/>
+    })
+  };
+
   return(
-    <div className="Nav">
-      <div className="logo">
-        <a href="/store" ><img src="./images/logo.jpg" alt="Logo" className="logoJpg"/></a>
+    <div style={NavStyle.Nav} className="Nav">
+      <div style={NavStyle.logo} className="logo">
+        <a href="/" ><img src="./images/logo.jpg" alt="Logo" style={NavStyle.logoJpg} className="logoJpg"/></a>
       </div>
       <SearchBar />
-      <NavLinkItem
-        key="/categories"
-        destiny="/categories"  
-        setClassName="categories"
-        label="Categories"/>
-      <NavLinkItem
-        key="/store"
-        destiny="/store"  
-        setClassName="store"
-        label="Store"/>
-      <NavLinkItem
-        key="/wishlist"
-        destiny="/wishlist"  
-        setClassName="wishlist"
-        label="Wishlist"/>
-      <NavLinkItem
-        key="/car"
-        destiny="/car"  
-        setClassName="car"
-        label="Car"/>
-      <NavMenu
-        list={[
-          {value: "Settings", url: "/settings"},
-          {value: "Sell", url: "/sell"},
-          {value: "My Apps", url: "/apps"},
-          {value: "Log Out", url: "/logOut"},
-        ]} 
-        destiny="/profile"  
-        className="profile"
-        title="Profile"/>
+      <div style={NavStyle.fixedGrid} className ="fixedGrid">
+        {printRoutesList(fixedRoutes)}
+      </div>
+      {currentUser ? (
+        <div style={NavStyle.changeGrid} className="changeGrid">
+          {printRoutesList(verifiedRoutes)}
+        </div>
+      ):(
+        <div style={NavStyle.changeGrid} className="changeGrid">
+          {printRoutesList(publicRoutes)}
+        </div>
+      )}
     </div>
   );
 }

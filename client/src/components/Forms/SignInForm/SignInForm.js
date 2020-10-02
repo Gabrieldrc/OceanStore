@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
   Redirect
 } from "react-router-dom";
-import AuthService from '../../services/auth.service';
+import AuthService from '../../../services/auth.service';
 
 const styleForm = {
   display: "grid",
@@ -10,15 +10,22 @@ const styleForm = {
   gridTemplateRows: "auto",
   width: "fit-content",
   gridRowGap: "10px",
+  color: "#b4b2b1",
+};
+
+const inputStyle = {
+  marginBottom: "20px",
+  height: "1.6rem",
 };
 
 const styleError = {
   color: "red",
 };
 
-function LoginForm() {
+function SignInForm(props) {
   const [error, setError] = useState(' ');
   const [redirect, setRedirect] = useState(false);
+  const { setSignInStatus } = props;
 
   function handleClick(event) {
 
@@ -30,6 +37,7 @@ function LoginForm() {
     AuthService.signin(formData)
     .then(response => {
       console.log(response);
+      setSignInStatus(true)
       setRedirect(true);
     })
     .catch((error) => {
@@ -39,15 +47,15 @@ function LoginForm() {
 
   function ifRedirect() {
     if (redirect) {
-      return <Redirect to='/store' />;
+      return <Redirect to='/' />;
     }
     return(
       <div>
         <form style={styleForm} id="log_in_form" encType="multipart/form-data">
-          <label> Enter your username:</label>
-          <input type="text" name="user_name" required/>
-          <label> Enter your password:</label>
-          <input type="password" name="user_password" required/>
+          <label> Username:</label>
+          <input style={inputStyle} type="text" name="user_name" required/>
+          <label> Password:</label>
+          <input style={inputStyle} type="password" name="user_password" required/>
           <button type="submit" onClick={event => handleClick(event)}>Submit</button>
           <label style={styleError}>{error}</label>
         </form>
@@ -60,4 +68,4 @@ function LoginForm() {
 
 
   
-export default LoginForm;
+export default SignInForm;

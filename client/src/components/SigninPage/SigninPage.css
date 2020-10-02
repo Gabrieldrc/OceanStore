@@ -1,0 +1,83 @@
+.SigninContainer {
+  position: relative;
+  width: max-content;
+  height: max-content;
+  margin: 100px auto auto;
+  padding: 50px 50px;
+}
+
+.SigninPage .border {
+  position: absolute;
+  left: 0;
+  background: deepskyblue;
+}
+ 
+.SigninPage .border-top,
+.SigninPage .border-bottom {
+  width: 100%;
+  height: 1px;
+  transform: scaleX(0);
+}
+ 
+.SigninPage .border-left,
+.SigninPage .border-right {
+  width: 1px;
+  height: 100%;
+  transform: scaleY(0);
+}
+ 
+.SigninPage .border-top,
+.SigninPage .border-left,
+.SigninPage .border-right {
+  top: 0;
+}
+ 
+.SigninPage .border-bottom {
+  bottom: 0;
+  transform-origin: bottom right;
+}
+ 
+.SigninPage .border-top {
+  transform-origin: top left;
+}
+ 
+.SigninPage .border-left {
+  transform-origin: bottom left;
+}
+ 
+.SigninPage .border-right {
+  left: auto;
+  right: 0;
+  transform-origin: top right;
+}
+
+:root {
+  --transition-duration: 0.2s;
+  --transition-delay: 0.2s;
+}
+ 
+.SigninPage .border {
+  transition: transform var(--transition-duration) ease-in-out;
+}
+ 
+.SigninPage .SigninContainer:hover .border-top,
+.SigninPage .SigninContainer:hover .border-bottom {
+  transform: scaleX(1);
+}
+ 
+.SigninPage .SigninContainer:hover .border-left,
+.SigninPage .SigninContainer:hover .border-right {
+  transform: scaleY(1);
+}
+ 
+.SigninPage .SigninContainer:hover .border-right {
+  transition-delay: var(--transition-delay);
+}
+ 
+.SigninPage .SigninContainer:hover .border-bottom {
+  transition-delay: calc(var(--transition-delay) * 2);
+}
+ 
+.SigninPage .SigninContainer:hover .border-left {
+  transition-delay: calc(var(--transition-delay) * 3);
+}

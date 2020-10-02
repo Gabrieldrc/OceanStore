@@ -1,13 +1,18 @@
 import React from "react";
 const style = {
-  fontFamily: "'Oswald', sans-serif",
-  color: "#14a1ea",
+  fontFamily: "'Quicksand', sans-serif",
+  color: "white",
   fontSize: "2.5rem",
 }
 
 function Title(props) {
-  const {children} = props;
-  return <h1 style= {style}>{children}</h1>;
+  const {children, styleProps} = props;
+  let h1Style = {
+    ...style,
+    ...styleProps
+  };
+
+  return <h1 style= {h1Style}>{children}</h1>;
 
 }
 
