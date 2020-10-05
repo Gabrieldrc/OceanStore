@@ -2,7 +2,7 @@ import React , { useState } from 'react';
 
 
 function NavLinkItem(props) {
-  const {destiny, label, textAlign, padding, func} = props;
+  const {destiny, label, textAlign, padding, funcHandleClick, type} = props;
   const [color, setColor] = useState("white");
   let LinkStyle = {
     color: color,
@@ -31,14 +31,14 @@ function NavLinkItem(props) {
     setColor("white");
   }
 
-  if (func) {
+  if (type === 'buttom') {
     return(
       <a
         href={setPathName(destiny)}
         style={LinkStyle}
         onMouseOver={() => handlerMouseOver()}
         onMouseOut={() => handlerMouseOut()}
-        onClick={func()}
+        onClick={funcHandleClick}
         >{label}
       </a>
     );  

@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const API_URL = '/server/';
 
-let token;
+// let token;
 const AuthService = {
 
   signup(formData) {
@@ -13,22 +13,24 @@ const AuthService = {
     return axios.post(API_URL+'users/signin', formData)
       .then(response => {
         if (response.data.accessToken) {
-          // localStorage.setItem('user', JSON.stringify(response.data));
-          token = JSON.stringify(response.data);
-          window.setTimeout(() => token = '', 24 * 60 * 60 * 1000);
+          window.localStorage.setItem('user', JSON.stringify(response.data));
+          // token = JSON.stringify(response.data);
         }
         return response.data;
       });
   },
   
   logout(){
-    // localStorage.removeItem('user');
-    token = "";
+    return axios.get(API_URL+'users/logout')
+      .then(response => {
+        window.localStorage.removeItem('user')
+        return true;
+      })
   },
   
   getCurrentUser() {
+    const token = window.localStorage.getItem('user');
     console.log(token);
-    // return JSON.parse(localStorage.getItem('user'));
     if (token) {
       return JSON.parse(token);
     }

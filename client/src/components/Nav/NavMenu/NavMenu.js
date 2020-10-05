@@ -41,18 +41,19 @@ function NavMenu(props) {
     onMouseOut={() => handlerMouseOut()}
     >{label}
     <div style={SubMenuStyle}>
-      {routes.map( obj => {
-        if (obj.func !== undefined) {
+      {routes.map( (obj, index) => {
+        if (obj.type === 'buttom') {
           return <NavLinkItem
-            key={obj.route}
+            key={obj.route+index.toString()}
             textAlign="left"
             destiny={obj.route}
             label={obj.label}
-            onClick={obj.func}
+            funcHandleClick={obj.func}
+            type='buttom'
           />;
         } else {
           return <NavLinkItem
-              key={obj.route}
+              key={obj.route+index.toString()}
               textAlign="left"
               destiny={obj.route}
               label={obj.label}
