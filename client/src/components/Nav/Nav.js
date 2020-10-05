@@ -1,48 +1,18 @@
-import React, { useEffect} from 'react';
+import React from 'react';
 import NavStyle from './Nav.style';
-
-import AuthService from '../../services/auth.service';
 
 import SearchBar from './SearchBar/SearchBar';
 import NavLinkItem from './NavLinkItem/NavLinkItem';
 import NavMenu from './NavMenu/NavMenu';
 
-const fixedRoutes = [
-  {label: 'Categories', route: '/categories'},
-  {label: 'Gift Cards', route: '/gift-cards'},
-];
-
-const verifiedRoutes = [
-  {label: 'Wishlist', route: '/wishlist'},
-  {label: 'Car',      route: '/car'},
-  {label: 'Car',      routes: [
-    {label: "Settings", route: "/settings"},
-    {label: "Sell",     route: "/sell"},
-    {label: "My Apps",  route: "/apps"},
-    {label: "Log Out",  route: "/signin", func: AuthService.logout},
-  ]},
-];
-
-const publicRoutes = [
-  {label: 'Sign Up', route: '/signup'},
-  {label: 'Sign In',      route: '/signin'},
-  {label: 'Sell',      route: '/sell'},
-];
-
 function Nav(props) {
-  
-  const { currentUser } = props;
-
-  useEffect(() => {
-    if (typeof currentUser !== 'undefined') {
-      console.log('seteó(?)');
-    }
-  }, [currentUser]);
+  console.log('Nav');
+  const { currentUser, routes } = props;
 
   const printRoutesList = (routesArray) => {
     return routesArray.map((element, index) => {
       const key = "_key_";
-      if (element.routes) {
+      if (element.type === 'menu') {
         return <NavMenu
           key={index+key+element.route}
           routes={element.routes}
@@ -62,15 +32,15 @@ function Nav(props) {
       </div>
       <SearchBar />
       <div style={NavStyle.fixedGrid} className ="fixedGrid">
-        {printRoutesList(fixedRoutes)}
+        {printRoutesList(routes.fixedRoutes)}
       </div>
       {currentUser ? (
         <div style={NavStyle.changeGrid} className="changeGrid">
-          {printRoutesList(verifiedRoutes)}
+          {printRoutesList(routes.verifiedRoutes)}
         </div>
       ):(
         <div style={NavStyle.changeGrid} className="changeGrid">
-          {printRoutesList(publicRoutes)}
+          {printRoutesList(routes.publicRoutes)}
         </div>
       )}
     </div>

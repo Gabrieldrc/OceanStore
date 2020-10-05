@@ -33,7 +33,7 @@ appsController.post('/new_app',authJwt.middleware, async (req, res) => {
       name: app_name,
       price: app_price,
       category: app_category,
-      creator: app_creator? app_creator : "none",
+      creator: req.session.user.user_name,
     }
     // const imgData = {
     //   app: app_name,
