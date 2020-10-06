@@ -40,6 +40,7 @@ const createAppImage = async (imgData) => {
 
 const findAllApps = async () => {
   try {
+    console.log('\n\nLooking for apps...\n\n');
     const apps = await App.findAll();
     return apps.map(app => app);
   } catch (error) {

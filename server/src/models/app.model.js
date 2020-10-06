@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes, User) => {
   const App = sequelize.define("App", {
     name: {
       type: DataTypes.STRING,
@@ -14,11 +14,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true,
       defaultValue: "none" ,
-    },
-    creator: {
-      //user.model.user_name
-      type: DataTypes.STRING,
-      allowNull: false,
     }
   });
 
