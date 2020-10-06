@@ -54,7 +54,7 @@ const loginUser = async (userData) => {
   const exist = await userExist(userData.user_name);
   if (!exist) {
 
-    return {ok: false, message: `user @${userData.user_name} already exists`};
+    return {ok: false, message: `user @${userData.user_name} not exists`};
 
   }
   const userModel = await findUser(userData.user_name);
