@@ -14,10 +14,13 @@ import Store from '../Store/Store';
 import NewAppForm from '../Forms/NewAppForm/NewAppForm';
 import Title from '../Title/Title';
 import SignupPage from '../SignupPage/SignupPage.js';
+import NotFountPage from '../ErrorPages/NotFoundPage';
+
 
 function App() {
   const [signinStatus, setSignInStatus] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const user = AuthService.getCurrentUser();
@@ -63,11 +66,11 @@ function App() {
   return (
     <Router>
       <div style={AppStyle.App}>
-        <div style={AppStyle.headerConteinerStyle}>
+        <div style={AppStyle.headerContainerStyle}>
           <Nav routes={navRoutes} currentUser={currentUser} />
         </div>
-        <div style={AppStyle.bodyConteinerStyle}>
-          <div style={AppStyle.bodyContentStyle}>
+        <div style={AppStyle.setBodyStyle(error)}>
+          <div style={AppStyle.setBodyContentStyle(error)}>
             <Switch>
               <Route exact path="/signup">
                 <SignupPage />
@@ -84,6 +87,9 @@ function App() {
                   <Title>Upload an app</Title>
                   <NewAppForm />
                 </div>
+              </Route>
+              <Route path="*">
+                <NotFountPage setError={setError} />
               </Route>
             </Switch>
           </div>
