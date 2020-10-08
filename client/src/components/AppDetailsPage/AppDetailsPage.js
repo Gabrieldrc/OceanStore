@@ -9,7 +9,7 @@ function AppDetailsPage(props) {
 
   return(
     <div id="generalContainer" style={AppDetailsPageStyle.container}>
-      <Title styleProps={AppDetailsPageStyle.title}>{dataApp.name}</Title>
+      <Title styleProps={AppDetailsPageStyle.title1}>{dataApp.name}</Title>
       <div id="resumeContainer" style={AppDetailsPageStyle.resumeContainer}>
         <div id="image" style={AppDetailsPageStyle.imageContainer}></div>
         <div id="details" style={AppDetailsPageStyle.details}>
@@ -35,6 +35,7 @@ function AppDetailsPage(props) {
           </div>
         </div>
       </div>
+      <Title styleProps={AppDetailsPageStyle.title2}>ABOUT THIS APP</Title>
       <p style={AppDetailsPageStyle.p}>{dataApp.aboutThisGame}</p>
     </div>
   );

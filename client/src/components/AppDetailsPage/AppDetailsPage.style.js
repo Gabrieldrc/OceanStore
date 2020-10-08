@@ -8,10 +8,16 @@ const buttoms = {
   borderWidth: '1px',
 };
 
+const titles = {
+  borderBottom: '1px solid transparent',
+  borderImage: 'linear-gradient(to right, #14a1ea 0%, #212429 100%)',
+  borderImageSlice: 1,
+};
+
 const AppDetailsPageStyle = {
   container: {
     margin: 'auto',
-    width: '1000px',
+    width: '900px',
   },
   resumeContainer: {
     borderRadius: '5px',
@@ -45,12 +51,13 @@ const AppDetailsPageStyle = {
   row: {
     display: 'grid',
     justifyContent: 'end',
-    // color: '',
   },
-  title: {
-    borderBottom: '1px solid transparent',
-    borderImage: 'linear-gradient(to right, #14a1ea 0%, #212429 100%)',
-    borderImageSlice: 1,
+  title1: {
+    ...titles,
+  },
+  title2: {
+    ...titles,
+    fontSize: '1.5rem',
   },
   p: {
     color: 'whitesmoke',
