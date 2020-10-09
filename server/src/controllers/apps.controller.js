@@ -1,6 +1,6 @@
 const express = require('express');
 const appsController = express.Router();
-const appService = require('../services/appService');
+const appService = require('../services/app.service');
 // const fs = require('fs');
 const authJwt = require('../middleware/authJwt');
 const ac = require('../config/ac.config');

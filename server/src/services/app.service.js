@@ -1,29 +1,43 @@
 const fs = require("fs");
 const db = require('../models');
 const userService = require('./userService');
+const detailsService = require('./app_details.service');
 const Image = db.images;
 const App = db.apps;
+
 const createApp = async (appData) => {
   try {
     const exist = await appNameExist(appData.name);
     if (exist) {
+
       return {ok: false, message: 'name already used'};
+
     }
     const app = await App.create({
       name: appData.name,
       price: appData.price,
       category: appData.category? appData.category : "none",
-    })
-    const result = await userService.addAppToUser(appData.publisher, app);
+    });
+    let result = await userService.addAppToUser(appData.publisher, app);
     if (!result.ok) {
+
       return result;
+
     }
+    result = await detailsService.createAppDetails(app);
+    if (!result.ok) {
+
+      return result;
+
+    }
+
     return {ok: true, message: `created succesfully app: ${appData.name}`};
 
+
   }catch(error) {
-    console.log('\n\ncreateApp');
-    console.log(error)
-    throw error;
+
+    return {ok: true, message: error.message};
+
   }
 };
 

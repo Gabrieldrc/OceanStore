@@ -33,7 +33,7 @@ users.hasMany(app_rates,{
 
 //app associations:
 apps.belongsTo(users);
-apps.hasMany(app_details,{
+apps.hasOne(app_details,{
   foreignKey: 'app_name'
 });
 apps.hasMany(app_comments,{
