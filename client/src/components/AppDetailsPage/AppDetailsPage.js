@@ -5,8 +5,8 @@ import AppDetailsPageStyle from './AppDetailsPage.style';
 import dataApp from './db';
 
 function AppDetailsPage(props) {
-  let { id } = useParams();
-
+  let { id, name } = useParams();
+  console.log(`id: ${id}\nname: ${name}`);
   return(
     <div id="generalContainer" style={AppDetailsPageStyle.container}>
       <Title styleProps={AppDetailsPageStyle.title1}>{dataApp.name}</Title>

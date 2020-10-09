@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import style from './AppGridStyle';
 
 function AppGridStore(props) {
   const {name, price} = props;
 
   return(
-    <div style={style.container}>
+    <Link  style={style.container} to={`/app/123/${name}`} replace>
       <div id="app_image" style={style.imageContainer}>
         <img src="./images/appImage.png" alt="app_image" style={style.image}/>
       </div>
@@ -16,7 +17,7 @@ function AppGridStore(props) {
           <div id="app_price">${price}</div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
