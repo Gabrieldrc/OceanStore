@@ -1,17 +1,24 @@
 const fs = require("fs");
 const db = require('../models');
+const userService = require('./userService');
 const Image = db.images;
 const App = db.apps;
 const createApp = async (appData) => {
   try {
-    App.create({
+    const exist = await appNameExist(appData.name);
+    if (exist) {
+      return {ok: false, message: 'name already used'};
+    }
+    const app = await App.create({
       name: appData.name,
       price: appData.price,
       category: appData.category? appData.category : "none",
-      creator: appData.creator,
     })
-
-    return `created succesfully app: ${appData.name}`;
+    const result = await userService.addAppToUser(appData.publisher, app);
+    if (!result.ok) {
+      return result;
+    }
+    return {ok: true, message: `created succesfully app: ${appData.name}`};
 
   }catch(error) {
     console.log('\n\ncreateApp');
@@ -22,7 +29,7 @@ const createApp = async (appData) => {
 
 const createAppImage = async (imgData) => {
   try {
-    Image.create({
+    await Image.create({
       type: imgData.type,
       name: imgData.name,
       app: imgData.app,
@@ -42,7 +49,9 @@ const findAllApps = async () => {
   try {
     console.log('\n\nLooking for apps...\n\n');
     const apps = await App.findAll();
+
     return apps.map(app => app);
+
   } catch (error) {
     console.log('\n\nfindAppps');
     console.log(error)
@@ -50,8 +59,30 @@ const findAllApps = async () => {
   }
 }
 
+const appNameExist = async (name) => {
+  const result = await findApp(name);
+  
+  if (result === null) {
+
+    return false;
+
+  }
+
+  return true;
+
+};
+
+const findApp = async (name) => {
+
+  return await App.findOne({
+    where: {name: name},
+  });
+  
+};
+
 module.exports = {
   createApp,
   createAppImage,
   findAllApps,
+  findApp,
 }

@@ -44,7 +44,7 @@ const userExist = async (user_name) => {
 
 const findUser = async (user_name) => {
 
-  return User.findOne({
+  return await User.findOne({
     where: {user_name: user_name},
   });
   
@@ -69,9 +69,23 @@ const loginUser = async (userData) => {
 
 }
 
+const addAppToUser = async (user_name, app_instance) => {
+  const exist = await userExist(user_name);
+  if (!exist) {
+    return {ok: false, message: 'user not exists'};
+  }
+  const user = await findUser(user_name);
+  await user.addAPP(app_instance);
+  if (user.hasAPP(app_instance)) {
+    return {ok: true, message: 'app added to user'};
+  }
+  return {ok: false, message: 'app NOT added to user'};
+}
+
 module.exports = {
   createUser,
   userExist,
   findUser,
   loginUser,
+  addAppToUser,
 }

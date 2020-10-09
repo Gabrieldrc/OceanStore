@@ -21,7 +21,7 @@ appsController.post('/new_app',authJwt.middleware, async (req, res) => {
     // if (req.file == undefined) {
     //   return res.status(400).send(`You must select a file.`);
     // }
-    const {app_name, app_price, app_category, app_creator} = req.body;
+    const {app_name, app_price, app_category} = req.body;
 
     if (!app_name || !app_price || !app_category) {
       resObject.message = `You must send name, price and category.`;
@@ -33,7 +33,7 @@ appsController.post('/new_app',authJwt.middleware, async (req, res) => {
       name: app_name,
       price: app_price,
       category: app_category,
-      creator: req.session.user.user_name,
+      publisher: req.session.user.user_name,
     }
     // const imgData = {
     //   app: app_name,
@@ -43,9 +43,15 @@ appsController.post('/new_app',authJwt.middleware, async (req, res) => {
     //     __basedir + "/resources/static/assets/uploads/" + req.file.filename
     //   ),
     // };
-    await appService.createApp(appData);
+    const result = await appService.createApp(appData);
     // await appService.createAppImage(imgData);
 
+    if (!result.ok) {
+      resObject.message = result.message;
+
+      return res.status(400).json(resObject);
+
+    }
     resObject.status = 'ok';
     resObject.message = `app created: ${app_name}`;
 
