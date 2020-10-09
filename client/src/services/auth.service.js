@@ -30,7 +30,6 @@ const AuthService = {
   
   getCurrentUser() {
     const token = window.localStorage.getItem('user');
-    console.log(token);
     if (token) {
       return JSON.parse(token);
     }

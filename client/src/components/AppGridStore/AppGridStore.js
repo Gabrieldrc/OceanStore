@@ -6,7 +6,7 @@ function AppGridStore(props) {
   const {name, price} = props;
 
   return(
-    <Link  style={style.container} to={`/app/123/${name}`} replace>
+    <Link  style={style.container} to={`/app/${name}`} replace>
       <div id="app_image" style={style.imageContainer}>
         <img src="./images/appImage.png" alt="app_image" style={style.image}/>
       </div>

@@ -53,22 +53,17 @@ const createAppImage = async (imgData) => {
     return `created succesfully image: ${imgData.name}`;
 
   }catch(error) {
-    console.log('\n\ncreateImage');
-    console.log(error)
     throw error;
   }
 }
 
 const findAllApps = async () => {
   try {
-    console.log('\n\nLooking for apps...\n\n');
     const apps = await App.findAll();
 
     return apps.map(app => app);
 
   } catch (error) {
-    console.log('\n\nfindAppps');
-    console.log(error)
     throw error;
   }
 }

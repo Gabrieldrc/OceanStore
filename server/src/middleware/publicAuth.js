@@ -4,7 +4,6 @@ const publicAuth = (req, res, next) => {
       role: 'guest'
     };
   }
-  console.log(req.session.user);
   next();
 };
 

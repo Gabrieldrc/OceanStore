@@ -72,6 +72,10 @@ const AppDetailsPageStyle = {
     color: '#8570c7',
     borderColor: '#8570c7',
   },
+  icon: {
+    height: '1rem',
+    width: '1rem',
+  },
 };
 
 export default AppDetailsPageStyle;
