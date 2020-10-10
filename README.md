@@ -5,7 +5,7 @@ Is an Store Web API where you can sign up, sign in, explore and "buy" apps
 - npm
 - nodejs
 
-# Run the server and client (**IMPORTANT** install first all the dependencies before run this app)
+### Run the server and client (**IMPORTANT** install first all the dependencies before run this app)
 npm run start
 
 ### important commands (**only works in the main folder**)
