@@ -24,13 +24,15 @@ function App() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
+    userCheck();
+  }, [signinStatus]);
+
+  const userCheck = () => {
     const user = AuthService.getCurrentUser();
-    console.log(signinStatus);
-    console.log('Ajá');
     if (user) {
       setCurrentUser(user);
     }
-  }, [signinStatus]);
+  };
 
   const navRoutes = {
     publicRoutes: [
@@ -89,7 +91,7 @@ function App() {
                   <NewAppForm />
                 </div>
               </Route>
-              <Route exact path="/app/:id/:name/">
+              <Route exact path="/app/:app_name/">
                 <AppDetailsPage />
               </Route>
               <Route path="*">

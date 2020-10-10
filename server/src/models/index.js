@@ -33,9 +33,7 @@ users.hasMany(app_rates,{
 
 //app associations:
 apps.belongsTo(users);
-apps.hasOne(app_details,{
-  foreignKey: 'app_name'
-});
+apps.hasOne(app_details);
 apps.hasMany(app_comments,{
   foreignKey: 'app_name'
 });
@@ -51,8 +49,10 @@ app_comments.belongsTo(apps);
 app_rates.belongsTo(users);
 app_rates.belongsTo(apps);
 
-//app_rate associations:
-app_details.belongsTo(apps);
+//app_details associations:
+app_details.belongsTo(apps,{
+  foreignKey: 'app_name'
+});
 
 db.users = users;
 db.apps = apps;

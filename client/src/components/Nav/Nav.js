@@ -6,7 +6,6 @@ import NavLinkItem from './NavLinkItem/NavLinkItem';
 import NavMenu from './NavMenu/NavMenu';
 
 function Nav(props) {
-  console.log('Nav');
   const { currentUser, routes } = props;
 
   const printRoutesList = (routesArray) => {
@@ -28,7 +27,7 @@ function Nav(props) {
   return(
     <div style={NavStyle.Nav} className="Nav">
       <div style={NavStyle.logo} className="logo">
-        <a href="/" ><img src="./images/logo.jpg" alt="Logo" style={NavStyle.logoJpg} className="logoJpg"/></a>
+        <a href="/" ><img src="/images/logo.jpg" alt="Logo" style={NavStyle.logoJpg} className="logoJpg"/></a>
       </div>
       <SearchBar />
       <div style={NavStyle.fixedGrid} className ="fixedGrid">
