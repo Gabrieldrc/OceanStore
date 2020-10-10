@@ -1,10 +1,10 @@
-module.exports = (sequelize, DataTypes, User) => {
-  const App = sequelize.define("App", {
+module.exports = (sequelize, DataTypes) => {
+  const APP = sequelize.define("APP", {
     name: {
       type: DataTypes.STRING,
+      primaryKey: true,
       allowNull: false,
       unique: true,
-      primaryKey: true,
     },
     price: {
       type: DataTypes.INTEGER,
@@ -17,5 +17,5 @@ module.exports = (sequelize, DataTypes, User) => {
     }
   });
 
-  return App;
+  return APP;
 };

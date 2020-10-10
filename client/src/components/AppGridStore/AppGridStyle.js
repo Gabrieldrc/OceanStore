@@ -7,6 +7,7 @@ const styleContainer = {
   backgroundColor:"white",
   border: "2px solid #  ",
   margin: "20px 10px",
+  textDecoration: 'none',
 };
 const paddingI = 15;
 const styleImageContainer = {

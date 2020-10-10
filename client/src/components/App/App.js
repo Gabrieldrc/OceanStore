@@ -14,7 +14,8 @@ import Store from '../Store/Store';
 import NewAppForm from '../Forms/NewAppForm/NewAppForm';
 import Title from '../Title/Title';
 import SignupPage from '../SignupPage/SignupPage.js';
-import NotFountPage from '../ErrorPages/NotFoundPage';
+import AppDetailsPage from '../AppDetailsPage/AppDetailsPage.js';
+import NotFountPage from '../ErrorPages/NotFoundPage/NotFoundPage';
 
 
 function App() {
@@ -87,6 +88,9 @@ function App() {
                   <Title>Upload an app</Title>
                   <NewAppForm />
                 </div>
+              </Route>
+              <Route exact path="/app/:id/:name/">
+                <AppDetailsPage />
               </Route>
               <Route path="*">
                 <NotFountPage setError={setError} />
