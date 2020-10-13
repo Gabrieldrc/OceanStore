@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "client and server",
   "scripts": {
-    "iclient": "cd client && npm install",
-    "iserver": "cd server && npm install",
+    "iclient": "cd client && npm install && cd ../",
+    "iserver": "cd server && npm install && cd ../",
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd server/ && npm run start",
     "client": "node start-client.js",

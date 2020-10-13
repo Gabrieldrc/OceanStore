@@ -16,6 +16,7 @@ function AppDetailsPage() {
   const fetchAppDetails = () => {
     AppDetailsService.getAppDetails(app_name)
     .then(response => {
+      console.log(response.data)
       setAppDetails(response.data);
     })
     .catch(error => {
