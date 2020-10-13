@@ -48,8 +48,11 @@ const AppDetailsPageStyle = {
     display: 'flex',
     justifyContent: 'space-between',
   },
+  rateContainer: {
+    display: 'inline',
+  },
   row: {
-    display: 'grid',
+    display: 'inline-grid',
     justifyContent: 'end',
   },
   title1: {
@@ -73,8 +76,9 @@ const AppDetailsPageStyle = {
     borderColor: '#8570c7',
   },
   icon: {
-    height: '1rem',
-    width: '1rem',
+    height: '1.2rem',
+    width: '1.2rem',
+    marginRight: '0.2rem',
   },
 };
 

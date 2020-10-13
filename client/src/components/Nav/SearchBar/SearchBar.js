@@ -5,7 +5,7 @@ function SearchBar() {
   return(
     <div className="searchbar">
       <input type="search" className="searchInput" placeholder="Search"/>
-      <img src="/images/search.icon.svg" alt="lens" className="searchIcon"/>
+      <img src="/icons/search.icon.svg" alt="lens" className="searchIcon"/>
     </div>
   );
 }

@@ -12,8 +12,6 @@ const findAppRates = async (app_name) => {
 
 };
 
-
-
 module.exports = {
   findAppRates,
 };
