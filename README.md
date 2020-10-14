@@ -45,7 +45,7 @@ npm run client
 - sequelize
 
 ### Data base diagram
-![The DB Diagram](/images/db.diagran.svg)
+![The DB Diagram](/images/db.diagram.svg)
 
 
 ### Run the server xampp mysql

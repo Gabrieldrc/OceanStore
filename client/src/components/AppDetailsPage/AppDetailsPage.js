@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import AppDetails from './AppDetails/AppDetails';
-import AppDetailsPageStyle from './AppDetailsPage.style';
+
+import style from './AppDetailsPage.style';
 import AppDetailsService from '../../services/app_details.service';
 import RateService from '../../services/rate.service';
+import dataApp from './db';
+
+import Title from '../Title/Title';
+import AppDetails from '../AppDetails/AppDetails';
+import Reviews from '../Reviews/Reviews';
 
 function AppDetailsPage() {
   let { app_name } = useParams();
@@ -29,11 +34,18 @@ function AppDetailsPage() {
 
   return(<div>
     {loadStatus? (
-      <div id="generalContainer" style={AppDetailsPageStyle.container}>
+      <div id="generalContainer" style={style.container}>
+        <Title styleProps={style.title1}>{appDetails.app_name}</Title>
         <AppDetails appDetails={appDetails} rates={rates}/>
+        <div id="About">
+          <Title styleProps={style.title2}>ABOUT THIS APP</Title>
+          <p style={style.p}>{dataApp.aboutThisGame}</p>
+        </div>
+        <Title styleProps={style.title2}>Customer Reviews</Title>
+        <Reviews appName={app_name}/>
       </div>
     ):(
-      <div id="generalContainer" style={AppDetailsPageStyle.container}>
+      <div id="generalContainer" style={style.container}>
       ...
       </div>
     )}
