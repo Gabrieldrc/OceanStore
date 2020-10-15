@@ -8,6 +8,7 @@ const AppDetailsPageStyle = {
   container: {
     margin: 'auto',
     width: '900px',
+    backgroundColor: 'linear-gradient(to bottom, #7927b2, #fb3182)',
   },
   title1: {
     ...titles,

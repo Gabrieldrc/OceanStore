@@ -1,9 +1,11 @@
 import React from 'react';
+import style from './Review.style';
 
 function Review(props) {
+  const { data } = props;
   return(
-    <div>
-      Review(?)
+    <div id="reviewContainer" style={style.container}>
+      {data.user_name}
     </div>
   );
 }
