@@ -1,30 +1,13 @@
 import React from 'react';
 import style from './AppDetails.style';
 
+import StarsRate from '../StarsRate/StarsRate';
 import dataApp from '../AppDetailsPage/db';
 
 function AppDetails(props) {
 
   const { appDetails, rates } = props;
   console.log(appDetails);
-  const rateMinComponent = () => {
-    const keyBase = 'starsAverage';
-    // const starHalfFill = <img src="/icons/starHalfFill.icon.svg" alt="star" style={style.icon}/>;
-    const av = 0;
-    let stars = [];
-    for (let index = 1; index <= 5; index++) {
-      if (index > av) {
-        stars.push(<img src="/icons/starEmpty.icon.svg" alt="star" style={style.icon} key={keyBase+index}/>);
-      } else {
-        stars.push(<img src="/icons/starFill.icon.svg" alt="star" style={style.icon} key={keyBase+index}/>);
-      }
-    }
-    return (
-      <div style={style.rateContainer}>
-        {stars} {userRated()}
-      </div>
-    );
-  };
 
   const userRated = () => {
     const personIcon = <img src="/icons/person.icon.svg" alt="star" style={style.icon}/>;
@@ -41,7 +24,10 @@ function AppDetails(props) {
       <div id="image" style={style.imageContainer}></div>
       <div id="details" style={style.details}>
         <div id="rate" style={style.row}>
-          {rateMinComponent()}
+          <div style={style.rateContainer}>
+            <StarsRate average={4}/>
+            {userRated()}
+          </div>
         </div>
         <div id="developer" style={style.row}>
           {dataApp.developer}
@@ -65,4 +51,4 @@ function AppDetails(props) {
   );
 }
 
-export default AppDetails
+export default AppDetails;
