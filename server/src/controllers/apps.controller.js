@@ -90,4 +90,36 @@ appsController.get('/all', async (req, res) => {
   }
 })
 
+appsController.get('/id/:app_name', async (req, res) => {
+  const app_name = req.params.app_name;
+  const permission = ac.can(req.session.user.role).readAny('app');
+  const resObject = {
+    status: 'Access Denied',
+    message: "",
+  };
+  if (!permission.granted) {
+    resObject.message = 'You are not authorized to access this resource';
+
+    return res.status(403).json(resObject);
+    
+  }
+  try {
+    if (! await appService.appNameExist(app_name)) {
+      resObject.status = 'Error';
+      resObject.message = 'The app requested not exists';
+
+      return res.status(404).json(resObject);
+
+    }
+    const app = await appService.findApp(app_name);
+    return res.status(200).json(app);
+
+  } catch (error) {
+    resObject.message = error;
+
+    return res.status(400).json(resObject);
+
+  }
+})
+
 module.exports = appsController;

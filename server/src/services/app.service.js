@@ -94,4 +94,5 @@ module.exports = {
   createAppImage,
   findAllApps,
   findApp,
+  appNameExist,
 }
