@@ -2,14 +2,12 @@ import React from 'react';
 import style from './AppDetails.style';
 
 import StarsRate from '../StarsRate/StarsRate';
-import dataApp from '../AppDetailsPage/db';
 import AddCarButtom from '../Buttom/AddCarButtom/AddCarButtom';
 import WishlistButtom from '../Buttom/WishlistButtom/WishlistButtom';
 
 function AppDetails(props) {
 
   const { appDetails, rates } = props;
-  console.log(appDetails);
 
   const userRated = () => {
     const personIcon = <img src="/icons/person.icon.svg" alt="star" style={style.icon}/>;
@@ -30,13 +28,11 @@ function AppDetails(props) {
             {userRated()}
           </div>
         </div>
-        <div id="developer" style={style.row}>
-          {dataApp.developer}
+        <div id="publisher" style={style.row}>
+          {appDetails.publisher}
         </div>
         <div id="categories" style={style.row}>
-          {dataApp.categories.map(category => {
-            return '<c>'+category+'</c> '
-          })}
+          {appDetails.category}
         </div>
         <div id="buttoms" style={style.buttomsContainer}>
           <WishlistButtom/>
