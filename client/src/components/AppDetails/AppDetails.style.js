@@ -1,13 +1,3 @@
-const buttoms = {
-  width: 'fit-content',
-  textDecoration: 'none',
-  fontWeight: '100',
-  padding: '0.2rem 0.4rem',
-  borderRadius: '5px',
-  borderStyle: 'solid',
-  borderWidth: '1px',
-};
-
 const AppDetailsPageStyle = {
   resumeContainer: {
     borderRadius: '5px',
@@ -44,16 +34,6 @@ const AppDetailsPageStyle = {
   row: {
     display: 'inline-grid',
     justifyContent: 'end',
-  },
-  awButtoms:{
-    ...buttoms,
-    color: '#14a1ea',
-    borderColor: '#14a1ea',
-  },
-  acButtoms:{
-    ...buttoms,
-    color: '#8570c7',
-    borderColor: '#8570c7',
   },
   icon: {
     height: '1.2rem',

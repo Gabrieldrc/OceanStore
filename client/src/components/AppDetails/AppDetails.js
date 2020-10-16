@@ -3,6 +3,8 @@ import style from './AppDetails.style';
 
 import StarsRate from '../StarsRate/StarsRate';
 import dataApp from '../AppDetailsPage/db';
+import AddCarButtom from '../Buttom/AddCarButtom/AddCarButtom';
+import WishlistButtom from '../Buttom/WishlistButtom/WishlistButtom';
 
 function AppDetails(props) {
 
@@ -17,7 +19,6 @@ function AppDetails(props) {
       </div>
     );
   };
-
 
   return(
     <div id="resumeContainer" style={style.resumeContainer}>
@@ -38,13 +39,8 @@ function AppDetails(props) {
           })}
         </div>
         <div id="buttoms" style={style.buttomsContainer}>
-          <a href="/dont_know" style={style.awButtoms}>
-            <img src="/icons/bookmarkPlus.icon.svg" alt="+" style={style.icon}/>
-            Add to wish list
-          </a>
-          <a href="/dont_know" style={style.acButtoms}>
-            Add to car
-          </a>
+          <WishlistButtom/>
+          <AddCarButtom/>
         </div>
       </div>
     </div>
