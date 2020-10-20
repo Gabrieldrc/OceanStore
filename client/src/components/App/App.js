@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import AppStyle from './App.style.js';
 
-import AuthService from '../../services/auth.service';
+import UserService from '../../services/user.service';
 
 import SigninPage from '../SigninPage/SigninPage';
 import Nav from '../Nav/Nav';
@@ -28,7 +28,7 @@ function App() {
   }, [signinStatus]);
 
   const userCheck = () => {
-    const user = AuthService.getCurrentUser();
+    const user = UserService.getCurrentUser();
     if (user) {
       setCurrentUser(user);
     }
@@ -52,7 +52,7 @@ function App() {
         {label: 'Sell',     type: 'link' ,route: '/sell'},
         {label: 'My Apps',  type: 'link' ,route: '/apps'},
         {label: 'Log Out',  type: 'buttom' ,route: '/signin', func() {
-          AuthService.logout()
+          UserService.logout()
           .then(response => {
             if (response) {
               setSignInStatus(false);

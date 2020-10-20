@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AuthService from '../../../services/auth.service';
+import UserService from '../../../services/user.service';
 
 const styleForm = {
   display: "grid",
@@ -43,7 +43,7 @@ function SignUpForm() {
     const form = document.getElementById('sign_up_form');
     const formData = new FormData(form);
 
-    AuthService.signup(formData)
+    UserService.signup(formData)
     .then(response => {
       setRes({
         message: response.data.message,

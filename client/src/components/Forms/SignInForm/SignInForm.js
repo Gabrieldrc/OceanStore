@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
   Redirect, useHistory
 } from "react-router-dom";
-import AuthService from '../../../services/auth.service';
+import UserService from '../../../services/user.service';
 import style from './SignInForm.style';
 
 function SignInForm(props) {
@@ -18,7 +18,7 @@ function SignInForm(props) {
     const form = document.getElementById('log_in_form');
     const formData = new FormData(form);
 
-    AuthService.signin(formData)
+    UserService.signin(formData)
     .then(response => {
       console.log(response);
       setSignInStatus(true)

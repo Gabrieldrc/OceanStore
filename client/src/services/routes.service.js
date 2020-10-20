@@ -16,7 +16,7 @@ const navRoutes = {
       {label: 'Sell',     type: 'link' ,route: '/sell'},
       {label: 'My Apps',  type: 'link' ,route: '/apps'},
       {label: 'Log Out',  type: 'buttom' ,route: '/signin', func() {
-        AuthService.logout()
+        UserService.logout()
         .then(response => {
           if (response) {
             setSignInStatus(false);

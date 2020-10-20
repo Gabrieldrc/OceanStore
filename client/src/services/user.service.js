@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const API_URL = '/server/';
 
-const AuthService = {
+const UserService = {
 
   signup(formData) {
     return axios.post(API_URL+'users/signup', formData);
@@ -19,7 +19,7 @@ const AuthService = {
   },
   
   logout(){
-    return axios.get(API_URL+'users/logout')
+    return axios.get(API_URL+'logout')
       .then(response => {
         window.localStorage.removeItem('user')
         return true;
@@ -45,4 +45,4 @@ const AuthService = {
 }
 
 
-export default AuthService;
+export default UserService;
