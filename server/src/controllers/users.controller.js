@@ -1,12 +1,11 @@
-const express = require('express');
-const usersController = express.Router();
+const usersController = require('express').Router();
 const userService = require('../services/userService');
 const jwtService = require('../services/jwtService');
 const ac = require('../config/ac.config');
 
 usersController.post('/signup', async (req, res) => {
   const permission = ac.can(req.session.user.role).createAny('user');
-  const {user_name, user_password} = req.body;
+  const {user_name, password} = req.body;
   const resObject = {
     status: 'Access Denied',
     message: '',
@@ -17,7 +16,7 @@ usersController.post('/signup', async (req, res) => {
     return res.status(403).json(resObject);
 
   }
-  if (!user_name || !user_password) {
+  if (!user_name || !password) {
     resObject.message = `Send 'user_name' and 'password'`;
 
     return res.status(400).json(resObject);
@@ -25,7 +24,7 @@ usersController.post('/signup', async (req, res) => {
   }
   const userData = {
     user_name: user_name,
-    password: user_password,
+    password: password,
   }
   const result = await userService.createUser(userData);
 
@@ -42,12 +41,19 @@ usersController.post('/signup', async (req, res) => {
 });
 
 usersController.post('/signin', async (req, res) => {
-  const {user_name, user_password} = req.body;
+  const permission = ac.can(req.session.user.role).createOwn('session');
+  const {user_name, password} = req.body;
   let resObject = {
     status: 'Access Denied',
     message: "",
   };
-  if (!user_name || !user_password) {
+  if (!permission.granted) {
+    resObject.message = 'You are not authorized to access this resource';
+
+    return res.status(403).json(resObject);
+
+  }
+  if (!user_name || !password) {
     resObject.message = `Send 'user_name' and 'password'`;
 
     return res.status(400).json(resObject);
@@ -57,7 +63,7 @@ usersController.post('/signin', async (req, res) => {
     user_name: user_name,
     role: 'user'
   }
-  const result = await userService.loginUser({...userData, password: user_password});
+  const result = await userService.loginUser({...userData, password: password});
   if (!result.ok) {
     resObject.message = result.message;
 
@@ -66,28 +72,11 @@ usersController.post('/signin', async (req, res) => {
   }
   const token = jwtService.generateToken(userData);
   req.session.auth = true;
+  req.session.user.role = 'user';
   userData.accessToken = token;
 
   return res.status(201).json(userData);
 
-});
-
-usersController.get('/logout', (req, res) => {
-  let resObject = {
-    status: 'Access Denied',
-    message: '',
-  };
-  
-  req.session.destroy(error => {
-    if (error) {
-      return res.status(400).json(error);
-    }
-
-    resObject.status = 'OK';
-    resObject.message = 'log out succesfully'
-    return res.status(200).json(resObject);
-
-  });
 });
 
 module.exports = usersController;

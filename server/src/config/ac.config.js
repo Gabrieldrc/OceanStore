@@ -8,11 +8,27 @@ let grantsObject = {
       'delete:own': ['*'],
     },
     app: {
-      'create:own': ['*'],
       'read:any': ['*'],
+    },
+    session: {
+      'delete:own': ['*'],
+    },
+  },
+  developer: {
+    developer: {
+      'read:own': ['*'],
       'update:own': ['*'],
       'delete:own': ['*'],
-    }
+    },
+    app: {
+      'create:own': ['*'],
+      'read:own': ['*'],
+      'update:own': ['*'],
+      'delete:own': ['*'],
+    },
+    session: {
+      'delete:own': ['*'],
+    },
   },
   guest: {
     user: {
@@ -20,7 +36,10 @@ let grantsObject = {
     },
     app: {
       'read:any': ['*'],
-    }
+    },
+    session: {
+      'create:own': ['*'],
+    },
   }
 };
 

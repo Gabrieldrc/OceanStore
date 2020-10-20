@@ -41,11 +41,18 @@ developersController.post('/signup', async (req, res) => {
 });
 
 developersController.post('/signin', async (req, res) => {
+  const permission = ac.can(req.session.user.role).createOwn('session');
   const {user_name, password} = req.body;
   let resObject = {
     status: 'Access Denied',
     message: "",
   };
+  if (!permission.granted) {
+    resObject.message = 'You are not authorized to access this resource';
+
+    return res.status(403).json(resObject);
+
+  }
   if (!user_name || !password) {
     resObject.message = `Send 'user_name' and 'password'`;
 
@@ -65,28 +72,11 @@ developersController.post('/signin', async (req, res) => {
   }
   const token = jwtService.generateToken(developerData);
   req.session.auth = true;
+  req.session.user.role = 'developer';
   developerData.accessToken = token;
 
   return res.status(201).json(developerData);
 
-});
-
-developersController.get('/logout', (req, res) => {
-  let resObject = {
-    status: 'Access Denied',
-    message: '',
-  };
-  
-  req.session.destroy(error => {
-    if (error) {
-      return res.status(400).json(error);
-    }
-
-    resObject.status = 'OK';
-    resObject.message = 'log out succesfully'
-    return res.status(200).json(resObject);
-
-  });
 });
 
 module.exports = developersController;
