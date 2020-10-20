@@ -33,7 +33,7 @@ function App() {
       setCurrentUser(user);
     }
   };
-
+  console.log(currentUser);
   const navRoutes = {
     publicRoutes: [
       {label: 'Sign Up', type: 'link', route: '/signup'},

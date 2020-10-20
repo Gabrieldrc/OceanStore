@@ -17,7 +17,12 @@ const createNewApp = (formData) => {
   });
 };
 
+const getApp = (app_name) => {
+  return axios.get(API_URL + `id/${app_name}`);
+};
+
 export default {
   getAllApps,
   createNewApp,
+  getApp,
 };

@@ -1,63 +1,55 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Title from '../Title/Title';
-import AppDetailsPageStyle from './AppDetailsPage.style';
+
+import style from './AppDetailsPage.style';
 import AppDetailsService from '../../services/app_details.service';
+import AppService from '../../services/app.service';
+import RateService from '../../services/rate.service';
 import dataApp from './db';
+
+import Title from '../Title/Title';
+import AppDetails from '../AppDetails/AppDetails';
+import Reviews from '../Reviews/Reviews';
 
 function AppDetailsPage() {
   let { app_name } = useParams();
+  const [app, setApp] = useState(null);
   const [appDetails, setAppDetails] = useState(null);
+  const [rates, setAppRates] = useState(null);
+  const [loadStatus, setLoadCompleted] = useState(false);
 
   useEffect(() => {
     fetchAppDetails();
   },[]);
 
-  const fetchAppDetails = () => {
-    AppDetailsService.getAppDetails(app_name)
-    .then(response => {
-      console.log(response.data)
-      setAppDetails(response.data);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+  const fetchAppDetails = async () => {
+    try {
+      const appDetailsResponse = await AppDetailsService.getAppDetails(app_name);
+      const rateResponse = await RateService.getAppRates(app_name);
+      const appResponse = await AppService.getApp(app_name);
+      setApp(appResponse.data);
+      setAppDetails(appDetailsResponse.data);
+      setAppRates(rateResponse.data);
+      setLoadCompleted(true);
+    } catch (error) {
+      console.log(error); 
+    }
   };
-  console.log(appDetails);
+
   return(<div>
-    {appDetails? (
-      <div id="generalContainer" style={AppDetailsPageStyle.container}>
-      <Title styleProps={AppDetailsPageStyle.title1}>{appDetails.app_name}</Title>
-      <div id="resumeContainer" style={AppDetailsPageStyle.resumeContainer}>
-        <div id="image" style={AppDetailsPageStyle.imageContainer}></div>
-        <div id="details" style={AppDetailsPageStyle.details}>
-          <div id="rate" style={AppDetailsPageStyle.row}>
-            {dataApp.rate} {dataApp.votedAmount}
-          </div>
-          <div id="developer" style={AppDetailsPageStyle.row}>
-            {dataApp.developer}
-          </div>
-          <div id="categories" style={AppDetailsPageStyle.row}>
-            {dataApp.categories.map(category => {
-              return '<c>'+category+'</c> '
-            })}
-          </div>
-          <div id="buttoms" style={AppDetailsPageStyle.buttomsContainer}>
-            <a href="/dont_know" style={AppDetailsPageStyle.awButtoms}>
-              <img src="/images/bookmarkPlus.icon.svg" alt="+" style={AppDetailsPageStyle.icon}/>
-              Add to wish list
-            </a>
-            <a href="/dont_know" style={AppDetailsPageStyle.acButtoms}>
-              Add to car
-            </a>
-          </div>
+    {loadStatus? (
+      <div id="generalContainer" style={style.container}>
+        <Title styleProps={style.title1}>{appDetails.app_name}</Title>
+        <AppDetails appDetails={app} rates={rates}/>
+        <div id="About">
+          <Title styleProps={style.title2}>ABOUT THIS APP</Title>
+          <p style={style.p}>{dataApp.aboutThisGame}</p>
         </div>
+        <Title styleProps={style.title2}>Customer Reviews</Title>
+        <Reviews appName={app_name}/>
       </div>
-      <Title styleProps={AppDetailsPageStyle.title2}>ABOUT THIS APP</Title>
-      <p style={AppDetailsPageStyle.p}>{dataApp.aboutThisGame}</p>
-    </div>
     ):(
-      <div id="generalContainer" style={AppDetailsPageStyle.container}>
+      <div id="generalContainer" style={style.container}>
       ...
       </div>
     )}
