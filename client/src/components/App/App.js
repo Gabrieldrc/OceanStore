@@ -8,12 +8,12 @@ import AppStyle from './App.style.js';
 
 import UserService from '../../services/user.service';
 
-import SigninPage from '../SigninPage/SigninPage';
+import SigninUserPage from '../SigninUserPage/SigninUserPage';
 import Nav from '../Nav/Nav';
 import Store from '../Store/Store';
 import NewAppForm from '../Forms/NewAppForm/NewAppForm';
 import Title from '../Title/Title';
-import SignupPage from '../SignupPage/SignupPage.js';
+import SignupUserPage from '../SignupUserPage/SignupUserPage.js';
 import AppDetailsPage from '../AppDetailsPage/AppDetailsPage.js';
 import NotFountPage from '../ErrorPages/NotFoundPage/NotFoundPage';
 
@@ -76,10 +76,10 @@ function App() {
           <div style={AppStyle.setBodyContentStyle(error)}>
             <Switch>
               <Route exact path="/signup">
-                <SignupPage />
+                <SignupUserPage />
               </Route>
               <Route exact path="/signin">
-                <SigninPage 
+                <SigninUserPage 
                   setSignInStatus={(value) => setSignInStatus(value)}/>
               </Route>
               <Route exact path="/">

@@ -1,11 +1,11 @@
 import React from 'react';
 import SignInUserForm from '../Forms/SignInUserForm/SignInUserForm';
 import Title from '../Title/Title';
-import './SigninPage.css';
+import './SigninUserPage.css';
 
-function SigninPage(props) {
+function SigninUserPage(props) {
   return(
-    <div className="SigninPage">
+    <div className="SigninUserPage">
       <div className="SigninContainer">
         <Title style={{fontWeight: "200"}}>SIGN IN <span style={{fontSize: '1.5rem'}}>with your OS account</span></Title>
         <SignInUserForm 
@@ -19,4 +19,4 @@ function SigninPage(props) {
   );
 }
 
-export default SigninPage;
+export default SigninUserPage;

@@ -1,11 +1,11 @@
 import React from 'react';
 import SignUpUserForm from '../Forms/SignUpUserForm/SignUpUserForm';
 import Title from '../Title/Title';
-import './SignupPage.css';
+import './SignupUserPage.css';
 
-function SignupPage() {
+function SignupUserPage() {
   return(
-    <div className="SignupPage">
+    <div className="SignupUserPage">
       <div className="SignupContainer">
         <Title style={{fontWeight: "200"}}>CREATE YOUR ACCOUNT</Title>
         <SignUpUserForm />
@@ -18,4 +18,4 @@ function SignupPage() {
   );
 }
 
-export default SignupPage;
+export default SignupUserPage;
