@@ -2,7 +2,6 @@ const axios = require('axios');
 
 const API_URL = '/server/';
 
-// let token;
 const AuthService = {
 
   signup(formData) {
@@ -14,7 +13,6 @@ const AuthService = {
       .then(response => {
         if (response.data.accessToken) {
           window.localStorage.setItem('user', JSON.stringify(response.data));
-          // token = JSON.stringify(response.data);
         }
         return response.data;
       });

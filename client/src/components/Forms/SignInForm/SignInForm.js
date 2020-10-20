@@ -8,7 +8,7 @@ import style from './SignInForm.style';
 function SignInForm(props) {
   const [error, setError] = useState(' ');
   const [redirect, setRedirect] = useState(false);
-  const { setSignInStatus, location } = props;
+  const { setSignInStatus } = props;
   const history = useHistory();
 
   function handleClick(event) {
@@ -39,11 +39,11 @@ function SignInForm(props) {
     }
     return(
       <div>
-        <form style={style.styleForm} id="log_in_form" encType="multipart/form-data">
+        <form style={style.styleForm} id="log_in_form">
           <label> Username:</label>
           <input style={style.inputStyle} type="text" name="user_name" required/>
           <label> Password:</label>
-          <input style={style.inputStyle} type="password" name="user_password" required/>
+          <input style={style.inputStyle} type="password" name="password" required/>
           <button type="submit" onClick={event => handleClick(event)}>Submit</button>
           <label style={style.styleError}>{error}</label>
         </form>

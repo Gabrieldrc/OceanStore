@@ -75,9 +75,9 @@ function SignUpForm() {
         <label> Username</label>
         <input style={inputStyle} type="text" name="user_name" required/>
         <label> Password</label>
-        <input style={inputStyle} type="password" name="user_password" onChange={event => setpassword(event.target.value)} required/>
+        <input style={inputStyle} type="password" name="password" onChange={event => setpassword(event.target.value)} required/>
         <label> Confirm Password      {passwordsMatch}</label>
-        <input style={inputStyle} type="password" name="user_password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
+        <input style={inputStyle} type="password" name="password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
         <button type="submit" onClick={event => handleClick(event)}>Submit</button>
         {labelResponse()}
       </form>
