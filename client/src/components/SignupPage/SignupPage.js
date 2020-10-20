@@ -1,5 +1,5 @@
 import React from 'react';
-import SignUpForm from '../Forms/SignUpForm/SignUpForm';
+import SignUpUserForm from '../Forms/SignUpUserForm/SignUpUserForm';
 import Title from '../Title/Title';
 import './SignupPage.css';
 
@@ -8,7 +8,7 @@ function SignupPage() {
     <div className="SignupPage">
       <div className="SignupContainer">
         <Title style={{fontWeight: "200"}}>CREATE YOUR ACCOUNT</Title>
-        <SignUpForm />
+        <SignUpUserForm />
         <span className="border border-top"></span>
         <span className="border border-right"></span>
         <span className="border border-bottom"></span>

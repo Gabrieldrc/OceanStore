@@ -23,7 +23,7 @@ const styleCheck = {
   color: "deepskyblue",
 };
 
-function SignUpForm() {
+function SignUpUserForm() {
   const [password, setpassword] = useState('');
   const [password_confirm, setpasswordConfirm] = useState('');
   const [passwordsMatch, setPasswordsMatch] = useState('');
@@ -87,4 +87,4 @@ function SignUpForm() {
 
 
   
-export default SignUpForm;
+export default SignUpUserForm;

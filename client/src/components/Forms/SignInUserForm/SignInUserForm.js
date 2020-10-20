@@ -3,9 +3,9 @@ import {
   Redirect, useHistory
 } from "react-router-dom";
 import UserService from '../../../services/user.service';
-import style from './SignInForm.style';
+import style from './SignInUserForm.style';
 
-function SignInForm(props) {
+function SignInUserForm(props) {
   const [error, setError] = useState(' ');
   const [redirect, setRedirect] = useState(false);
   const { setSignInStatus } = props;
@@ -56,4 +56,4 @@ function SignInForm(props) {
 
 
   
-export default SignInForm;
+export default SignInUserForm;
