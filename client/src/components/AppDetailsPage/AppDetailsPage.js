@@ -17,22 +17,21 @@ function AppDetailsPage() {
   const [appDetails, setAppDetails] = useState(null);
   const [rates, setAppRates] = useState(null);
   const [loadStatus, setLoadCompleted] = useState(false);
-  const fetchAppDetails = async () => {
-    try {
-      const appDetailsResponse = await AppDetailsService.getAppDetails(app_name);
-      const rateResponse = await RateService.getAppRates(app_name);
-      const appResponse = await AppService.getApp(app_name);
-      setApp(appResponse.data);
-      setAppDetails(appDetailsResponse.data);
-      setAppRates(rateResponse.data);
-      setLoadCompleted(true);
-    } catch (error) {
-      console.log(error); 
-    }
-  };
 
   useEffect(() => {
-    fetchAppDetails();
+    (async () => {
+      try {
+        const appDetailsResponse = await AppDetailsService.getAppDetails(app_name);
+        const rateResponse = await RateService.getAppRates(app_name);
+        const appResponse = await AppService.getApp(app_name);
+        setApp(appResponse.data);
+        setAppDetails(appDetailsResponse.data);
+        setAppRates(rateResponse.data);
+        setLoadCompleted(true);
+      } catch (error) {
+        console.log(error); 
+      }
+    })();
   },[]);
 
   return(<div>
