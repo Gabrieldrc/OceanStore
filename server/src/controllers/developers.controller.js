@@ -1,9 +1,9 @@
-const usersController = require('express').Router();
-const userService = require('../services/userService');
+const developersController = require('express').Router();
+const developerService = require('../services/developer.service');
 const jwtService = require('../services/jwtService');
 const ac = require('../config/ac.config');
 
-usersController.post('/signup', async (req, res) => {
+developersController.post('/signup', async (req, res) => {
   const permission = ac.can(req.session.user.role).createAny('user');
   const {user_name, password} = req.body;
   const resObject = {
@@ -22,11 +22,11 @@ usersController.post('/signup', async (req, res) => {
     return res.status(400).json(resObject);
 
   }
-  const userData = {
+  const developerData = {
     user_name: user_name,
     password: password,
   }
-  const result = await userService.createUser(userData);
+  const result = await developerService.createDeveloper(developerData);
 
   if (!result.ok) {
     resObject.message = result.message;
@@ -35,12 +35,12 @@ usersController.post('/signup', async (req, res) => {
 
   }
   resObject.status = 'ok';
-  resObject.message = `user created: @${user_name}`;
+  resObject.message = `developer created: @${user_name}`;
   return res.status(201).send(resObject);
 
 });
 
-usersController.post('/signin', async (req, res) => {
+developersController.post('/signin', async (req, res) => {
   const permission = ac.can(req.session.user.role).createOwn('session');
   const {user_name, password} = req.body;
   let resObject = {
@@ -59,24 +59,24 @@ usersController.post('/signin', async (req, res) => {
     return res.status(400).json(resObject);
 
   }
-  let userData = {
+  let developerData = {
     user_name: user_name,
-    role: 'user'
+    role: 'developer'
   }
-  const result = await userService.loginUser({...userData, password: password});
+  const result = await developerService.loginDeveloper({...developerData, password: password});
   if (!result.ok) {
     resObject.message = result.message;
 
     return res.status(400).json(resObject);
 
   }
-  const token = jwtService.generateToken(userData);
+  const token = jwtService.generateToken(developerData);
   req.session.auth = true;
-  req.session.user.role = 'user';
-  userData.accessToken = token;
+  req.session.user.role = 'developer';
+  developerData.accessToken = token;
 
-  return res.status(201).json(userData);
+  return res.status(201).json(developerData);
 
 });
 
-module.exports = usersController;
+module.exports = developersController;

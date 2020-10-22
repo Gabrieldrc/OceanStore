@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Redirect, useLocation } from 'react-router-dom';
 import style from '../Buttom.style';
 import styleAC from './AddCarButtom.style';
-import AuthService from '../../../services/auth.service';
+import UserService from '../../../services/user.service';
 
 function AddCarButtom() {
   const [buttomStyle, setButtomStyle] = useState(style.getStyle(styleAC.primaryColor, styleAC.secundaryColor));
   const [content, setContent] = useState(['Add to car']);
   const location = useLocation();
   const handleClick = () => {
-    const user = AuthService.getCurrentUser();
+    const user = UserService.getCurrentUser();
     if (!user) {
       return setContent(
         [

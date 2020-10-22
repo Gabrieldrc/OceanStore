@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,81 +6,34 @@ import {
 } from 'react-router-dom';
 import AppStyle from './App.style.js';
 
-import AuthService from '../../services/auth.service';
-
-import SigninPage from '../SigninPage/SigninPage';
+import SigninUserPage from '../SigninUserPage/SigninUserPage';
 import Nav from '../Nav/Nav';
 import Store from '../Store/Store';
 import NewAppForm from '../Forms/NewAppForm/NewAppForm';
 import Title from '../Title/Title';
-import SignupPage from '../SignupPage/SignupPage.js';
+import SignupUserPage from '../SignupUserPage/SignupUserPage.js';
 import AppDetailsPage from '../AppDetailsPage/AppDetailsPage.js';
+import Logout from '../Logout/Logout.js';
 import NotFountPage from '../ErrorPages/NotFoundPage/NotFoundPage';
 
 
 function App() {
-  const [signinStatus, setSignInStatus] = useState(false);
-  const [currentUser, setCurrentUser] = useState(undefined);
   const [error, setError] = useState(false);
-
-  useEffect(() => {
-    userCheck();
-  }, [signinStatus]);
-
-  const userCheck = () => {
-    const user = AuthService.getCurrentUser();
-    if (user) {
-      setCurrentUser(user);
-    }
-  };
-  console.log(currentUser);
-  const navRoutes = {
-    publicRoutes: [
-      {label: 'Sign Up', type: 'link', route: '/signup'},
-      {label: 'Sign In', type: 'link', route: '/signin'},
-      {label: 'Sell',    type: 'link', route: '/sell'},
-    ],
-    fixedRoutes: [
-      {label: 'Categories', type: 'link', route: '/categories'},
-      {label: 'Gift Cards', type: 'link', route: '/gift-cards'},
-    ],
-    verifiedRoutes: [
-      {label: 'Wishlist', type: 'link', route: '/wishlist'},
-      {label: 'Car',      type: 'link', route: '/car'},
-      {label: 'Car',      type: 'menu', routes: [
-        {label: 'Settings', type: 'link' ,route: '/settings'},
-        {label: 'Sell',     type: 'link' ,route: '/sell'},
-        {label: 'My Apps',  type: 'link' ,route: '/apps'},
-        {label: 'Log Out',  type: 'buttom' ,route: '/signin', func() {
-          AuthService.logout()
-          .then(response => {
-            if (response) {
-              setSignInStatus(false);
-            }
-          })
-          .catch(error => {
-            console.log(error)
-          });
-        }},
-      ]},
-    ]
-  };
 
   return (
     <Router>
       <div style={AppStyle.App}>
         <div style={AppStyle.headerContainerStyle}>
-          <Nav routes={navRoutes} currentUser={currentUser} />
+          <Nav/>
         </div>
         <div style={AppStyle.setBodyStyle(error)}>
           <div style={AppStyle.setBodyContentStyle(error)}>
             <Switch>
               <Route exact path="/signup">
-                <SignupPage />
+                <SignupUserPage />
               </Route>
               <Route exact path="/signin">
-                <SigninPage 
-                  setSignInStatus={(value) => setSignInStatus(value)}/>
+                <SigninUserPage />
               </Route>
               <Route exact path="/">
                 <Store />
@@ -93,6 +46,9 @@ function App() {
               </Route>
               <Route exact path="/app/:app_name/">
                 <AppDetailsPage />
+              </Route>
+              <Route exact path="/logout">
+                <Logout />
               </Route>
               <Route path="*">
                 <NotFountPage setError={setError} />

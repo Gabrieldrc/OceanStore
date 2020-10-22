@@ -1,6 +1,6 @@
 const fs = require("fs");
 const db = require('../models');
-const userService = require('./userService');
+const developerService = require('./developer.service');
 const detailsService = require('./app_details.service');
 const Image = db.images;
 const App = db.apps;
@@ -18,7 +18,7 @@ const createApp = async (appData) => {
       price: appData.price,
       category: appData.category? appData.category : "none",
     });
-    let result = await userService.addAppToUser(appData.publisher, app);
+    let result = await developerService.addAppToDeveloper(appData.publisher, app);
     if (!result.ok) {
 
       return result;

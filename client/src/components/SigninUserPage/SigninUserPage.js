@@ -1,14 +1,14 @@
 import React from 'react';
-import SignInForm from '../Forms/SignInForm/SignInForm';
+import SignInUserForm from '../Forms/SignInUserForm/SignInUserForm';
 import Title from '../Title/Title';
-import './SigninPage.css';
+import './SigninUserPage.css';
 
-function SigninPage(props) {
+function SigninUserPage(props) {
   return(
-    <div className="SigninPage">
+    <div className="SigninUserPage">
       <div className="SigninContainer">
         <Title style={{fontWeight: "200"}}>SIGN IN <span style={{fontSize: '1.5rem'}}>with your OS account</span></Title>
-        <SignInForm 
+        <SignInUserForm 
           setSignInStatus={props.setSignInStatus}/>
         <span className="border border-top"></span>
         <span className="border border-right"></span>
@@ -19,4 +19,4 @@ function SigninPage(props) {
   );
 }
 
-export default SigninPage;
+export default SigninUserPage;

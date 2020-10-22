@@ -6,6 +6,7 @@ const authJwt = require('../middleware/authJwt');
 const ac = require('../config/ac.config');
 
 appsController.post('/new_app',authJwt.middleware, async (req, res) => {
+  console.log(req.session.user.role);
   const permission = ac.can(req.session.user.role).createOwn('app');
   const resObject = {
     status: 'Access Denied',
@@ -66,6 +67,7 @@ appsController.post('/new_app',authJwt.middleware, async (req, res) => {
 });
 
 appsController.get('/all', async (req, res) => {
+  console.log(req.session.user.role);
   const permission = ac.can(req.session.user.role).readAny('app');
   const resObject = {
     status: 'Access Denied',

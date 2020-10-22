@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Redirect, useLocation } from 'react-router-dom';
 import style from '../Buttom.style';
 import styleWB from './WishlistButtom.style';
-import AuthService from '../../../services/auth.service';
+import UserService from '../../../services/user.service';
 
 function WishlistButtom() {
   const [buttomStyle, setButtomStyle] = useState(style.getStyle(styleWB.primaryColor, styleWB.secundaryColor));
   const [content, setContent] = useState(['Add to wish list']);
   const location = useLocation();
   const handleClick = () => {
-    const user = AuthService.getCurrentUser();
+    const user = UserService.getCurrentUser();
     if (!user) {
       return setContent(
         [
@@ -24,7 +24,7 @@ function WishlistButtom() {
       );
     }
     setContent([
-      <img src="/icons/checkBox.icon.svg" alt="+" style={style.icon}/>,
+      <img src="/icons/checkBox.icon.svg" alt="+" key="checkBoxIcon" style={style.icon}/>,
       'On your list',
     ]);
   };

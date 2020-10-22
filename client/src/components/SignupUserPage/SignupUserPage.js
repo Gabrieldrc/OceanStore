@@ -1,14 +1,14 @@
 import React from 'react';
-import SignUpForm from '../Forms/SignUpForm/SignUpForm';
+import SignUpUserForm from '../Forms/SignUpUserForm/SignUpUserForm';
 import Title from '../Title/Title';
-import './SignupPage.css';
+import './SignupUserPage.css';
 
-function SignupPage() {
+function SignupUserPage() {
   return(
-    <div className="SignupPage">
+    <div className="SignupUserPage">
       <div className="SignupContainer">
         <Title style={{fontWeight: "200"}}>CREATE YOUR ACCOUNT</Title>
-        <SignUpForm />
+        <SignUpUserForm />
         <span className="border border-top"></span>
         <span className="border border-right"></span>
         <span className="border border-bottom"></span>
@@ -18,4 +18,4 @@ function SignupPage() {
   );
 }
 
-export default SignupPage;
+export default SignupUserPage;

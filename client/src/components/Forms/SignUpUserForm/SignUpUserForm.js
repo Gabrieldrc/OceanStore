@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AuthService from '../../../services/auth.service';
+import UserService from '../../../services/user.service';
 
 const styleForm = {
   display: "grid",
@@ -23,7 +23,7 @@ const styleCheck = {
   color: "deepskyblue",
 };
 
-function SignUpForm() {
+function SignUpUserForm() {
   const [password, setpassword] = useState('');
   const [password_confirm, setpasswordConfirm] = useState('');
   const [passwordsMatch, setPasswordsMatch] = useState('');
@@ -43,7 +43,7 @@ function SignUpForm() {
     const form = document.getElementById('sign_up_form');
     const formData = new FormData(form);
 
-    AuthService.signup(formData)
+    UserService.signup(formData)
     .then(response => {
       setRes({
         message: response.data.message,
@@ -75,9 +75,9 @@ function SignUpForm() {
         <label> Username</label>
         <input style={inputStyle} type="text" name="user_name" required/>
         <label> Password</label>
-        <input style={inputStyle} type="password" name="user_password" onChange={event => setpassword(event.target.value)} required/>
+        <input style={inputStyle} type="password" name="password" onChange={event => setpassword(event.target.value)} required/>
         <label> Confirm Password      {passwordsMatch}</label>
-        <input style={inputStyle} type="password" name="user_password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
+        <input style={inputStyle} type="password" name="password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
         <button type="submit" onClick={event => handleClick(event)}>Submit</button>
         {labelResponse()}
       </form>
@@ -87,4 +87,4 @@ function SignUpForm() {
 
 
   
-export default SignUpForm;
+export default SignUpUserForm;

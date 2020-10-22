@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import {
   Redirect, useHistory
 } from "react-router-dom";
-import AuthService from '../../../services/auth.service';
-import style from './SignInForm.style';
+import { useDispatch } from 'react-redux';
+import { signin } from '../../../redux/reducers/isLogged.reducer';
+import { newUser } from '../../../redux/reducers/currentUser.reducer';
+import UserService from '../../../services/user.service';
+import style from './SignInUserForm.style';
 
-function SignInForm(props) {
+function SignInUserForm(props) {
   const [error, setError] = useState(' ');
   const [redirect, setRedirect] = useState(false);
-  const { setSignInStatus, location } = props;
   const history = useHistory();
+  const dispatch = useDispatch();
+
 
   function handleClick(event) {
 
@@ -18,10 +22,10 @@ function SignInForm(props) {
     const form = document.getElementById('log_in_form');
     const formData = new FormData(form);
 
-    AuthService.signin(formData)
+    UserService.signin(formData)
     .then(response => {
-      console.log(response);
-      setSignInStatus(true)
+      dispatch(signin());
+      dispatch(newUser())
       setRedirect(true);
     })
     .catch((error) => {
@@ -30,7 +34,6 @@ function SignInForm(props) {
   }
 
   function ifRedirect() {
-    console.log(history.location.state);
     if (redirect) {
       if (history.location.state) {
         return <Redirect to={history.location.state.referrer} />
@@ -39,11 +42,11 @@ function SignInForm(props) {
     }
     return(
       <div>
-        <form style={style.styleForm} id="log_in_form" encType="multipart/form-data">
+        <form style={style.styleForm} id="log_in_form">
           <label> Username:</label>
           <input style={style.inputStyle} type="text" name="user_name" required/>
           <label> Password:</label>
-          <input style={style.inputStyle} type="password" name="user_password" required/>
+          <input style={style.inputStyle} type="password" name="password" required/>
           <button type="submit" onClick={event => handleClick(event)}>Submit</button>
           <label style={style.styleError}>{error}</label>
         </form>
@@ -56,4 +59,4 @@ function SignInForm(props) {
 
 
   
-export default SignInForm;
+export default SignInUserForm;

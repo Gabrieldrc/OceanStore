@@ -35,7 +35,7 @@ function AppDetails(props) {
           {appDetails.category}
         </div>
         <div id="buttoms" style={style.buttomsContainer}>
-          <WishlistButtom/>
+          <WishlistButtom key="wishlistButtom"/>
           <AddCarButtom/>
         </div>
       </div>

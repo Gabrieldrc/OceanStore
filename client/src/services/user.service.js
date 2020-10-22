@@ -2,8 +2,7 @@ const axios = require('axios');
 
 const API_URL = '/server/';
 
-// let token;
-const AuthService = {
+const UserService = {
 
   signup(formData) {
     return axios.post(API_URL+'users/signup', formData);
@@ -14,14 +13,13 @@ const AuthService = {
       .then(response => {
         if (response.data.accessToken) {
           window.localStorage.setItem('user', JSON.stringify(response.data));
-          // token = JSON.stringify(response.data);
         }
         return response.data;
       });
   },
   
   logout(){
-    return axios.get(API_URL+'users/logout')
+    return axios.get(API_URL+'logout')
       .then(response => {
         window.localStorage.removeItem('user')
         return true;
@@ -47,4 +45,4 @@ const AuthService = {
 }
 
 
-export default AuthService;
+export default UserService;
