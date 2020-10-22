@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import {
   Redirect, useHistory
 } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { signin } from '../../../redux/reducers/isLogged.reducer';
+import { newUser } from '../../../redux/reducers/currentUser.reducer';
 import UserService from '../../../services/user.service';
 import style from './SignInUserForm.style';
 
 function SignInUserForm(props) {
   const [error, setError] = useState(' ');
   const [redirect, setRedirect] = useState(false);
-  const { setSignInStatus } = props;
   const history = useHistory();
+  const dispatch = useDispatch();
+
 
   function handleClick(event) {
 
@@ -20,8 +24,8 @@ function SignInUserForm(props) {
 
     UserService.signin(formData)
     .then(response => {
-      console.log(response);
-      setSignInStatus(true)
+      dispatch(signin());
+      dispatch(newUser())
       setRedirect(true);
     })
     .catch((error) => {
@@ -30,7 +34,6 @@ function SignInUserForm(props) {
   }
 
   function ifRedirect() {
-    console.log(history.location.state);
     if (redirect) {
       if (history.location.state) {
         return <Redirect to={history.location.state.referrer} />

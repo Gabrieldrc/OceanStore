@@ -15,25 +15,15 @@ const navRoutes = {
       {label: 'Settings', type: 'link' ,route: '/settings'},
       {label: 'Sell',     type: 'link' ,route: '/sell'},
       {label: 'My Apps',  type: 'link' ,route: '/apps'},
-      {label: 'Log Out',  type: 'buttom' ,route: '/signin', func() {
-        UserService.logout()
-        .then(response => {
-          if (response) {
-            setSignInStatus(false);
-          }
-        })
-        .catch(error => {
-          console.log(error)
-        });
-      }},
+      {label: 'Log Out',  type: 'link' ,route: '/logout'},
     ]},
   ]
 };
 
-const RoutesService = {
-  getRoutes() {
-    return navRoutes;
-  }
+const getRoutes = () => {
+  return navRoutes;
 };
 
-export default RoutesService;
+export default {
+  getRoutes,
+};

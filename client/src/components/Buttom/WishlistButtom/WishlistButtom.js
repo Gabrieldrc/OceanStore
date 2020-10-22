@@ -24,7 +24,7 @@ function WishlistButtom() {
       );
     }
     setContent([
-      <img src="/icons/checkBox.icon.svg" alt="+" style={style.icon}/>,
+      <img src="/icons/checkBox.icon.svg" alt="+" key="checkBoxIcon" style={style.icon}/>,
       'On your list',
     ]);
   };

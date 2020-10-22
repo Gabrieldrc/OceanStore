@@ -17,11 +17,6 @@ function AppDetailsPage() {
   const [appDetails, setAppDetails] = useState(null);
   const [rates, setAppRates] = useState(null);
   const [loadStatus, setLoadCompleted] = useState(false);
-
-  useEffect(() => {
-    fetchAppDetails();
-  },[]);
-
   const fetchAppDetails = async () => {
     try {
       const appDetailsResponse = await AppDetailsService.getAppDetails(app_name);
@@ -35,6 +30,10 @@ function AppDetailsPage() {
       console.log(error); 
     }
   };
+
+  useEffect(() => {
+    fetchAppDetails();
+  },[]);
 
   return(<div>
     {loadStatus? (
