@@ -15,6 +15,7 @@ import SignupUserPage from '../SignupUserPage/SignupUserPage.js';
 import AppDetailsPage from '../AppDetailsPage/AppDetailsPage.js';
 import Logout from '../Logout/Logout.js';
 import NotFountPage from '../ErrorPages/NotFoundPage/NotFoundPage';
+import Footer from '../Footer/Footer';
 
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
             </Switch>
           </div>
         </div>
+        <Footer />
       </div>
     </Router>
   );
