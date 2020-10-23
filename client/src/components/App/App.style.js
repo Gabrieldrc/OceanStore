@@ -3,7 +3,7 @@ const AppStyle = {
   App: {
     textAlign: 'justify',
     display: 'grid',
-    gridTemplateAreas:"'header'\n'body'",
+    gridTemplateAreas:"'header'\n'body'\n'footer'",
   },
   
   headerContainerStyle: {

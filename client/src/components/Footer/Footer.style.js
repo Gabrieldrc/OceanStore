@@ -1,16 +1,29 @@
 const style = {
   footer: {
+    display: 'flex',
+    gridArea: 'footer',
     background: 'rgb(20,161,234)',
-    alignContent: 'center',
-    minHeight: '25px',
+    minHeight: '2.5rem',
+    alignItems: 'center',
   },
-  footer_content: {
-    maxWidth: '940px',
+  footer_content: { 
+    display: 'flex',
+    justifyContent: 'start',
+    minWidth: '940px',
     margin: 'auto',
   },
+  item: {
+    width: 'fit-content',
+  },
   icon: {
-    height: '1.2rem',
-    widht: '1.2rem',
+    height: '1rem',
+    widht: '1rem',
+  },
+  a: {
+    color: 'black',
+    padding: '0.2rem 0.5rem ',
+    margin: '0.2rem 0.5rem ',
+    textDecoration: "none",
   },
 };
 
