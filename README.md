@@ -29,6 +29,9 @@ npm run client
 - React APP
 - axios (to fetch data)
 - react-router-dom
+- @reduxjs/toolkit
+- react-redux
+
 ### Back-end (Server)
 - accesscontrol
 - bcrypt
