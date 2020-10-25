@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './AppDetailsPage.css';
 import { useParams } from 'react-router-dom';
 
 import style from './AppDetailsPage.style';
@@ -36,18 +37,18 @@ function AppDetailsPage() {
 
   return(<div>
     {loadStatus? (
-      <div id="generalContainer" style={style.container}>
+      <div className="app_details_page_container">
         <Title styleProps={style.title1}>{appDetails.app_name}</Title>
         <AppDetails appDetails={app} rates={rates}/>
-        <div id="About">
+        <div>
           <Title styleProps={style.title2}>ABOUT THIS APP</Title>
-          <p style={style.p}>{dataApp.aboutThisGame}</p>
+          <p className="app_details_page_about">{dataApp.aboutThisGame}</p>
         </div>
         <Title styleProps={style.title2}>Customer Reviews</Title>
         <Reviews appName={app_name}/>
       </div>
     ):(
-      <div id="generalContainer" style={style.container}>
+      <div className="app_details_page_container">
       ...
       </div>
     )}
