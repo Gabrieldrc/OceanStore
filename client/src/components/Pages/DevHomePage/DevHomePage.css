@@ -1,0 +1,21 @@
+.dev_homepage_constainer {
+  color: whitesmoke;
+  background-image: linear-gradient(to bottom right, rgb(8, 90, 212, 1), rgb(20, 161, 234, 0.001), rgb(133, 112, 199, 0.1));
+  min-height: 90vh;
+  padding: 20px;
+}
+.dev_homepage_a {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: whitesmoke;
+  border-radius: 10px;
+  background-color: rgb(133,112,199);
+  text-decoration: none;
+}
+.dev_homepage_buttom {
+  width: fit-content;
+  margin: 5rem auto 0rem;
+}
