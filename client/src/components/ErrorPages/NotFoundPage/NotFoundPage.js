@@ -1,21 +1,21 @@
 import React from 'react';
-import NotFoundPageStyle from './NotFoungPage.style';
+import './NotFoundPage.css';
 
 function NotFountPage(props) {
   const {setError} = props;
   setError(true);
   return(
-    <div style={NotFoundPageStyle.containerStyle}>
+    <div className="not_found_page_container">
       <div>
-        <h1 style={NotFoundPageStyle.titleStyle}>Lost your way?</h1>
-        <p style={NotFoundPageStyle.pStyle}>
+        <h1 className="not_found_page_title">Lost your way?</h1>
+        <p className="not_found_page_p">
           Sorry, we can't find that page. 
           You'll find lots to explore on the home page.
         </p>
-        <a style={NotFoundPageStyle.aStyle} href="/">Ocean Store Home</a>
+        <a className="not_found_page_a" href="/">Ocean Store Home</a>
       </div>
-      <div style={NotFoundPageStyle.errorContainerStyle}>
-        <h1 style={NotFoundPageStyle.errorStyle}>Error Code <b>404</b></h1>
+      <div className="not_found_page_error_container">
+        <h1 className="not_found_page_error">Error Code <b>404</b></h1>
       </div>
     </div>
   );

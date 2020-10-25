@@ -30,7 +30,7 @@
   background-color: black;
 }
 
-.app_body_error {
+.app_body_error_content {
   display: grid;
   position: relative;
   min-height: inherit;

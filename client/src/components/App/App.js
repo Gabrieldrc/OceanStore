@@ -23,15 +23,16 @@ import DevSignupPage from '../Pages/DevSignupPage/DevSignupPage.js';
 
 function App() {
   const [error, setError] = useState(false);
-
+  const appErrorClassName = error? "app_body_error" : "";
+  const appErrorContentClassName = error? "app_body_error_content" : "";
   return (
     <Router>
       <div className="app_container">
         <div className="app_header">
           <Nav/>
         </div>
-        <div className="app_body">
-          <div className="app_body_content">
+        <div className={`app_body ${appErrorClassName}`}>
+          <div className={`app_body_content ${appErrorContentClassName}`}>
             <Switch>
               <Route exact path="/signup">
                 <SignupUserPage />
