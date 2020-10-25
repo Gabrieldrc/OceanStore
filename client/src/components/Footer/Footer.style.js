@@ -23,7 +23,7 @@ const style = {
     color: 'black',
     padding: '0.2rem 0.5rem ',
     margin: '0.2rem 0.5rem ',
-    textDecoration: "none",
+    textDecoration: 'none',
   },
 };
 

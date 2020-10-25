@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import style from './AppDetailsPage.style';
-import AppDetailsService from '../../services/app_details.service';
-import AppService from '../../services/app.service';
-import RateService from '../../services/rate.service';
+import AppDetailsService from '../../../services/app_details.service';
+import AppService from '../../../services/app.service';
+import RateService from '../../../services/rate.service';
 import dataApp from './db';
 
-import Title from '../Title/Title';
-import AppDetails from '../AppDetails/AppDetails';
-import Reviews from '../Reviews/Reviews';
+import Title from '../../Title/Title';
+import AppDetails from '../../AppDetails/AppDetails';
+import Reviews from '../../Reviews/Reviews';
 
 function AppDetailsPage() {
   let { app_name } = useParams();

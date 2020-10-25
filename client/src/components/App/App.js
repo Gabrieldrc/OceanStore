@@ -6,16 +6,18 @@ import {
 } from 'react-router-dom';
 import AppStyle from './App.style.js';
 
-import SigninUserPage from '../SigninUserPage/SigninUserPage';
+import SigninUserPage from '../Pages/SigninUserPage/SigninUserPage';
 import Nav from '../Nav/Nav';
-import Store from '../Store/Store';
+import Store from '../Pages/Store/Store';
 import NewAppForm from '../Forms/NewAppForm/NewAppForm';
 import Title from '../Title/Title';
-import SignupUserPage from '../SignupUserPage/SignupUserPage.js';
-import AppDetailsPage from '../AppDetailsPage/AppDetailsPage.js';
+import SignupUserPage from '../Pages/SignupUserPage/SignupUserPage.js';
+import AppDetailsPage from '../Pages/AppDetailsPage/AppDetailsPage.js';
 import Logout from '../Logout/Logout.js';
 import NotFountPage from '../ErrorPages/NotFoundPage/NotFoundPage';
 import Footer from '../Footer/Footer';
+import DevHomePage from '../Pages/DevHomePage/DevHomePage.js';
+import DevSignupPage from '../Pages/DevSignupPage/DevSignupPage.js';
 
 
 function App() {
@@ -50,6 +52,12 @@ function App() {
               </Route>
               <Route exact path="/logout">
                 <Logout />
+              </Route>
+              <Route exact path="/dev">
+                <DevHomePage />
+              </Route>
+              <Route exact path="/dev/signup">
+                <DevSignupPage />
               </Route>
               <Route path="*">
                 <NotFountPage setError={setError} />

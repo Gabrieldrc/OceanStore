@@ -1,6 +1,6 @@
 import React from 'react';
-import SignInUserForm from '../Forms/SignInUserForm/SignInUserForm';
-import Title from '../Title/Title';
+import SignInUserForm from '../../Forms/SignInUserForm/SignInUserForm';
+import Title from '../../Title/Title';
 import './SigninUserPage.css';
 
 function SigninUserPage(props) {
