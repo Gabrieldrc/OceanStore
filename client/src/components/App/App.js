@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom';
-import AppStyle from './App.style.js';
+// import AppStyle from './App.style.js';
 
 import SigninUserPage from '../Pages/SigninUserPage/SigninUserPage';
 import Nav from '../Nav/Nav';
@@ -25,12 +26,12 @@ function App() {
 
   return (
     <Router>
-      <div style={AppStyle.App}>
-        <div style={AppStyle.headerContainerStyle}>
+      <div className="app_container">
+        <div className="app_header">
           <Nav/>
         </div>
-        <div style={AppStyle.setBodyStyle(error)}>
-          <div style={AppStyle.setBodyContentStyle(error)}>
+        <div className="app_body">
+          <div className="app_body_content">
             <Switch>
               <Route exact path="/signup">
                 <SignupUserPage />

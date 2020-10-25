@@ -1,0 +1,39 @@
+.app_container {
+  text-align: justify;
+  display: grid;
+  grid-template-areas:
+  'header'
+  'body'
+  'footer';
+}
+.app_header {
+  grid-area: header;
+  min-height: 10vh;
+  background-color: black;
+}
+
+.app_body {
+  grid-area: body;
+  min-height: 90vh;
+  background-color: #212429;
+}
+
+.app_body_content {
+  max-width: 1600px;
+  margin: auto;
+}
+
+.app_body_error {
+  background-image: url('../images/oceanPurple.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: black;
+}
+
+.app_body_error {
+  display: grid;
+  position: relative;
+  min-height: inherit;
+  align-content: center;
+  justify-content: center;
+}
