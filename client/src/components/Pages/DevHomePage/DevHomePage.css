@@ -1,8 +1,12 @@
-.dev_homepage_constainer {
+.dev_homepage {
+  position: relative;
+  background-image: linear-gradient(to bottom right, rgb(8, 90, 212) 10%, rgb(20, 161, 234) 40%, rgb(133, 112, 199) 50%);
+  min-height: inherit;
+  padding-top: 5rem;
   color: whitesmoke;
-  background-image: linear-gradient(to bottom right, rgb(8, 90, 212, 1), rgb(20, 161, 234, 0.001), rgb(133, 112, 199, 0.1));
-  min-height: 90vh;
-  padding: 20px;
+}
+.dev_homepage_constainer {
+  padding: 0rem 100px;
 }
 .dev_homepage_a {
   padding: 0.5rem;

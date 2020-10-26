@@ -1,22 +1,22 @@
 import React from 'react';
-import style from './Review.style';
+import './Review.css';
 import StarsRate from '../StarsRate/StarsRate';
 
 function Review(props) {
   const { data } = props;
   return(
-    <div id="reviewContainer" style={style.container}>
+    <div id="reviewContainer" className="review_container">
       <div>
-        <div style={style.userContainer}>
+        <div className="review_user_container">
           <div>{data.user_name}</div>
-          <StarsRate average={data.rate} iconStyle={style.starsIcon}/>
+          <StarsRate average={data.rate} iconClassName="review_starsIcon"/>
         </div>
       </div>
-      <div style={style.rightContainer}>
-        <div style={style.reviewContainer}>
+      <div className="review_right_container">
+        <div className="review_review_container">
           {data.review}
         </div>
-        <div style={style.buttomsContainer}>
+        <div className="review_buttoms_container">
           like(?)
         </div>
       </div>

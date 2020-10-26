@@ -5,7 +5,7 @@ import './DevHomePage.css';
 
 function DevHomePage() {
   return(
-    <div>
+    <div className="dev_homepage">
       <div className="dev_homepage_constainer">
         <Title styleProps={style.title}>WELCOME DEVELOPER!</Title>
         <div className="dev_homepage_buttom">

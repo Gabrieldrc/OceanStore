@@ -5,8 +5,8 @@ import './SigninUserPage.css';
 
 function SigninUserPage(props) {
   return(
-    <div className="SigninUserPage">
-      <div className="SigninContainer">
+    <div className="signin_user_page">
+      <div className="signin_container">
         <Title style={{fontWeight: "200"}}>SIGN IN <span style={{fontSize: '1.5rem'}}>with your OS account</span></Title>
         <SignInUserForm 
           setSignInStatus={props.setSignInStatus}/>

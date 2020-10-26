@@ -14,13 +14,8 @@
 
 .app_body {
   grid-area: body;
-  min-height: 90vh;
-  background-color: #212429;
-}
-
-.app_body_content {
-  max-width: 1600px;
-  margin: auto;
+  min-height: 85vh;
+  background-color: rgb(22,32,45);
 }
 
 .app_body_error {
@@ -28,12 +23,4 @@
   background-repeat: no-repeat;
   background-size: 100%;
   background-color: black;
-}
-
-.app_body_error_content {
-  display: grid;
-  position: relative;
-  min-height: inherit;
-  align-content: center;
-  justify-content: center;
 }

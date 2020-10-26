@@ -35,24 +35,25 @@ function AppDetailsPage() {
     })();
   },[]);
 
-  return(<div>
-    {loadStatus? (
-      <div className="app_details_page_container">
-        <Title styleProps={style.title1}>{appDetails.app_name}</Title>
-        <AppDetails appDetails={app} rates={rates}/>
-        <div>
-          <Title styleProps={style.title2}>ABOUT THIS APP</Title>
-          <p className="app_details_page_about">{dataApp.aboutThisGame}</p>
+  return(
+    <div className="app_details_page">
+      {loadStatus? (
+        <div className="app_details_page_container">
+          <Title styleProps={style.title1}>{appDetails.app_name}</Title>
+          <AppDetails appDetails={app} rates={rates}/>
+          <div>
+            <Title styleProps={style.title2}>ABOUT THIS APP</Title>
+            <p className="app_details_page_about">{dataApp.aboutThisGame}</p>
+          </div>
+          <Title styleProps={style.title2}>Customer Reviews</Title>
+          <Reviews appName={app_name}/>
         </div>
-        <Title styleProps={style.title2}>Customer Reviews</Title>
-        <Reviews appName={app_name}/>
-      </div>
-    ):(
-      <div className="app_details_page_container">
-      ...
-      </div>
-    )}
-  </div>
+      ):(
+        <div className="app_details_page_container">
+        ...
+        </div>
+      )}
+    </div>
   );
 }
 

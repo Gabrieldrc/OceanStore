@@ -1,0 +1,8 @@
+.stars_rate_container {
+  display: inline;
+}
+.stars_rate_icon {
+  height: 1.2rem;
+  width: 1.2rem;
+  margin-right: 0.2rem;
+}

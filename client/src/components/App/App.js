@@ -9,7 +9,7 @@ import {
 
 import SigninUserPage from '../Pages/SigninUserPage/SigninUserPage';
 import Nav from '../Nav/Nav';
-import Store from '../Pages/Store/Store';
+import HomeStorePage from '../Pages/HomeStorePage/HomeStorePage';
 import NewAppForm from '../Forms/NewAppForm/NewAppForm';
 import Title from '../Title/Title';
 import SignupUserPage from '../Pages/SignupUserPage/SignupUserPage.js';
@@ -24,7 +24,6 @@ import DevSignupPage from '../Pages/DevSignupPage/DevSignupPage.js';
 function App() {
   const [error, setError] = useState(false);
   const appErrorClassName = error? "app_body_error" : "";
-  const appErrorContentClassName = error? "app_body_error_content" : "";
   return (
     <Router>
       <div className="app_container">
@@ -32,40 +31,38 @@ function App() {
           <Nav/>
         </div>
         <div className={`app_body ${appErrorClassName}`}>
-          <div className={`app_body_content ${appErrorContentClassName}`}>
-            <Switch>
-              <Route exact path="/signup">
-                <SignupUserPage />
-              </Route>
-              <Route exact path="/signin">
-                <SigninUserPage />
-              </Route>
-              <Route exact path="/">
-                <Store />
-              </Route>
-              <Route exact path="/sell">
-                <div>
-                  <Title>Upload an app</Title>
-                  <NewAppForm />
-                </div>
-              </Route>
-              <Route exact path="/app/:app_name/">
-                <AppDetailsPage />
-              </Route>
-              <Route exact path="/logout">
-                <Logout />
-              </Route>
-              <Route exact path="/dev">
-                <DevHomePage />
-              </Route>
-              <Route exact path="/dev/signup">
-                <DevSignupPage />
-              </Route>
-              <Route path="*">
-                <NotFountPage setError={setError} />
-              </Route>
-            </Switch>
-          </div>
+          <Switch>
+            <Route exact path="/signup">
+              <SignupUserPage />
+            </Route>
+            <Route exact path="/signin">
+              <SigninUserPage />
+            </Route>
+            <Route exact path="/">
+              <HomeStorePage />
+            </Route>
+            <Route exact path="/sell">
+              <div>
+                <Title>Upload an app</Title>
+                <NewAppForm />
+              </div>
+            </Route>
+            <Route exact path="/app/:app_name/">
+              <AppDetailsPage />
+            </Route>
+            <Route exact path="/logout">
+              <Logout />
+            </Route>
+            <Route exact path="/dev">
+              <DevHomePage />
+            </Route>
+            <Route exact path="/dev/signup">
+              <DevSignupPage />
+            </Route>
+            <Route path="*">
+              <NotFountPage setError={setError} />
+            </Route>
+          </Switch>
         </div>
         <Footer />
       </div>
