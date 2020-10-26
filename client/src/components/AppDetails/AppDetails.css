@@ -1,0 +1,41 @@
+.app_details_resume {
+  border-radius: 5px;
+  height: 300px;
+  display: grid;
+  padding: 20px;
+  font-size: 1.5rem;
+  grid-row-gap: 20px;
+  grid-column-gap: 50px;
+  grid-template-columns: 300px auto;
+}
+.app_details_image {
+  background-color: purple;
+  width: auto;
+  height: auto;
+}
+.app_details_details {
+  display: grid;
+  padding: 20px;
+  color: whitesmoke;
+  font-weight: 300;
+  border-left: 1px solid whitesmoke;
+  grid-row-gap: 15px;
+  align-content: end;
+  grid-template-rows: auto;
+}
+.app_details_buttoms {
+  display: flex;
+  justify-content: space-between;
+}
+.app_details_rate {
+  display: inline;
+}
+.app_details_row {
+  display: inline-grid;
+  justify-content: end;
+}
+.app_details_icon {
+  height: 1.2rem;
+  width: 1.2rem;
+  margin-right: 0.2rem;
+}

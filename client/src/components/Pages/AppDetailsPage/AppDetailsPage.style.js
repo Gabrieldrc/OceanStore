@@ -4,12 +4,7 @@ const titles = {
   borderImageSlice: 1,
 };
 
-const AppDetailsPageStyle = {
-  container: {
-    margin: 'auto',
-    width: '900px',
-    backgroundColor: 'linear-gradient(to bottom, #7927b2, #fb3182)',
-  },
+const style = {
   title1: {
     ...titles,
   },
@@ -17,9 +12,6 @@ const AppDetailsPageStyle = {
     ...titles,
     fontSize: '1.5rem',
   },
-  p: {
-    color: 'whitesmoke',
-  },
 };
 
-export default AppDetailsPageStyle;
+export default style;

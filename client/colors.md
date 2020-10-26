@@ -1,10 +1,14 @@
 # Main color
-#8FD1F0
+#14A1EA
 # Light complementary color
-#B3E7FF
+#0A2BF6
 # Dark complementary color
-#5289A3
+#085AD4
 # Opposite dark color
-#A37741
+#08C5D4
 # Opposite light color
-#F0C490
+#0AF6C5
+# Black BLue
+rgb(22,32,45)
+# Purple violet
+rgb(133,112,199)

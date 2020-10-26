@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
-import AppGridStore from '../AppGridStore/AppGridStore';
-import Title from "../Title/Title";
-import AppService from '../../services/app.service';
+import AppGridStore from '../../AppGridStore/AppGridStore';
+import Title from "../../Title/Title";
+import AppService from '../../../services/app.service';
 
 function Store() {
   const [apps, setApps] = useState([]);

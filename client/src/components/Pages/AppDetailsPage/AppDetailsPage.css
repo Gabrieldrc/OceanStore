@@ -1,0 +1,14 @@
+.app_details_page {
+  background-image: linear-gradient(to bottom right, rgb(2, 16, 105), rgb(60, 50, 92, 0.2), rgb(22,32,45) 99%);
+  padding-top: 5rem;
+}
+.app_details_page_container {
+  margin: auto;
+  width: 900px;
+  padding: 50px;
+  border-top: 1px solid rgb(20, 161, 234);
+  background-image: linear-gradient(rgba(20, 161, 234, 0.5), rgba(20, 161, 234, 0.05),rgba(20, 161, 234, 0));
+}
+.app_details_page_about {
+  color: white;
+}

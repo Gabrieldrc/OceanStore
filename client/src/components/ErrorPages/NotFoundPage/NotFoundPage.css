@@ -1,0 +1,39 @@
+.app_body_error_content {
+  display: grid;
+  margin: 0px auto;
+  position: relative;
+  min-height: inherit;
+  align-content: center;
+  justify-content: center;
+}
+.not_found_page_container{
+  width: fit-content;
+  text-align: center;
+}
+.not_found_page_title{
+  font-size: 3rem;
+  color: black;
+}
+.not_found_page_p{
+  font-size: 1.5rem;
+  color: black;
+  font-weight: 500;
+}
+.not_found_page_a{
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: white;
+}
+.not_found_page_error{
+  color: red;
+  font-weight: 100;
+  padding: 0.5rem 1rem;
+}
+.not_found_page_error_container{
+  margin: 100px auto 0px auto;
+  border-left: 2px solid red;
+  width: fit-content;
+}

@@ -1,0 +1,40 @@
+.app_grid_store_container {
+  display: inline-block;
+  max-height: 343px;
+  max-width: 244px;
+  background-image: linear-gradient(to bottom right, #14A1EA 98%, #8570c7 2%);
+  margin: 20px 10px;
+  text-decoration: none;
+}
+.app_grid_store_container:hover {
+  background-image: linear-gradient(to bottom right, #14A1EA 80%, #8570c7 20%);
+}
+.app_grid_store_image_container {
+  max-height: 244px;
+  max-width: 244px;
+  padding: 15px;
+}
+.app_grid_store_image {
+  display: block;
+  border: 0.1px solid black;
+  max-height: 184px;
+  max-width: 184px;
+}
+.app_grid_store_details {
+  display: grid;
+  grid-template-rows: auto auto;
+  padding: 5px 10px;
+  color: whitesmoke;
+  font-weight: 900;
+  grid-gap: 10px;
+}
+.app_grid_store_columns {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  width: inherit;
+}
+.app_grid_store_name {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+}

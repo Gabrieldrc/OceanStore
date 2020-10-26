@@ -1,27 +1,20 @@
 import React from 'react';
-import style from './StarsRate.style';
+import './StarsRate.css';
 
 function StarsRate(props) {
-  const { average, iconStyle } = props;
+  const { average, iconClassName } = props;
   const keyBase = 'starsAverage';
-  
-  if (iconStyle) {
-    style.icon = {
-      ...style.icon,
-      ...iconStyle,
-    };
-  }
-  // const starHalfFill = <img src="/icons/starHalfFill.icon.svg" alt="star" style={style.icon}/>;
+  const className = iconClassName? `starsAverage ${iconClassName}` : `starsAverage`;
   let stars = [];
   for (let index = 1; index <= 5; index++) {
     if (index > average) {
-      stars.push(<img src="/icons/starEmpty.icon.svg" alt="star" style={style.icon} key={keyBase+index}/>);
+      stars.push(<img src="/icons/starEmpty.icon.svg" alt="star" className={className} key={keyBase+index}/>);
     } else {
-      stars.push(<img src="/icons/starFill.icon.svg" alt="star" style={style.icon} key={keyBase+index}/>);
+      stars.push(<img src="/icons/starFill.icon.svg" alt="star" className={className} key={keyBase+index}/>);
     }
   }
   return(
-    <div style={style.rateContainer}>
+    <div className="stars_rate_container">
       {stars}
     </div>
   );
