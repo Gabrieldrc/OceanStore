@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UserService from '../../../services/user.service';
+import DevService from '../../../services/dev.service';
 import style from './DevSignUpForm.style';
 
 
@@ -20,10 +20,10 @@ function DevSignUpForm() {
 
     setPasswordsMatch('');
 
-    const form = document.getElementById('sign_up_form');
+    const form = document.getElementById('dev_sign_up_form');
     const formData = new FormData(form);
 
-    UserService.signup(formData)
+    DevService.signup(formData)
     .then(response => {
       setRes({
         message: response.data.message,
@@ -51,7 +51,7 @@ function DevSignUpForm() {
 
   return(
     <div>
-      <form style={style.styleForm} id="sign_up_form">
+      <form style={style.styleForm} id="dev_sign_up_form">
         <label> Username</label>
         <input style={style.inputStyle} type="text" name="user_name" required/>
         <label> Password</label>

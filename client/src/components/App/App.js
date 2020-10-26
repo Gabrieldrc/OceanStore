@@ -19,6 +19,7 @@ import NotFountPage from '../ErrorPages/NotFoundPage/NotFoundPage';
 import Footer from '../Footer/Footer';
 import DevHomePage from '../Pages/DevHomePage/DevHomePage.js';
 import DevSignupPage from '../Pages/DevSignupPage/DevSignupPage.js';
+import DevSigninPage from '../Pages/DevSigninPage/DevSigninPage';
 
 
 function App() {
@@ -58,6 +59,9 @@ function App() {
             </Route>
             <Route exact path="/dev/signup">
               <DevSignupPage />
+            </Route>
+            <Route exact path="/dev/signin">
+              <DevSigninPage />
             </Route>
             <Route path="*">
               <NotFountPage setError={setError} />
