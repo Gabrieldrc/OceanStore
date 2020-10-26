@@ -1,27 +1,7 @@
 import React, { useState } from 'react';
 import UserService from '../../../services/user.service';
+import style from './DevSignUpForm.style';
 
-const styleForm = {
-  display: "grid",
-  gridTemplateColumns: "300px",
-  gridTemplateRows: "auto",
-  width: "fit-content",
-  gridRowGap: "10px",
-  color: "#b4b2b1",
-};
-
-const inputStyle = {
-  marginBottom: "20px",
-  height: "1.6rem",
-};
-
-const styleError = {
-  color: "red",
-};
-
-const styleCheck = {
-  color: "deepskyblue",
-};
 
 function DevSignUpForm() {
   const [password, setpassword] = useState('');
@@ -64,20 +44,20 @@ function DevSignUpForm() {
       return <label>  </label>;
     }
     if (res.type === 'error') {
-      return <label style={styleError}>{res.message}</label>;
+      return <label style={style.styleError}>{res.message}</label>;
     }
-    return <label style={styleCheck}>{res.message}</label>;
+    return <label style={style.styleCheck}>{res.message}</label>;
   }
 
   return(
     <div>
-      <form style={styleForm} id="sign_up_form">
+      <form style={style.styleForm} id="sign_up_form">
         <label> Username</label>
-        <input style={inputStyle} type="text" name="user_name" required/>
+        <input style={style.inputStyle} type="text" name="user_name" required/>
         <label> Password</label>
-        <input style={inputStyle} type="password" name="password" onChange={event => setpassword(event.target.value)} required/>
+        <input style={style.inputStyle} type="password" name="password" onChange={event => setpassword(event.target.value)} required/>
         <label> Confirm Password      {passwordsMatch}</label>
-        <input style={inputStyle} type="password" name="password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
+        <input style={style.inputStyle} type="password" name="password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
         <button type="submit" onClick={event => handleClick(event)}>Submit</button>
         {labelResponse()}
       </form>
