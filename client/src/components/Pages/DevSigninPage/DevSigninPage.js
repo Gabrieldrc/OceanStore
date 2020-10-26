@@ -8,8 +8,8 @@ function DevSigninPage(props) {
     <div className="dev_signin_page">
       <div className="dev_signin_container">
         <Title style={{fontWeight: "200"}}>SIGN IN DEV<span style={{fontSize: '1.5rem'}}>with your OS account</span></Title>
-        <DevSignInForm 
-          setSignInStatus={props.setSignInStatus}/>
+        <DevSignInForm />
+        <span> If you dont have an account sign up <a href="/dev/signup">here</a></span>
         <span className="border border-top"></span>
         <span className="border border-right"></span>
         <span className="border border-bottom"></span>

@@ -9,6 +9,7 @@ function SignupUserPage() {
       <div className="SignupContainer">
         <Title style={{fontWeight: "200"}}>CREATE YOUR ACCOUNT</Title>
         <SignUpUserForm />
+        <span> If you have already an account sign in <a href="/signin">here</a></span>
         <span className="border border-top"></span>
         <span className="border border-right"></span>
         <span className="border border-bottom"></span>

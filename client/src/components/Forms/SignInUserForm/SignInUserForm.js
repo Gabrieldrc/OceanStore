@@ -8,7 +8,7 @@ import { newUser } from '../../../redux/reducers/currentUser.reducer';
 import UserService from '../../../services/user.service';
 import style from './SignInUserForm.style';
 
-function SignInUserForm(props) {
+function SignInUserForm() {
   const [error, setError] = useState(' ');
   const [redirect, setRedirect] = useState(false);
   const history = useHistory();

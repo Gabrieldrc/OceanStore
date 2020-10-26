@@ -9,6 +9,7 @@ function DevSignupPage() {
       <div className="dev_signup_container">
         <Title style={{fontWeight: "200"}}>CREATE YOUR DEV ACCOUNT</Title>
         <DevSignUpForm />
+        <span> If you have already an account sign in <a href="/dev/signin">here</a></span>
         <span className="border border-top"></span>
         <span className="border border-right"></span>
         <span className="border border-bottom"></span>
