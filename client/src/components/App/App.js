@@ -6,6 +6,8 @@ import {
   Route,
 } from 'react-router-dom';
 import DevRoute from '../Middlewares/DevRoute/DevRoute';
+import UserRoute from '../Middlewares/UserRoute/UserRoute';
+import NoLoggedInRoute from '../Middlewares/NoLoggedInRoute/NoLoggedInRoute';
 
 import SigninUserPage from '../Pages/SigninUserPage/SigninUserPage';
 import Nav from '../Nav/Nav';
@@ -33,12 +35,12 @@ function App() {
         </div>
         <div className={`app_body ${appErrorClassName}`}>
           <Switch>
-            <Route exact path="/signup">
+            <NoLoggedInRoute exact path="/signup">
               <SignupUserPage />
-            </Route>
-            <Route exact path="/signin">
+            </NoLoggedInRoute>
+            <NoLoggedInRoute exact path="/signin">
               <SigninUserPage />
-            </Route>
+            </NoLoggedInRoute>
             <Route exact path="/">
               <HomeStorePage />
             </Route>
@@ -57,12 +59,12 @@ function App() {
             <Route exact path="/dev">
               <DevHomePage />
             </Route>
-            <Route exact path="/dev/signup">
+            <NoLoggedInRoute exact path="/dev/signup">
               <DevSignupPage />
-            </Route>
-            <Route exact path="/dev/signin">
+            </NoLoggedInRoute>
+            <NoLoggedInRoute exact path="/dev/signin">
               <DevSigninPage />
-            </Route>
+            </NoLoggedInRoute>
             <DevRoute path="/abc">
               <div>DEVELOPERSSSSSSSSSSSS</div>
             </DevRoute>

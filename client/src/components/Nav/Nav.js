@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import NavStyle from './Nav.style';
+import style from './Nav.style';
 import RoutesService from '../../services/routes.service';
 import UserService from '../../services/user.service';
 
@@ -40,20 +40,20 @@ function Nav() {
   };
 
   return(
-    <div style={NavStyle.Nav} className="Nav">
-      <div style={NavStyle.logo} className="logo">
-        <a href="/" ><img src="/images/logo.jpg" alt="Logo" style={NavStyle.logoJpg} className="logoJpg"/></a>
+    <div style={style.Nav} className="Nav">
+      <div style={style.logo} className="logo">
+        <a href="/" ><img src="/images/logo.jpg" alt="Logo" style={style.logoJpg} className="logoJpg"/></a>
       </div>
       <SearchBar />
-      <div style={NavStyle.fixedGrid} className ="fixedGrid">
+      <div style={style.fixedGrid} className ="fixedGrid">
         {printRoutesList(routes.fixedRoutes)}
       </div>
       {currentUser && islogged ? (
-        <div style={NavStyle.changeGrid} className="changeGrid">
+        <div style={style.changeGrid} className="changeGrid">
           {printRoutesList(routes.verifiedRoutes)}
         </div>
       ):(
-        <div style={NavStyle.changeGrid} className="changeGrid">
+        <div style={style.changeGrid} className="changeGrid">
           {printRoutesList(routes.publicRoutes)}
         </div>
       )}
