@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react";
 import AppGridStore from '../../AppGridStore/AppGridStore';
+import './HomeStorePage.css';
 import Title from "../../Title/Title";
 import AppService from '../../../services/app.service';
 
-function Store() {
+function HomeStorePage() {
   const [apps, setApps] = useState([]);
 
   useEffect(() => {
@@ -47,15 +48,11 @@ function Store() {
     })
     
   };
-  const styleContainer = {
-    display: "block",
-    height: "auto",
-  };
 
   return (
-    <div className="Store">
+    <div className="home_store_page">
       <Title>Store posta</Title>
-      <div style={styleContainer}>
+      <div className="store_container">
         {renderApps(apps)}
       </div>
     </div>
@@ -63,4 +60,4 @@ function Store() {
 
 }
 
-export default Store;
+export default HomeStorePage;

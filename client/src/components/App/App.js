@@ -5,7 +5,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-// import AppStyle from './App.style.js';
+import DevRoute from '../Middlewares/DevRoute/DevRoute';
 
 import SigninUserPage from '../Pages/SigninUserPage/SigninUserPage';
 import Nav from '../Nav/Nav';
@@ -42,12 +42,12 @@ function App() {
             <Route exact path="/">
               <HomeStorePage />
             </Route>
-            <Route exact path="/sell">
+            <DevRoute path="/dev/new_app">
               <div>
                 <Title>Upload an app</Title>
                 <NewAppForm />
               </div>
-            </Route>
+            </DevRoute>
             <Route exact path="/app/:app_name/">
               <AppDetailsPage />
             </Route>
@@ -63,6 +63,9 @@ function App() {
             <Route exact path="/dev/signin">
               <DevSigninPage />
             </Route>
+            <DevRoute path="/abc">
+              <div>DEVELOPERSSSSSSSSSSSS</div>
+            </DevRoute>
             <Route path="*">
               <NotFountPage setError={setError} />
             </Route>

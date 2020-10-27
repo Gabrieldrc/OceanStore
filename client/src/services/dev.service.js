@@ -41,7 +41,18 @@ const DevService = {
       return { 'x-access-token': user.accessToken };
     }
     return {};
-  }
+  },
+
+  auth() {
+    const token = this.getCurrentUser();
+    if (typeof token === 'object') {
+      if (token.role === 'developer') {
+
+        return true;
+      }
+    }
+    return false;
+  },
 }
 
 
