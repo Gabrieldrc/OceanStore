@@ -7,7 +7,7 @@
 }
 .footer_content { 
   display: flex;
-  justify-content: start;
+  align-items: flex-start;
   min-width: 940px;
   margin: auto;
 }
