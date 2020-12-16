@@ -1,7 +1,6 @@
 .searchbar {
-  grid-area: searchbar;
-  vertical-align: middle;
   display: grid;
+  vertical-align: middle;
   grid-template-columns: auto 40px;
   background-color: white;
   grid-gap: 10px;

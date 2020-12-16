@@ -27,10 +27,8 @@ function App() {
   const appErrorClassName = error? "app_body_error" : "";
   return (
     <Router>
-      <div className="app_container">
-        <div className="app_header">
+      <>
           <Nav/>
-        </div>
         <div className={`app_body ${appErrorClassName}`}>
           <Switch>
             <Route exact path="/signup">
@@ -68,8 +66,8 @@ function App() {
             </Route>
           </Switch>
         </div>
-        <Footer />
-      </div>
+        {/* <Footer /> */}
+      </>
     </Router>
   );
 }
