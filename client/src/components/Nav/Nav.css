@@ -25,6 +25,13 @@
 .menu_icon {
   float: right;
 }
+.hide_menu_icon_active {
+  display: block;
+  float: right;
+}
+.hide_menu_icon {
+  display: none;
+}
 .nav_menu {
   display: none;
 }
@@ -32,6 +39,7 @@
   display: flex;
   flex-direction: column-reverse;
   background-color: blue;
+  z-index: 100;
 }
 .change_link_container {
   order: 2;
@@ -57,11 +65,12 @@
 /* Tablet Screen */
 @media screen and (min-width: 426px) {
   .Nav {
-    top: 0;
+    position: static;
     height: 5vh;
   }
   .Nav_active {
-    height: 100vh;
+    height: auto;
+    max-height: auto;
     overflow-y: none;
   }
   .nav_icon_container {
@@ -75,23 +84,30 @@
     top: 0px;
   }
   .nav_menu {
+    position: absolute;
     display: flex;
-    flex-direction: row;
+    top: 0;
+    left: 0;
+    margin-left: -30vw;
+    height: 100vh;
+    width: 30vw;
+    flex-direction: column;
   }
   .nav_menu_active {
-    display: flex;
-    flex-direction: column-reverse;
-    background-color: blue;
+    margin-left: 0vw;
   }
   .change_link_container {
     order: 3;
+    display: flex;
+    flex-direction: column;
   }
   .fixed_link_container {
     order: 2;
-    border-bottom: none;
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: column;
   }
   .nav_link {
     width: auto;
-    display: inline-flex;
   }
 }

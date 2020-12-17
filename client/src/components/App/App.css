@@ -1,9 +1,11 @@
 .app_container {
   background-color: black;
+  position: relative;
   font-size: 2vh;
 }
 
 .app_body {
+  position: static;
   overflow: auto;
 }
 

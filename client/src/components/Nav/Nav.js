@@ -12,6 +12,12 @@ const routes = RoutesService.getRoutes();
 function Nav() {
   const [currentUser, setCurrentUser ] = useState(undefined);
   let islogged = useSelector(state => state.isLogged.value);
+  
+  // Namespace
+  const [navCN, setNavCN ] = useState('');
+  const [menuIconCN, setMenuIconCN ] = useState('');
+  const [hideMenuIconCN, setHideMenuIconCN ] = useState('');
+  const [navMenuCN, setNavMenuCN ] = useState('');
 
   useEffect(() => {
     (() => {
@@ -34,13 +40,36 @@ function Nav() {
     })
   };
 
+  const displayMenu = () => {
+    setMenuIconCN('menu_icon_active');
+    setNavCN('Nav_active');
+    setNavMenuCN('nav_menu_active');
+    setHideMenuIconCN('hide_menu_icon_active');
+  };
+
+  const hideMenu = () => {
+    setMenuIconCN('');
+    setNavCN('');
+    setNavMenuCN('');
+    setHideMenuIconCN('hide_menu_icon');
+  };
+
   return(
-    <div className="Nav">
+    <div className={`Nav ${navCN}`}>
       <div className="nav_icon_container">
-        <img className="menu_icon menu_icon_active nav_item" src="/icons/menu.icon.svg" alt="menu"/>
+        <img className={`menu_icon nav_item ${menuIconCN}`}
+          onClick={displayMenu}
+          src="/icons/menu.icon.svg"
+          alt="menu"
+        />
+        <img className={`nav_item ${hideMenuIconCN}`}
+          onClick={hideMenu}
+          src="/icons/x_menu.icon.svg"
+          alt="hide"
+        />
         <img className="logo_img nav_item" src="/images/logo.jpg" alt="Logo"/>
       </div>
-      <div className="nav_menu nav_menu_active">
+      <div className={`nav_menu ${navMenuCN}`}>
         <SearchBar />
         <div className="change_link_container">
           {currentUser && islogged ? (

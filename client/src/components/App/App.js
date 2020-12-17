@@ -28,7 +28,7 @@ function App() {
   return (
     <Router>
       <>
-          <Nav/>
+        <Nav/>
         <div className={`app_body ${appErrorClassName}`}>
           <Switch>
             <Route exact path="/signup">
