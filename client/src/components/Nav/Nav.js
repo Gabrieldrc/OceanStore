@@ -34,6 +34,7 @@ function Nav() {
         return <>hola</>
       }
       return <a
+        key={`${index}_nav_link_item`}
         className="nav_link"
         href={element.route}
         >{element.label}</a>
