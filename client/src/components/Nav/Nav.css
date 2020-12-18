@@ -1,3 +1,4 @@
+/* Mobile Screen */
 .Nav {
   display: flex;
   flex-direction: column-reverse;
@@ -55,10 +56,12 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   text-decoration: none;
   padding: 10px;
   color: white;
   cursor: pointer;
+  height: 2vh;
 }
 
 .nav_link:active {
@@ -146,5 +149,88 @@
   }
   .nav_submenu_active {
     flex-direction: column;
+  }
+}
+
+/* Desktop Screen */
+@media screen and (min-width: 769px) {
+  .Nav {
+    flex-direction: row;
+    justify-content: center;
+    position: static;
+    height: auto;
+    padding-top: 1vh;
+    align-items: center;
+  }
+  .nav_icon_container {
+    display: block;
+    justify-content: unset;
+    width: fit-content;
+    margin: 1vw;
+  }
+  .nav_item {
+    width: 8vh;
+    height: 8vh;
+  }
+  .menu_icon {
+    display: none;
+  }
+  .hide_menu_icon_active {
+    display: none;
+  }
+  .nav_menu {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-areas: 
+      'search search search . . . .'
+      'fixed fixed fixed . change change change';
+    position: static;
+    margin: 0vw;
+    height: auto;
+    width: auto;
+    background-color: unset;
+  }
+  .change_link_container {
+    grid-area: change;
+    display: flex;
+    flex-direction: row;
+  }
+  .fixed_link_container {
+    grid-area: fixed;
+    display: flex;
+    border-bottom: unset;
+    flex-direction: row;
+  }
+  .nav_link {
+    width: auto;
+    flex-direction: row;
+    color: black;
+  }
+  .nav_link:hover {
+    background-color: lightcoral;
+  }
+  .nav_submenu_container {
+    flex-direction: column;
+    position: relative;
+  }
+  .nav_submenu {
+    display: none;
+  }
+  .nav_submenu_active {
+    position: absolute;
+    flex-direction: column;
+    top: 100%;
+    left: 0;
+    width: fit-content;
+    max-height: 70vh;
+  }
+  .nav_submenu_active .nav_link {
+    width: 100%;
+    color: black;
+    background-color: beige;
+  }
+  .nav_submenu_active .nav_link:hover {
+    color: whitesmoke;
+    background-color: purple;
   }
 }
