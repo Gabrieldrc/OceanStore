@@ -5,7 +5,6 @@ import RoutesService from '../../services/routes.service';
 import UserService from '../../services/user.service';
 
 import SearchBar from './SearchBar/SearchBar';
-// import NavMenu from './NavMenu/NavMenu';
 
 const routes = RoutesService.getRoutes();
 
@@ -16,8 +15,9 @@ function Nav() {
   // Namespace
   const [navCN, setNavCN ] = useState('');
   const [menuIconCN, setMenuIconCN ] = useState('');
-  const [hideMenuIconCN, setHideMenuIconCN ] = useState('');
   const [navMenuCN, setNavMenuCN ] = useState('');
+  const [hideMenuIconCN, setHideMenuIconCN ] = useState('hide_menu_icon');
+  const [subMenuNavCN, setSubMenuNavCN ] = useState('nav_submenu');
 
   useEffect(() => {
     (() => {
@@ -31,7 +31,15 @@ function Nav() {
   const printRoutesList = (routesArray) => {
     return routesArray.map((element, index) => {
       if (element.type === 'menu') {
-        return <>hola</>
+        return (
+        <div className="nav_submenu_container">
+          <div className="nav_link"
+            onClick={() => deploySubMenu()}
+          >{element.label}</div>
+          <div className={`${subMenuNavCN}`}>
+            {printRoutesList(element.routes)}
+          </div>
+        </div>);
       }
       return <a
         key={`${index}_nav_link_item`}
@@ -47,13 +55,21 @@ function Nav() {
     setNavMenuCN('nav_menu_active');
     setHideMenuIconCN('hide_menu_icon_active');
   };
-
+  
   const hideMenu = () => {
     setMenuIconCN('');
     setNavCN('');
     setNavMenuCN('');
     setHideMenuIconCN('hide_menu_icon');
   };
+  
+  const deploySubMenu = () => {
+    if (subMenuNavCN === 'nav_submenu') {
+      setSubMenuNavCN('nav_submenu_active');
+    } else {
+      setSubMenuNavCN('nav_submenu');
+    }
+  }
 
   return(
     <div className={`Nav ${navCN}`}>
@@ -81,6 +97,7 @@ function Nav() {
         </div>
         <div className ="fixed_link_container">
           {printRoutesList(routes.fixedRoutes)}
+          {printRoutesList(routes.verifiedRoutes)}
         </div>
       </div>
     </div>
