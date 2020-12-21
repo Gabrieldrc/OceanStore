@@ -84,7 +84,7 @@ function Nav() {
           src="/icons/x_menu.icon.svg"
           alt="hide"
         />
-        <img className="logo_img nav_item" src="/images/logo.jpg" alt="Logo"/>
+        <img className="logo_img nav_item" src="/icons/OceanStoreLogo.svg" alt="Logo"/>
       </div>
       <div className={`nav_menu ${navMenuCN}`}>
         <SearchBar />
@@ -97,7 +97,6 @@ function Nav() {
         </div>
         <div className ="fixed_link_container">
           {printRoutesList(routes.fixedRoutes)}
-          {printRoutesList(routes.verifiedRoutes)}
         </div>
       </div>
     </div>

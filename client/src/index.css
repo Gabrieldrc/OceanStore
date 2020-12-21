@@ -10,10 +10,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
-  /* height: auto; */
+  background-image: linear-gradient(to bottom, #05090D, #192B43);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Mobile Screen */
+@media screen and (max-width: 426px) {
+  body {
+    background-image: linear-gradient(to bottom, #192B43, #05090D);
+  }
 }

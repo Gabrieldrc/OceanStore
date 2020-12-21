@@ -5,16 +5,15 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: aquamarine;
+  background-color: #192b43;
+  box-shadow: 0vh -0.5vh rgba(43, 74, 115, 0.522);
+  z-index: 100;
 }
 .Nav_active {
-  height: auto;
   max-height: 50vh;
-  overflow-y: auto;
 }
 .logo_img {
   float: left;
-  border-radius: 50%;
 }
 .nav_item {
   width: 5vh;
@@ -37,13 +36,14 @@
 }
 .nav_menu {
   display: none;
-  z-index: 100;
 }
 .nav_menu_active {
   display: flex;
   flex-direction: column-reverse;
-  background-color: blue;
-  z-index: 100;
+  background-color: #14a1ea;
+  width: inherit;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .change_link_container {
   order: 2;
@@ -59,14 +59,14 @@
   align-items: center;
   text-decoration: none;
   padding: 10px;
-  color: white;
   cursor: pointer;
   height: 2vh;
+  color: white;
 }
 
 .nav_link:active {
-  background-color: bisque;
-  color: black;
+  background-color: #085ad4;
+  color: white;
 }
 
 .nav_submenu_container {
@@ -81,7 +81,7 @@
 .nav_submenu_active {
   display: flex;
   flex-direction: column-reverse;
-  background-color: beige;
+  background-color: whitesmoke;
 }
 
 .nav_submenu_active a {
@@ -95,6 +95,7 @@
     flex-direction: none;
     position: relative;
     height: 5vh;
+    box-shadow: 0vh 0.5vh rgba(43, 74, 115, 0.522);
   }
   .Nav_active {
     height: auto;
@@ -122,9 +123,8 @@
     top: 5vh;
     left: 0;
     margin-left: -30vw;
-    height: 100vh;
+    height: 95vh;
     width: 30vw;
-    background-color: chartreuse;
     z-index: 100;
   }
   .nav_menu_active {
@@ -161,6 +161,7 @@
     height: auto;
     padding-top: 1vh;
     align-items: center;
+    box-shadow: 0vh 0.5vh rgba(86, 149, 231, 0.233);
   }
   .nav_icon_container {
     display: block;
@@ -182,8 +183,8 @@
     display: grid;
     grid-gap: 10px;
     grid-template-areas: 
-      'search search search . . . .'
-      'fixed fixed fixed . change change change';
+      'search search search search search search search . . . . '
+      'fixed fixed fixed . . . . . change change change';
     position: static;
     margin: 0vw;
     height: auto;
@@ -204,10 +205,9 @@
   .nav_link {
     width: auto;
     flex-direction: row;
-    color: black;
   }
   .nav_link:hover {
-    background-color: lightcoral;
+    color: #14a1ea;
   }
   .nav_submenu_container {
     flex-direction: column;
@@ -227,10 +227,9 @@
   .nav_submenu_active .nav_link {
     width: 100%;
     color: black;
-    background-color: beige;
+    background-color: white;
   }
   .nav_submenu_active .nav_link:hover {
-    color: whitesmoke;
-    background-color: purple;
+    color: #085ad4;
   }
 }

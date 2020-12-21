@@ -2,15 +2,14 @@
   grid-area: search;
   display: grid;
   vertical-align: middle;
-  grid-template-columns: auto 40px;
+  grid-template-columns: auto 10%;
   background-color: white;
-  grid-gap: 10px;
-  padding: 0px 10px;
+  border-radius: 25px;
 }
 
 .searchbar .searchInput {
   border-color: transparent;
-  background-color: white;
+  background-color: rgb(255, 255, 255, 0);
   height: inherit;
   outline: none;
 }
@@ -18,4 +17,9 @@
 .searchbar .searchIcon {
   height: inherit;
   margin: auto;
+  cursor: pointer;
+}
+
+.searchbar .searchIcon:active {
+  height: 70%;
 }
