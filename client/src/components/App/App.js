@@ -10,6 +10,7 @@ import {
 import SigninUserPage from '../Pages/SigninUserPage/SigninUserPage';
 import Nav from '../Nav/Nav';
 import HomeStorePage from '../Pages/HomeStorePage/HomeStorePage';
+import HomePage from '../Pages/HomePage/HomePage';
 import NewAppForm from '../Forms/NewAppForm/NewAppForm';
 import Title from '../Title/Title';
 import SignupUserPage from '../Pages/SignupUserPage/SignupUserPage.js';
@@ -38,6 +39,9 @@ function App() {
               <SigninUserPage />
             </Route>
             <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route exact path="/store">
               <HomeStorePage />
             </Route>
             <Route exact path="/sell">

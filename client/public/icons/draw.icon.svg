@@ -1,0 +1,41 @@
+<svg id="Component_8_1" data-name="Component 8 – 1" xmlns="http://www.w3.org/2000/svg" width="539.37" height="672.381" viewBox="0 0 539.37 672.381">
+  <g id="Group_21" data-name="Group 21" transform="translate(655 1438)">
+    <g id="Rectangle_25" data-name="Rectangle 25" transform="translate(-655 -1438)" fill="#fff" stroke="#707070" stroke-width="7">
+      <rect width="443" height="630" stroke="none"/>
+      <rect x="3.5" y="3.5" width="436" height="623" fill="none"/>
+    </g>
+    <g id="Group_20" data-name="Group 20" transform="matrix(0.921, -0.391, 0.391, 0.921, 118.534, 43.531)">
+      <g id="Rectangle_24" data-name="Rectangle 24" transform="translate(-7 -927)" fill="#625f5f" stroke="#707070" stroke-width="1">
+        <rect width="127" height="45" rx="22.5" stroke="none"/>
+        <rect x="0.5" y="0.5" width="126" height="44" rx="22" fill="none"/>
+      </g>
+      <g id="Group_19" data-name="Group 19">
+        <g id="Group_18" data-name="Group 18">
+          <g id="Rectangle_22" data-name="Rectangle 22" transform="translate(-7 -1289)" fill="#aaa" stroke="#707070" stroke-width="3">
+            <rect width="127" height="365" stroke="none"/>
+            <rect x="1.5" y="1.5" width="124" height="362" fill="none"/>
+          </g>
+          <line id="Line_2" data-name="Line 2" y2="365" transform="translate(24.5 -1288.5)" fill="none" stroke="#707070" stroke-width="6"/>
+          <line id="Line_2-2" data-name="Line 2" y2="365" transform="translate(56.5 -1288.5)" fill="none" stroke="#707070" stroke-width="6"/>
+          <line id="Line_2-3" data-name="Line 2" y2="365" transform="translate(88.5 -1288.5)" fill="none" stroke="#707070" stroke-width="6"/>
+        </g>
+        <g id="Polygon_3" data-name="Polygon 3" transform="translate(-7 -1396)" fill="#aaa">
+          <path d="M 126.1218414306641 106.5 L 0.8781490921974182 106.5 L 63.49999618530273 0.9797222018241882 L 126.1218414306641 106.5 Z" stroke="none"/>
+          <path d="M 63.49999618530273 1.959426879882813 L 1.756294250488281 106 L 125.2436981201172 106 L 63.49999618530273 1.959426879882813 M 63.49999618530273 0 L 127 107 L -7.62939453125e-06 107 L 63.49999618530273 0 Z" stroke="none" fill="#707070"/>
+        </g>
+        <g id="Polygon_4" data-name="Polygon 4" transform="translate(44 -1396)" fill="#625f5f">
+          <path d="M 24.1205005645752 20.5 L 0.8794914484024048 20.5 L 12.49999618530273 0.9775519967079163 L 24.1205005645752 20.5 Z" stroke="none"/>
+          <path d="M 12.49999618530273 1.955087661743164 L 1.758975982666016 20 L 23.24101638793945 20 L 12.49999618530273 1.955087661743164 M 12.49999618530273 0 L 24.99999618530273 21 L -3.814697265625e-06 21 L 12.49999618530273 0 Z" stroke="none" fill="#707070"/>
+        </g>
+        <g id="Rectangle_23" data-name="Rectangle 23" transform="translate(-7 -937)" fill="#aaa" stroke="#707070" stroke-width="3">
+          <rect width="127" height="32" stroke="none"/>
+          <rect x="1.5" y="1.5" width="124" height="29" fill="none"/>
+        </g>
+        <line id="Line_3" data-name="Line 3" x2="126" transform="translate(-6.5 -929.5)" fill="none" stroke="#707070" stroke-width="1"/>
+        <line id="Line_3-2" data-name="Line 3" x2="126" transform="translate(-6.5 -924.5)" fill="none" stroke="#707070" stroke-width="1"/>
+        <line id="Line_3-3" data-name="Line 3" x2="126" transform="translate(-6.5 -919.5)" fill="none" stroke="#707070" stroke-width="1"/>
+        <line id="Line_3-4" data-name="Line 3" x2="126" transform="translate(-6.5 -914.5)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>
