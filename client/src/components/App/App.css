@@ -7,6 +7,7 @@
 .app_body {
   position: static;
   overflow: auto;
+  min-height: 100vh;
 }
 
 .app_body_error {
@@ -14,4 +15,16 @@
   background-repeat: no-repeat;
   background-size: 100%;
   background-color: black;
+}
+
+@media screen and (min-width: 426px) {
+  .app_body {
+    min-height: 95vh;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .app_body {
+    min-height: 88vh;
+  }
 }

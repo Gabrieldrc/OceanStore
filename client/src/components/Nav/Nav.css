@@ -8,6 +8,7 @@
   background-color: #192b43;
   box-shadow: 0vh -0.5vh rgba(43, 74, 115, 0.522);
   z-index: 100;
+  box-sizing: border-box;
 }
 .Nav_active {
   max-height: 50vh;
@@ -95,6 +96,7 @@
     flex-direction: none;
     position: relative;
     height: 5vh;
+    max-height: 5h;
     box-shadow: 0vh 0.5vh rgba(43, 74, 115, 0.522);
   }
   .Nav_active {
@@ -158,7 +160,8 @@
     flex-direction: row;
     justify-content: center;
     position: static;
-    height: auto;
+    height: 12vh;
+    max-height: 12vh;
     padding-top: 1vh;
     align-items: center;
     box-shadow: 0vh 0.5vh rgba(86, 149, 231, 0.233);

@@ -1,0 +1,63 @@
+.home_page_presentation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+  position: relative;
+}
+.home_page_presentation img {
+  position: absolute; 
+  width: 10vw;
+}
+
+.home_page_presentation .left {
+  left: 5vw;
+}
+
+.home_page_presentation .right {
+  right: 5vw;
+}
+
+.home_page_presentation .bottom {
+  bottom: 5vw;
+}
+
+.home_page_presentation .top {
+  top: 5vw;
+}
+
+.home_page_presentation #logo {
+  width: 40vw;
+  position: static;
+  display: block;
+}
+
+.home_page_presentation .buttom {
+  position: absolute;
+  bottom: 10vh;
+  box-sizing: border-box;
+  display: block;
+  text-decoration: none;
+  color: white;
+  border: 0.2vh solid white;
+  padding: 1em 2em;
+  cursor: pointer;
+}
+
+.home_page_presentation .buttom:hover {
+  background-color: rgba(255, 255, 255, 0.048);
+}
+
+@media screen and (min-width: 426px) {
+  .home_page_presentation {
+    height: 100vh;
+  }
+}
+
+
+
+
+
+
+
+
