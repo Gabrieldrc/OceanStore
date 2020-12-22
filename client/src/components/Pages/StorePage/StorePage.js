@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from "react";
+import './StorePage.css';
+
 import AppGridStore from '../../AppGridStore/AppGridStore';
 import Title from "../../Title/Title";
 import AppService from '../../../services/app.service';
@@ -53,12 +55,24 @@ function Store() {
   };
 
   return (
-    <div className="Store">
-      <Title>Store posta</Title>
-      <div style={styleContainer}>
-        {renderApps(apps)}
+    <>
+      <Title>Store</Title>
+      <div>
+        <div>container de numero de paginas</div>
+        <div className="apps_flex_container">
+          {renderApps(apps)}
+          {renderApps([
+            {name: "Spider-man", price:"50", creator:"Insomniac", category:"Game"},
+            {name: "Spider-man", price:"50", creator:"Insomniac", category:"Game"},
+            {name: "Spider-man", price:"50", creator:"Insomniac", category:"Game"},
+            {name: "Spider-man", price:"50", creator:"Insomniac", category:"Game"},
+            {name: "Spider-man", price:"50", creator:"Insomniac", category:"Game"},
+            {name: "Spider-man", price:"50", creator:"Insomniac", category:"Game"},
+            {name: "Spider-man", price:"50", creator:"Insomniac", category:"Game"},
+          ])}
+        </div>
       </div>
-    </div>
+    </>
   );
 
 }

@@ -3,12 +3,12 @@
   display: flex;
   flex-direction: column-reverse;
   position: fixed;
-  bottom: 0;
+  bottom: -0.2vh;
   width: 100%;
   background-color: #192b43;
   box-shadow: 0vh -0.5vh rgba(43, 74, 115, 0.522);
   z-index: 100;
-  box-sizing: border-box;
+  margin: 0;
 }
 .Nav_active {
   max-height: 50vh;

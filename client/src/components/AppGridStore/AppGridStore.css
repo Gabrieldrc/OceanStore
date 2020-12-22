@@ -1,40 +1,41 @@
-.app_grid_store_container {
-  display: inline-block;
-  max-height: 343px;
-  max-width: 244px;
-  background-image: linear-gradient(to bottom right, #14A1EA 98%, #8570c7 2%);
-  margin: 20px 10px;
+.app_store_container {
+  display: flex;
+  flex-direction: row;
+  max-height: 20vh;
+  height: 20vh;
+  max-width: 95vw;
+  width: 95vw;
+  margin: 1vw auto;
   text-decoration: none;
+  border-radius: 10px;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.app_grid_store_container:hover {
+.app_store_container:hover {
   background-image: linear-gradient(to bottom right, #14A1EA 80%, #8570c7 20%);
 }
-.app_grid_store_image_container {
-  max-height: 244px;
-  max-width: 244px;
-  padding: 15px;
-}
-.app_grid_store_image {
+.app_store_image {
   display: block;
   border: 0.1px solid black;
-  max-height: 184px;
-  max-width: 184px;
+  margin: 2vh;
+  height: 18vh;
+  width: 18vh;
+  border-radius: 10px;
 }
-.app_grid_store_details {
-  display: grid;
-  grid-template-rows: auto auto;
-  padding: 5px 10px;
+.app_store_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   color: whitesmoke;
-  font-weight: 900;
   grid-gap: 10px;
 }
-.app_grid_store_columns {
-  display: grid;
-  grid-template-columns: 70% 30%;
-  width: inherit;
+.app_store_columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .app_grid_store_name {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1.5rem;
+  font-size: 7vw;
   font-weight: 500;
 }
