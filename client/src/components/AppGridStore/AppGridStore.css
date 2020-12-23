@@ -9,6 +9,7 @@
   text-decoration: none;
   border-radius: 10px;
   align-items: center;
+  background-image: linear-gradient(to bottom, rgba(7, 74, 107, 0.151), rgba(7, 74, 107, 0.424));
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .app_store_container:hover {
@@ -27,7 +28,6 @@
   flex-direction: column;
   justify-content: center;
   color: whitesmoke;
-  grid-gap: 10px;
 }
 .app_store_columns {
   display: flex;
@@ -38,4 +38,26 @@
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 7vw;
   font-weight: 500;
+}
+
+@media screen and (min-width: 426px) {
+  .app_store_container {
+    flex-direction: column;
+    max-height: 30vh;
+    height: 30vh;
+    max-width: 20vh;
+    width: 20vh;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .app_grid_store_name {
+    font-size: 4vh;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .app_grid_store_name {
+    font-size: 4vw;
+  }
 }
