@@ -1,0 +1,21 @@
+<svg id="Component_7_1" data-name="Component 7 – 1" xmlns="http://www.w3.org/2000/svg" width="196" height="290.414" viewBox="0 0 196 290.414">
+  <g id="Group_15" data-name="Group 15" transform="translate(160 1106.414)">
+    <rect id="Rectangle_13" data-name="Rectangle 13" width="32" height="289" transform="translate(-107 -1106)" fill="#aaa"/>
+    <rect id="Rectangle_14" data-name="Rectangle 14" width="49" height="130" rx="17" transform="translate(-115 -956)" fill="#6b6b6b"/>
+    <g id="Group_14" data-name="Group 14">
+      <rect id="Rectangle_15" data-name="Rectangle 15" width="139" height="45" transform="translate(-160 -1094)" fill="#625f5f"/>
+      <rect id="Rectangle_16" data-name="Rectangle 16" width="23" height="51" transform="translate(-44 -1097)" fill="#625f5f"/>
+    </g>
+  </g>
+  <g id="Group_17" data-name="Group 17" transform="translate(174 1149.414)">
+    <g id="Group_16" data-name="Group 16" transform="translate(-6 7)">
+      <rect id="Rectangle_17" data-name="Rectangle 17" width="18" height="284" transform="translate(-6 -1155)" fill="#aaa"/>
+      <rect id="Rectangle_21" data-name="Rectangle 21" width="1" height="284" transform="translate(11 -1155)" fill="#aaa"/>
+      <rect id="Rectangle_18" data-name="Rectangle 18" width="49" height="130" rx="17" transform="translate(-21 -1008)" fill="#6b6b6b"/>
+      <rect id="Rectangle_19" data-name="Rectangle 19" width="49" height="16" rx="8" transform="translate(-21 -1020)" fill="#6b6b6b"/>
+      <rect id="Rectangle_20" data-name="Rectangle 20" width="49" height="26" rx="13" transform="translate(-21 -892)" fill="#6b6b6b"/>
+    </g>
+    <path id="Polygon_1" data-name="Polygon 1" d="M4.5,0,9,49H0Z" transform="matrix(0.998, 0.07, -0.07, 0.998, -16.324, -1149.414)" fill="#aaa"/>
+    <path id="Polygon_2" data-name="Polygon 2" d="M4.5,0,9,48H0Z" transform="matrix(0.998, -0.07, 0.07, 0.998, 1.334, -1148.575)" fill="#aaa"/>
+  </g>
+</svg>

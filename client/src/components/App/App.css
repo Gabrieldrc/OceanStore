@@ -1,21 +1,13 @@
 .app_container {
-  text-align: justify;
-  display: grid;
-  grid-template-areas:
-  'header'
-  'body'
-  'footer';
-}
-.app_header {
-  grid-area: header;
-  min-height: 10vh;
   background-color: black;
+  position: relative;
+  font-size: 2vh;
 }
 
 .app_body {
-  grid-area: body;
-  min-height: 85vh;
-  background-color: rgb(22,32,45);
+  position: static;
+  overflow: auto;
+  min-height: 100vh;
 }
 
 .app_body_error {
@@ -23,4 +15,16 @@
   background-repeat: no-repeat;
   background-size: 100%;
   background-color: black;
+}
+
+@media screen and (min-width: 426px) {
+  .app_body {
+    min-height: 95vh;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .app_body {
+    min-height: 88vh;
+  }
 }

@@ -9,7 +9,8 @@ import {
 
 import SigninUserPage from '../Pages/SigninUserPage/SigninUserPage';
 import Nav from '../Nav/Nav';
-import HomeStorePage from '../Pages/HomeStorePage/HomeStorePage';
+import StorePage from '../Pages/StorePage/StorePage';
+import HomePage from '../Pages/HomePage/HomePage';
 import NewAppForm from '../Forms/NewAppForm/NewAppForm';
 import Title from '../Title/Title';
 import SignupUserPage from '../Pages/SignupUserPage/SignupUserPage.js';
@@ -27,10 +28,8 @@ function App() {
   const appErrorClassName = error? "app_body_error" : "";
   return (
     <Router>
-      <div className="app_container">
-        <div className="app_header">
-          <Nav/>
-        </div>
+      <>
+        <Nav/>
         <div className={`app_body ${appErrorClassName}`}>
           <Switch>
             <Route exact path="/signup">
@@ -40,7 +39,10 @@ function App() {
               <SigninUserPage />
             </Route>
             <Route exact path="/">
-              <HomeStorePage />
+              <HomePage />
+            </Route>
+            <Route exact path="/store">
+              <StorePage />
             </Route>
             <Route exact path="/sell">
               <div>
@@ -68,8 +70,8 @@ function App() {
             </Route>
           </Switch>
         </div>
-        <Footer />
-      </div>
+        {/* <Footer /> */}
+      </>
     </Router>
   );
 }

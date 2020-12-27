@@ -1,0 +1,50 @@
+<svg id="Component_2_1" data-name="Component 2 – 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="392" height="278" viewBox="0 0 392 278">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#6b6b6b"/>
+      <stop offset="1" stop-color="#aaa"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_8" data-name="Group 8" transform="translate(-225 -63)">
+    <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(252 63)" fill="#6b6b6b" stroke="#707070" stroke-width="1">
+      <rect width="338" height="185" rx="73" stroke="none"/>
+      <rect x="0.5" y="0.5" width="337" height="184" rx="72.5" fill="none"/>
+    </g>
+    <ellipse id="Ellipse_5" data-name="Ellipse 5" cx="64.5" cy="133.5" rx="64.5" ry="133.5" transform="translate(225 74)" fill="#6b6b6b"/>
+    <ellipse id="Ellipse_6" data-name="Ellipse 6" cx="64.5" cy="133.5" rx="64.5" ry="133.5" transform="translate(488 74)" fill="#6b6b6b"/>
+    <g id="Group_4" data-name="Group 4" transform="translate(0 11)">
+      <circle id="Ellipse_4" data-name="Ellipse 4" cx="40" cy="40" r="40" transform="translate(263 65)" fill="#625f5f"/>
+      <circle id="Ellipse_2" data-name="Ellipse 2" cx="35" cy="35" r="35" transform="translate(268 70)" fill="#aaa"/>
+      <circle id="Ellipse_3" data-name="Ellipse 3" cx="32.5" cy="32.5" r="32.5" transform="translate(270 72)" fill="#625f5f"/>
+    </g>
+    <g id="Group_2" data-name="Group 2" transform="translate(191 103)">
+      <circle id="Ellipse_4-2" data-name="Ellipse 4" cx="40" cy="40" r="40" transform="translate(263 65)" fill="#625f5f"/>
+      <circle id="Ellipse_2-2" data-name="Ellipse 2" cx="35" cy="35" r="35" transform="translate(268 70)" fill="#aaa"/>
+      <circle id="Ellipse_3-2" data-name="Ellipse 3" cx="32.5" cy="32.5" r="32.5" transform="translate(270 72)" fill="#625f5f"/>
+    </g>
+    <g id="Ellipse_7" data-name="Ellipse 7" transform="translate(386 69)" fill="#fff" stroke="#707070" stroke-width="1">
+      <circle cx="35" cy="35" r="35" stroke="none"/>
+      <circle cx="35" cy="35" r="34.5" fill="none"/>
+    </g>
+    <g id="Group_6" data-name="Group 6">
+      <circle id="Ellipse_8" data-name="Ellipse 8" cx="10" cy="10" r="10" transform="translate(534 90)" fill="#aaa"/>
+      <circle id="Ellipse_9" data-name="Ellipse 9" cx="10" cy="10" r="10" transform="translate(534 136)" fill="#aaa"/>
+      <circle id="Ellipse_10" data-name="Ellipse 10" cx="10" cy="10" r="10" transform="translate(554 113)" fill="#aaa"/>
+      <circle id="Ellipse_11" data-name="Ellipse 11" cx="10" cy="10" r="10" transform="translate(514 113)" fill="#aaa"/>
+    </g>
+    <g id="Group_7" data-name="Group 7">
+      <g id="Ellipse_12" data-name="Ellipse 12" transform="translate(289 162)" fill="#625f5f" stroke="#707070" stroke-width="1">
+        <ellipse cx="35.5" cy="37" rx="35.5" ry="37" stroke="none"/>
+        <ellipse cx="35.5" cy="37" rx="35" ry="36.5" fill="none"/>
+      </g>
+      <g id="Group_5" data-name="Group 5" transform="translate(21)">
+        <rect id="Rectangle_3" data-name="Rectangle 3" width="15" height="22" transform="translate(311.5 208.5) rotate(-90)" fill="url(#linear-gradient)"/>
+        <rect id="Rectangle_7" data-name="Rectangle 7" width="15" height="22" transform="translate(296.5 193.5) rotate(90)" fill="url(#linear-gradient)"/>
+        <rect id="Rectangle_4" data-name="Rectangle 4" width="15" height="22" transform="translate(311 190) rotate(180)" fill="url(#linear-gradient)"/>
+        <rect id="Rectangle_5" data-name="Rectangle 5" width="15" height="22" transform="translate(311 231) rotate(180)" fill="url(#linear-gradient)"/>
+      </g>
+    </g>
+  </g>
+  <ellipse id="Ellipse_13" data-name="Ellipse 13" cx="10" cy="7" rx="10" ry="7" transform="translate(148 83)" fill="#fff"/>
+  <ellipse id="Ellipse_14" data-name="Ellipse 14" cx="10" cy="7" rx="10" ry="7" transform="translate(227 83)" fill="#fff"/>
+</svg>

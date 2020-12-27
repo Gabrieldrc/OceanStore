@@ -1,14 +1,15 @@
-# Main color
-#14A1EA
-# Light complementary color
-#0A2BF6
-# Dark complementary color
-#085AD4
-# Opposite dark color
-#08C5D4
-# Opposite light color
-#0AF6C5
-# Black BLue
-rgb(22,32,45)
-# Purple violet
-rgb(133,112,199)
+# Primary color
+#14a1ea
+#085ad4
+
+# Secundary color
+#8570c7
+
+# Background-color mobile
+#192B43 to #05090D
+
+# Background-color else
+#05090D to #192B43
+
+# Background-color Nav
+#192b43
