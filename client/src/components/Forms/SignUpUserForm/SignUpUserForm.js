@@ -1,27 +1,7 @@
 import React, { useState } from 'react';
 import UserService from '../../../services/user.service';
+import '../SignForm.css';
 
-const styleForm = {
-  display: "grid",
-  gridTemplateColumns: "300px",
-  gridTemplateRows: "auto",
-  width: "fit-content",
-  gridRowGap: "10px",
-  color: "#b4b2b1",
-};
-
-const inputStyle = {
-  marginBottom: "20px",
-  height: "1.6rem",
-};
-
-const styleError = {
-  color: "red",
-};
-
-const styleCheck = {
-  color: "deepskyblue",
-};
 
 function SignUpUserForm() {
   const [password, setpassword] = useState('');
@@ -64,24 +44,27 @@ function SignUpUserForm() {
       return <label>  </label>;
     }
     if (res.type === 'error') {
-      return <label style={styleError}>{res.message}</label>;
+      return <label className="styleError">{res.message}</label>;
     }
-    return <label style={styleCheck}>{res.message}</label>;
+    return <label className="styleCheck">{res.message}</label>;
   }
 
   return(
-    <div>
-      <form style={styleForm} id="sign_up_form">
-        <label> Username</label>
-        <input style={inputStyle} type="text" name="user_name" required/>
-        <label> Password</label>
-        <input style={inputStyle} type="password" name="password" onChange={event => setpassword(event.target.value)} required/>
-        <label> Confirm Password      {passwordsMatch}</label>
-        <input style={inputStyle} type="password" name="password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
-        <button type="submit" onClick={event => handleClick(event)}>Submit</button>
+    <>
+      <form className="form" id="sign_up_form">
+        <label>Username
+          <input className="inputStyle" type="text" name="user_name" required/>
+        </label>
+        <label>Password
+          <input className="inputStyle" type="password" name="password" onChange={event => setpassword(event.target.value)} required/>
+        </label>
+        <label>Confirm Password {passwordsMatch}
+          <input className="inputStyle" type="password" name="password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
+        </label>
+        <button className="primary_color_bg" type="submit" onClick={event => handleClick(event)}>Submit</button>
         {labelResponse()}
       </form>
-    </div>
+    </>
   );
 }
 

@@ -1,3 +1,7 @@
+* {
+  font-size: 14px;
+}
+
 .app_container {
   background-color: black;
   position: relative;
@@ -10,6 +14,20 @@
   min-height: 100vh;
 }
 
+.full_page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+  position: relative;
+}
+
+.title {
+  font-family: 'Quicksand', sans-serif;
+  color: white;
+  width: fit-content;
+}
+
 .app_body_error {
   background-image: url('../images/oceanPurple.jpg');
   background-repeat: no-repeat;
@@ -17,14 +35,65 @@
   background-color: black;
 }
 
+.box_shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.primary_color_bg {
+  background-color: #14a1ea;
+}
+
+.primary_color {
+  color: #14a1ea;
+}
+
+.big_font {
+  font-size: 24px;
+}
+
+.middle_font {
+  font-size: 18px;
+}
+
+.form_container {
+  width: 95vw;
+  height: max-content;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2em 1em;
+  background-image: linear-gradient(to bottom, #0e1825, #0a111a);
+}
+.center {
+  margin: auto;
+}
+
 @media screen and (min-width: 426px) {
   .app_body {
     min-height: 95vh;
+  }
+  .form_container {
+    width: fit-content;
   }
 }
 
 @media screen and (min-width: 769px) {
   .app_body {
     min-height: 88vh;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .big_font {
+    font-size: 5vh;
+  }
+
+  .middle_font {
+    font-size: 4vh;
+  }
+
+  * {
+    font-size: 2.5vh;
   }
 }

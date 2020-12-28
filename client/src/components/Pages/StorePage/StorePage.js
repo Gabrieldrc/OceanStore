@@ -49,28 +49,13 @@ function Store() {
     })
     
   };
-  const styleContainer = {
-    display: "block",
-    height: "auto",
-  };
 
   return (
     <>
       <Title>Store</Title>
-      <div>
-        <div>container de numero de paginas</div>
-        <div className="apps_flex_container">
-          {renderApps(apps)}
-          {renderApps([
-            {name: "Spider-man", price:"50", creator:"Insomniac", category:"Game"},
-            {name: "Spider-man", price:"50", creator:"Insomniac", category:"Game"},
-            {name: "Spider-man", price:"50", creator:"Insomniac", category:"Game"},
-            {name: "Spider-man", price:"50", creator:"Insomniac", category:"Game"},
-            {name: "Spider-man", price:"50", creator:"Insomniac", category:"Game"},
-            {name: "Spider-man", price:"50", creator:"Insomniac", category:"Game"},
-            {name: "Spider-man", price:"50", creator:"Insomniac", category:"Game"},
-          ])}
-        </div>
+      <div>container de numero de paginas</div>
+      <div className="apps_flex_container">
+        {renderApps(apps)}
       </div>
     </>
   );

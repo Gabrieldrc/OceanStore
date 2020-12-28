@@ -69,8 +69,10 @@ function App() {
               <NotFountPage setError={setError} />
             </Route>
           </Switch>
+          <Route exact path={["/", "/store"]}>
+            <Footer />
+          </Route>
         </div>
-        {/* <Footer /> */}
       </>
     </Router>
   );

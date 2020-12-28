@@ -1,6 +1,15 @@
 .apps_flex_container {
+  margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   overflow-y: auto;
   overflow-x: hidden;
 }
+
+@media screen and (min-width: 426px) {
+  .apps_flex_container {
+    width: 90%;
+    margin: auto
+  }
+}
+
