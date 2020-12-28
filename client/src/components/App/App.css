@@ -14,11 +14,17 @@
   min-height: 100vh;
 }
 
-.full_page {
+.full_center_page {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 95vh;
+  position: relative;
+}
+
+.full_page {
+  overflow-y: auto;
+  min-height: 95vh;
   position: relative;
 }
 

@@ -51,13 +51,13 @@ function Store() {
   };
 
   return (
-    <>
+    <div className="full_page">
       <Title>Store</Title>
       <div>container de numero de paginas</div>
       <div className="apps_flex_container">
         {renderApps(apps)}
       </div>
-    </>
+    </div>
   );
 
 }

@@ -5,6 +5,7 @@ const navRoutes = {
     {label: 'Sell',    type: 'link', route: '/sell'},
   ],
   fixedRoutes: [
+    {label: 'Store', type: 'link', route: '/store'},
     {label: 'Categories', type: 'link', route: '/categories'},
     {label: 'Gift Cards', type: 'link', route: '/gift-cards'},
   ],
