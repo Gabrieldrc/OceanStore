@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 } from 'react-router-dom';
 // import AppStyle from './App.style.js';
 
@@ -18,7 +19,6 @@ import AppDetailsPage from '../Pages/AppDetailsPage/AppDetailsPage.js';
 import Logout from '../Logout/Logout.js';
 import NotFountPage from '../ErrorPages/NotFoundPage/NotFoundPage';
 import Footer from '../Footer/Footer';
-import DevHomePage from '../Pages/DevHomePage/DevHomePage.js';
 import DevSignupPage from '../Pages/DevSignupPage/DevSignupPage.js';
 import DevSigninPage from '../Pages/DevSigninPage/DevSigninPage';
 
@@ -57,7 +57,7 @@ function App() {
               <Logout />
             </Route>
             <Route exact path="/dev">
-              <DevHomePage />
+              <Redirect to="/dev/signin" />
             </Route>
             <Route exact path="/dev/signup">
               <DevSignupPage />
