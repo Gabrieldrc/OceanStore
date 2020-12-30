@@ -1,3 +1,13 @@
+.dark_background {
+  opacity: 0.4;
+  width: 100%;
+}
+
+.error_message {
+  position: absolute;
+  flex-direction: column;
+}
+
 .app_body_error_content {
   display: grid;
   margin: 0px auto;
