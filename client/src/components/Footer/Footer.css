@@ -1,14 +1,14 @@
 .footer {
   display: flex;
-  grid-area: footer;
   background: rgb(20,161,234);
   min-height: 5vh;
   align-items: center;
 }
 .footer_content { 
   display: flex;
-  justify-content: start;
-  min-width: 940px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
   margin: auto;
 }
 .footer_item {
@@ -23,4 +23,10 @@
   padding: 0.2rem 0.5rem ;
   margin: 0.2rem 0.5rem ;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 426px) {
+  .footer {
+    padding-bottom: 10vh;
+  }
 }

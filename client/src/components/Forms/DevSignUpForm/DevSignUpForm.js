@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import DevService from '../../../services/dev.service';
-import style from './DevSignUpForm.style';
+import '../SignForm.css';
 
 
 function DevSignUpForm() {
@@ -44,24 +44,27 @@ function DevSignUpForm() {
       return <label>  </label>;
     }
     if (res.type === 'error') {
-      return <label style={style.styleError}>{res.message}</label>;
+      return <label className="styleError">{res.message}</label>;
     }
-    return <label style={style.styleCheck}>{res.message}</label>;
+    return <label className="styleCheck">{res.message}</label>;
   }
 
   return(
-    <div>
-      <form style={style.styleForm} id="dev_sign_up_form">
-        <label> Username</label>
-        <input style={style.inputStyle} type="text" name="user_name" required/>
-        <label> Password</label>
-        <input style={style.inputStyle} type="password" name="password" onChange={event => setpassword(event.target.value)} required/>
-        <label> Confirm Password      {passwordsMatch}</label>
-        <input style={style.inputStyle} type="password" name="password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
-        <button type="submit" onClick={event => handleClick(event)}>Submit</button>
+    <>
+      <form className="form" id="dev_sign_up_form">
+        <label>Username
+          <input className="inputStyle" type="text" name="user_name" required/>
+        </label>
+        <label>Password
+          <input className="inputStyle" type="password" name="password" onChange={event => setpassword(event.target.value)} required/>
+        </label>
+        <label><span>Confirm Password <span style={{display: "inline"}} className="styleError">{passwordsMatch}</span></span>
+          <input className="inputStyle" type="password" name="password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
+        </label>
+        <button className="primary_color_bg" type="submit" onClick={event => handleClick(event)}>Submit</button>
         {labelResponse()}
       </form>
-    </div>
+    </>
   );
 }
 

@@ -35,7 +35,7 @@ function Nav() {
         <div className="nav_submenu_container">
           <div className="nav_link"
             onClick={() => deploySubMenu()}
-          >{element.label}</div>
+          >{element.label === 'User'? currentUser.user_name : element.labe}</div>
           <div className={`${subMenuNavCN}`}>
             {printRoutesList(element.routes)}
           </div>
@@ -71,6 +71,7 @@ function Nav() {
     }
   }
 
+  console.log(currentUser);
   return(
     <div className={`Nav ${navCN}`}>
       <div className="nav_icon_container">
@@ -84,7 +85,9 @@ function Nav() {
           src="/icons/x_menu.icon.svg"
           alt="hide"
         />
-        <img className="logo_img nav_item" src="/icons/OceanStoreLogo.svg" alt="Logo"/>
+        <a href="/">
+          <img className="logo_img nav_item" src="/icons/OceanStoreLogo.svg" alt="Logo"/>
+        </a>
       </div>
       <div className={`nav_menu ${navMenuCN}`}>
         <SearchBar />

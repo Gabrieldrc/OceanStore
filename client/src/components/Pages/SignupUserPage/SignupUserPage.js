@@ -1,18 +1,13 @@
 import React from 'react';
 import SignUpUserForm from '../../Forms/SignUpUserForm/SignUpUserForm';
-import Title from '../../Title/Title';
-import './SignupUserPage.css';
 
 function SignupUserPage() {
   return(
-    <div className="SignupUserPage">
-      <div className="SignupContainer">
-        <Title style={{fontWeight: "200"}}>CREATE YOUR ACCOUNT</Title>
+    <div className="full_center_page">
+      <div className="form_container box_shadow">
+        <h1 className="title_1 center big_font">CREATE YOUR ACCOUNT</h1>
         <SignUpUserForm />
-        <span className="border border-top"></span>
-        <span className="border border-right"></span>
-        <span className="border border-bottom"></span>
-        <span className="border border-left"></span>
+        <a className="primary_color" href="/signin">Log in</a>
       </div>
     </div>
   );

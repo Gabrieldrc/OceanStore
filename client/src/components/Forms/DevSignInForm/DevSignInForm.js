@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { signin } from '../../../redux/reducers/isLogged.reducer';
 import { newUser } from '../../../redux/reducers/currentUser.reducer';
 import DevService from '../../../services/dev.service';
-import style from './DevSignInForm.style';
+import '../SignForm.css';
 
 function DevSignInForm() {
   const [error, setError] = useState(' ');
@@ -38,19 +38,21 @@ function DevSignInForm() {
       if (history.location.state) {
         return <Redirect to={history.location.state.referrer} />
       }
-      return <Redirect to='/dev' />;
+      return <Redirect to='/dev/dashboard' />;
     }
     return(
-      <div>
-        <form style={style.styleForm} id="dev_log_in_form">
-          <label> Username:</label>
-          <input style={style.inputStyle} type="text" name="user_name" required/>
-          <label> Password:</label>
-          <input style={style.inputStyle} type="password" name="password" required/>
-          <button type="submit" onClick={event => handleClick(event)}>Submit</button>
-          <label style={style.styleError}>{error}</label>
+      <>
+        <form className="form" id="dev_log_in_form">
+          <label> Username
+            <input className="inputStyle" type="text" name="user_name" required/>
+          </label>
+          <label> Password
+            <input className="inputStyle" type="password" name="password" required/>
+          </label>
+          <button className="primary_color_bg" type="submit" onClick={event => handleClick(event)}>Submit</button>
+          <label className="styleError">{error}</label>
         </form>
-      </div>
+      </>
     );
   }
 

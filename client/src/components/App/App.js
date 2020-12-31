@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 } from 'react-router-dom';
 // import AppStyle from './App.style.js';
 
@@ -18,19 +19,16 @@ import AppDetailsPage from '../Pages/AppDetailsPage/AppDetailsPage.js';
 import Logout from '../Logout/Logout.js';
 import NotFountPage from '../ErrorPages/NotFoundPage/NotFoundPage';
 import Footer from '../Footer/Footer';
-import DevHomePage from '../Pages/DevHomePage/DevHomePage.js';
 import DevSignupPage from '../Pages/DevSignupPage/DevSignupPage.js';
 import DevSigninPage from '../Pages/DevSigninPage/DevSigninPage';
 
 
 function App() {
-  const [error, setError] = useState(false);
-  const appErrorClassName = error? "app_body_error" : "";
   return (
     <Router>
       <>
         <Nav/>
-        <div className={`app_body ${appErrorClassName}`}>
+        <div className="app_body">
           <Switch>
             <Route exact path="/signup">
               <SignupUserPage />
@@ -46,7 +44,7 @@ function App() {
             </Route>
             <Route exact path="/sell">
               <div>
-                <Title>Upload an app</Title>
+                <h1 className="title_1 center big_font">Upload an app</h1>
                 <NewAppForm />
               </div>
             </Route>
@@ -57,7 +55,7 @@ function App() {
               <Logout />
             </Route>
             <Route exact path="/dev">
-              <DevHomePage />
+              <Redirect to="/dev/signin" />
             </Route>
             <Route exact path="/dev/signup">
               <DevSignupPage />
@@ -66,11 +64,13 @@ function App() {
               <DevSigninPage />
             </Route>
             <Route path="*">
-              <NotFountPage setError={setError} />
+              <NotFountPage />
             </Route>
           </Switch>
+          <Route exact path={["/", "/store"]}>
+            <Footer />
+          </Route>
         </div>
-        {/* <Footer /> */}
       </>
     </Router>
   );

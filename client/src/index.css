@@ -2,6 +2,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  text-decoration: unset;
 }
 
 body {
@@ -22,6 +23,6 @@ code {
 /* Mobile Screen */
 @media screen and (max-width: 426px) {
   body {
-    background-image: linear-gradient(to bottom, #192B43, #192B43);
+    background-image: linear-gradient(to bottom, #192B43, #0f1927);
   }
 }
