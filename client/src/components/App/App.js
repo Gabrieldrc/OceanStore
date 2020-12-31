@@ -24,13 +24,11 @@ import DevSigninPage from '../Pages/DevSigninPage/DevSigninPage';
 
 
 function App() {
-  const [error, setError] = useState(false);
-  const appErrorClassName = error? "app_body_error" : "";
   return (
     <Router>
       <>
         <Nav/>
-        <div className={`app_body ${appErrorClassName}`}>
+        <div className="app_body">
           <Switch>
             <Route exact path="/signup">
               <SignupUserPage />
@@ -46,7 +44,7 @@ function App() {
             </Route>
             <Route exact path="/sell">
               <div>
-                <Title>Upload an app</Title>
+                <h1 className="title center big_font">Upload an app</h1>
                 <NewAppForm />
               </div>
             </Route>
@@ -66,7 +64,7 @@ function App() {
               <DevSigninPage />
             </Route>
             <Route path="*">
-              <NotFountPage setError={setError} />
+              <NotFountPage />
             </Route>
           </Switch>
           <Route exact path={["/", "/store"]}>

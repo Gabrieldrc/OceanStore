@@ -36,13 +36,6 @@
   width: fit-content;
 }
 
-.app_body_error {
-  background-image: url('../images/oceanPurple.jpg');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-color: black;
-}
-
 .box_shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

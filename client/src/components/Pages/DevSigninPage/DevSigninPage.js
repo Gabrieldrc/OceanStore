@@ -1,19 +1,13 @@
 import React from 'react';
 import DevSignInForm from '../../Forms/DevSignInForm/DevSignInForm';
-import Title from '../../Title/Title';
-import './DevSigninPage.css';
 
 function DevSigninPage(props) {
   return(
-    <div className="dev_signin_page">
-      <div className="dev_signin_container">
-        <Title style={{fontWeight: "200"}}>SIGN IN DEV<span style={{fontSize: '1.5rem'}}>with your OS account</span></Title>
+    <div className="full_center_page">
+      <div className="form_container box_shadow">
+        <h1 className="title center big_font">SIGN IN DEV</h1>
         <DevSignInForm 
           setSignInStatus={props.setSignInStatus}/>
-        <span className="border border-top"></span>
-        <span className="border border-right"></span>
-        <span className="border border-bottom"></span>
-        <span className="border border-left"></span>
       </div>
     </div>
   );

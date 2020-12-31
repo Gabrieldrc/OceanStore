@@ -1,18 +1,12 @@
 import React from 'react';
 import DevSignUpForm from '../../Forms/DevSignUpForm/DevSignUpForm';
-import Title from '../../Title/Title';
-import './DevSignupPage.css';
 
 function DevSignupPage() {
   return(
-    <div className="dev_signup_page">
-      <div className="dev_signup_container">
-        <Title style={{fontWeight: "200"}}>CREATE YOUR DEV ACCOUNT</Title>
+    <div className="full_center_page">
+      <div className="form_container box_shadow">
+        <h1 className="title center big_font">CREATE YOUR DEV</h1>
         <DevSignUpForm />
-        <span className="border border-top"></span>
-        <span className="border border-right"></span>
-        <span className="border border-bottom"></span>
-        <span className="border border-left"></span>
       </div>
     </div>
   );
