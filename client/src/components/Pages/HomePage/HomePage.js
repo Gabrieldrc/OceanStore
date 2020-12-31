@@ -50,10 +50,6 @@ function HomePage() {
           </div>
           <a href="/dev/signup" className="buttom secundary_color_bg">Get start it</a>
         </div>
-        <div style={{display: "none"}} className="full_center_page presentation_item" id="pstt_3">
-          <h1 className="middle_font title_1">Page</h1><br></br>
-          <h1 className="big_font title_1">3</h1>
-        </div>
       </div>
     </div>
   );
