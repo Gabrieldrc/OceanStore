@@ -52,7 +52,10 @@ function Store() {
 
   return (
     <div className="full_page">
-      <Title>Store</Title>
+      <h1 className="title_1 big_font">Quicksand</h1>
+      <h1 className="title_2 big_font">Source</h1>
+      <h1 className="title_3 big_font">Oswald</h1>
+      <h1 className="title_4 big_font">Audiowide</h1>
       <div>container de numero de paginas</div>
       <div className="apps_flex_container">
         {renderApps(apps)}

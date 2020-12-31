@@ -43,16 +43,16 @@ function HomePage() {
           <img id="logo" src="/icons/OceanStore.icon.svg" alt="OceanStore"></img>
           <a href="/store" className="buttom">Explore</a>
         </div>
-        <div style={{display: "none"}} className="full_center_page presentation_item" id="pstt_2">
-          <div>
-            <h1 className="title big_font">WELCOME DEVELOPER!</h1>
-            <h1 className="middle_font">share your applications</h1>
+        <div style={{display: "none"}} className="full_center_page presentation_item dev_home" id="pstt_2">
+          <div className="float_window_style box_shadow">
+            <h1 className="title_4 big_font primary_color">WELCOME DEVELOPER!</h1>
+            <h1 className="title_2 middle_font">share your applications</h1>
           </div>
-          <a href="/dev/signup" className="buttom">Get start it</a>
+          <a href="/dev/signup" className="buttom secundary_color_bg">Get start it</a>
         </div>
         <div style={{display: "none"}} className="full_center_page presentation_item" id="pstt_3">
-          <h1 className="middle_font title">Page</h1><br></br>
-          <h1 className="big_font title">3</h1>
+          <h1 className="middle_font title_1">Page</h1><br></br>
+          <h1 className="big_font title_1">3</h1>
         </div>
       </div>
     </div>

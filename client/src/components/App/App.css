@@ -3,7 +3,7 @@
 }
 
 .app_container {
-  background-color: black;
+  background-color: white;
   position: relative;
   font-size: 2vh;
 }
@@ -30,10 +30,20 @@
   
 }
 
-.title {
-  font-family: 'Quicksand', sans-serif;
+.title_1, .title_2, .title_3 {
   color: white;
   width: fit-content;
+}
+
+.title_1 {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.title_2 {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.title_3 {
+  font-family: 'Audiowide',sans-serif;
 }
 
 .box_shadow {
@@ -46,6 +56,14 @@
 
 .primary_color {
   color: #14a1ea;
+}
+
+.secundary_color {
+  color: #8570c7;
+}
+
+.secundary_color_bg {
+  background-color: #8570c7;
 }
 
 .big_font {

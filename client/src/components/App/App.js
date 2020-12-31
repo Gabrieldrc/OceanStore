@@ -44,7 +44,7 @@ function App() {
             </Route>
             <Route exact path="/sell">
               <div>
-                <h1 className="title center big_font">Upload an app</h1>
+                <h1 className="title_1 center big_font">Upload an app</h1>
                 <NewAppForm />
               </div>
             </Route>

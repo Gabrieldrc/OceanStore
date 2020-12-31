@@ -58,7 +58,7 @@ function DevSignUpForm() {
         <label>Password
           <input className="inputStyle" type="password" name="password" onChange={event => setpassword(event.target.value)} required/>
         </label>
-        <label> Confirm Password {passwordsMatch}
+        <label><span>Confirm Password <span style={{display: "inline"}} className="styleError">{passwordsMatch}</span></span>
           <input className="inputStyle" type="password" name="password_confirm" onChange={event => setpasswordConfirm(event.target.value)} required/>  
         </label>
         <button className="primary_color_bg" type="submit" onClick={event => handleClick(event)}>Submit</button>

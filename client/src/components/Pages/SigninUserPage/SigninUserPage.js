@@ -5,7 +5,7 @@ function SigninUserPage(props) {
   return(
     <div className="full_center_page">
       <div className="form_container box_shadow">
-        <h1 className="title center big_font">SIGN IN</h1>
+        <h1 className="title_1 center big_font">SIGN IN</h1>
         <SignInUserForm 
           setSignInStatus={props.setSignInStatus}/>
         <a className="primary_color" href="/signup">Sign Up</a>
