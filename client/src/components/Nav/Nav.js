@@ -9,7 +9,8 @@ import SearchBar from './SearchBar/SearchBar';
 const routes = RoutesService.getRoutes();
 
 function Nav() {
-  const [currentUser, setCurrentUser ] = useState(undefined);
+  const [roleUser, setRoleUser ] = useState(undefined);
+  const [username, setUserName ] = useState(undefined);
   let islogged = useSelector(state => state.isLogged.value);
   
   // Namespace
@@ -23,7 +24,8 @@ function Nav() {
     (() => {
       const user = UserService.getCurrentUser();
       if (user) {
-        setCurrentUser(user);
+        setRoleUser(user.role);
+        setUserName(user.user_name);
       }
     })();
   },[islogged]);
@@ -35,7 +37,7 @@ function Nav() {
         <div className="nav_submenu_container">
           <div className="nav_link"
             onClick={() => deploySubMenu()}
-          >{element.label === 'User'? currentUser.user_name : element.labe}</div>
+          >{element.label === 'User'? username : element.labe}</div>
           <div className={`${subMenuNavCN}`}>
             {printRoutesList(element.routes)}
           </div>
@@ -71,7 +73,12 @@ function Nav() {
     }
   }
 
-  console.log(currentUser);
+  const chooseLinks = () => {
+    
+  };
+
+  console.log(roleUser);
+  console.log(username);
   return(
     <div className={`Nav ${navCN}`}>
       <div className="nav_icon_container">
@@ -92,11 +99,17 @@ function Nav() {
       <div className={`nav_menu ${navMenuCN}`}>
         <SearchBar />
         <div className="change_link_container">
-          {currentUser && islogged ? (
-              printRoutesList(routes.verifiedRoutes)
-          ):(
+          {
+            (roleUser && islogged ) ? (
+              (roleUser === "developer") ? (
+                printRoutesList(routes.verifiedDevRoutes)
+               ) : (
+                printRoutesList(routes.verifiedRoutes)
+               )
+            ) : (
               printRoutesList(routes.publicRoutes)
-          )}
+            )
+          }
         </div>
         <div className ="fixed_link_container">
           {printRoutesList(routes.fixedRoutes)}

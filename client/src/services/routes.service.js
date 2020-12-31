@@ -14,8 +14,16 @@ const navRoutes = {
     {label: 'Car',      type: 'link', route: '/car'},
     {label: 'User',      type: 'menu', routes: [
       {label: 'Settings', type: 'link' ,route: '/settings'},
-      {label: 'Sell',     type: 'link' ,route: '/sell'},
-      {label: 'My Apps',  type: 'link' ,route: '/apps'},
+      {label: 'My Apps',  type: 'link' ,route: '/me/apps'},
+      {label: 'Log Out',  type: 'link' ,route: '/logout'},
+    ]},
+  ],
+  verifiedDevRoutes: [
+    {label: 'Dashboard', type: 'link', route: '/dev/dashboard'},
+    {label: 'My Apps',      type: 'link', route: '/dev/me/apps'},
+    {label: 'User',      type: 'menu', routes: [
+      {label: 'Settings', type: 'link' ,route: '/settings'},
+      {label: 'Publish App',     type: 'link' ,route: '/dev/me/apps/publish'},
       {label: 'Log Out',  type: 'link' ,route: '/logout'},
     ]},
   ]
