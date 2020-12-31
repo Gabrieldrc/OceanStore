@@ -18,14 +18,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 95vh;
-  position: relative;
 }
 
 .full_page {
   overflow-y: auto;
-  min-height: 95vh;
+}
+
+.full_center_page, .full_page {
   position: relative;
+  height: 95vh;
+  
 }
 
 .title {

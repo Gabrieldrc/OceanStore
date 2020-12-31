@@ -8,8 +8,7 @@ function NotFountPage(props) {
       <div className="full_center_page error_message">
           <h1 className="not_found_page_title">Lost your way?</h1>
           <p className="not_found_page_p">
-            Sorry, we can't find that page. 
-            You'll find lots to explore on the home page.
+            Explore on the home page.
           </p>
         <div className="not_found_page_error_container">
           <h1 className="not_found_page_error">Error Code <b>404</b></h1>
