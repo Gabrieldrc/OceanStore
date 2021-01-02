@@ -1,23 +1,6 @@
 import React, { useState } from 'react';
 import AppService from '../../../services/app.service';
 
-const styleForm = {
-  display: "grid",
-  gridTemplateColumns: "300px",
-  gridTemplateRows: "auto",
-  width: "fit-content",
-  gridRowGap: "10px",
-  color: "white",
-};
-
-const styleError = {
-  color: "red",
-};
-
-const styleCheck = {
-  color: "lawngreen",
-};
-
 function NewAppForm() {
   const [res, setRes] = useState({});
 
@@ -48,9 +31,9 @@ function NewAppForm() {
       return <label>  </label>;
     }
     if (res.type === 'error') {
-      return <label style={styleError}>{res.message}</label>;
+      return <label className="styleError">{res.message}</label>;
     }
-    return <label style={styleCheck}>{res.message}</label>;
+    return <label className="styleCheck">{res.message}</label>;
   }
 
   return(
@@ -58,20 +41,24 @@ function NewAppForm() {
     // Precio de venta,
     // Categoría.
     // Imagen o logo.
-    <div>
-      <form style={styleForm} id="new_app_form" encType="multipart/form-data">
-        <label> Name:</label>
-        <input type="text" name="app_name"  required/>
-        <label> Price:</label>
-        <input type="number" name="app_price" min="0" max="100"  required/>
-        <label> Category:</label>
-        <input type="text" name="app_category" required/>
-        <label> Image or Logo:</label>
-        <input type="file" name="image" disabled/>
-        <button type="submit" onClick={event => handleClick(event)}>Submit</button>
-        {labelResponse()}
+    <>
+      <form className="form" id="new_app_form" encType="multipart/form-data">
+        <label> Name
+          <input className="inputStyle" type="text" name="app_name"  required/>
+        </label>
+        <label> Price
+          <input className="inputStyle" type="number" name="app_price" min="0" max="100"  required/>
+        </label>
+        <label> Category
+          <input className="inputStyle" type="text" name="app_category" required/>
+        </label>
+        <label> Image or Logo
+          <input className="inputStyle" type="file" name="image" disabled/>
+        </label>
+        <button className="primary_color_bg" type="submit" onClick={event => handleClick(event)}>Submit</button>
       </form>
-    </div>
+      {labelResponse()}
+    </>
   );
 }
 

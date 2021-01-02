@@ -73,10 +73,6 @@ function Nav() {
     }
   }
 
-  const chooseLinks = () => {
-    
-  };
-
   console.log(roleUser);
   console.log(username);
   return(

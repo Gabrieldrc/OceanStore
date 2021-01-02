@@ -21,7 +21,7 @@ const DevService = {
   logout(){
     return axios.get(API_URL+'logout')
       .then(response => {
-        window.localStorage.removeItem('user')
+        window.localStorage.removeItem('user');
         return true;
       })
   },

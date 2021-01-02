@@ -20,10 +20,10 @@ const navRoutes = {
   ],
   verifiedDevRoutes: [
     {label: 'Dashboard', type: 'link', route: '/dev/dashboard'},
-    {label: 'My Apps',      type: 'link', route: '/dev/me/apps'},
+    {label: 'My Apps',      type: 'link', route: '/dev/apps'},
     {label: 'User',      type: 'menu', routes: [
       {label: 'Settings', type: 'link' ,route: '/settings'},
-      {label: 'Publish App',     type: 'link' ,route: '/dev/me/apps/publish'},
+      {label: 'Publish App',     type: 'link' ,route: '/dev/apps/new_app'},
       {label: 'Log Out',  type: 'link' ,route: '/logout'},
     ]},
   ]

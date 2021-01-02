@@ -1,0 +1,29 @@
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  height: inherit;
+  width: 100%;
+}
+
+.dashboard .big_item, .dashboard .normal_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 10px;
+  margin: 1vh 2%;
+  height: 25vh;
+}
+
+.dashboard .big_item {
+  width: 98%;
+}
+.dashboard .normal_item {
+  width: 46%;
+}
+
+@media screen and (min-width: 769px) {
+  .dashboard .big_item, .dashboard .normal_item {
+    
+  }
+}
