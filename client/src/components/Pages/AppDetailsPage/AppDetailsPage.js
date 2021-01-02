@@ -36,10 +36,10 @@ function AppDetailsPage() {
   },[]);
 
   return(
-    <div className="app_details_page">
+    <div className="full_page">
       {loadStatus? (
         <div className="app_details_page_container">
-          <Title styleProps={style.title1}>{appDetails.app_name}</Title>
+          <h1 className="title_1 big_font">{appDetails.app_name}</h1>
           <AppDetails appDetails={app} rates={rates}/>
           <div>
             <Title styleProps={style.title2}>ABOUT THIS APP</Title>

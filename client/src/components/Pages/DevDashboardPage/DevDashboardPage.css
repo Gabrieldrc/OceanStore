@@ -22,6 +22,17 @@
   width: 46%;
 }
 
+.dashboard .icon_plus {
+  display: flex;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 15px;
+  font-weight: 900;
+  margin: auto;
+}
+
 @media screen and (min-width: 769px) {
   .dashboard .big_item, .dashboard .normal_item {
     
