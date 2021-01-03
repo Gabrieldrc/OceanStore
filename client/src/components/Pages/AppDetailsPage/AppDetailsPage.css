@@ -1,5 +1,4 @@
 .app_page {
-  display: flex;
   flex-direction: column;
   color: white;
 }
@@ -10,12 +9,14 @@
   padding: 10px;
 }
 
+.app_page .light_container {
+  background-color: #085ad436;
+}
 
 .app_page .resume {
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #085ad436;
 }
 
 .resume .app_image {
@@ -68,7 +69,13 @@
   height: 10vh;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 1rem 2rem;
+  padding-top: 1rem;
+  transition: height 1s ease-in-out;
+}
+.box_part_displayed {
+  height: auto;
+  text-overflow: initial;
+  padding-bottom: 2rem;
 }
 
 .app_page .title_2 {
@@ -84,6 +91,7 @@
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
+  transition: transform 0.3s;
 }
 
 .app_page .up {
@@ -94,4 +102,14 @@
 .app_page .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+
+.app_page .display_hide_buttom {
+  cursor: pointer;
+}
+
+.dark_container {
+  padding: 2rem;
+  padding-bottom: 0rem;
+  background-image: linear-gradient(to bottom, rgba( 0, 0, 0, 0), rgba( 0, 0, 0, 0.05), rgba( 0, 0, 0, 0.2));
 }

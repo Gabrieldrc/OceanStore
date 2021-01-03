@@ -47,7 +47,16 @@ function AppDetailsPage() {
     );
   };
 
-  
+  const displayAndHideText = () => {
+    if (direction === "up") {
+      setDirection("down");
+      setShowBoxHidedClass("box_part_displayed");
+      return;
+    }
+    setDirection("up");
+    setShowBoxHidedClass("");
+    return;
+  };
 
   {console.log(appDetails)}
   {console.log(app)}
@@ -56,7 +65,7 @@ function AppDetailsPage() {
       {loadStatus? (
         <>
           <h1 className="title_1 big_font">{appDetails.app_name}</h1>
-          <div className="resume">
+          <div className="resume light_container">
             <div className="app_image"></div>
             <div className="block text_resume">
               <p>
@@ -78,13 +87,13 @@ function AppDetailsPage() {
                 {app.category}
               </div>
             </div>
+            <div className="buttom_container">
+              <WishlistButtom key="wishlistButtom"/>
+              <AddCarButtom/>
+            </div>
           </div>
-          <div className="buttom_container">
-            <WishlistButtom key="wishlistButtom"/>
-            <AddCarButtom/>
-          </div>
-          <div className="box_shadow">
-            <h1 className="title_2 middle_font">
+          <div className="dark_container">
+            <h1 className="title_2 middle_font display_hide_buttom" onClick={displayAndHideText}>
               ABOUT THIS APP
               <div className={`arrow_displaybox ${direction}`}></div>
             </h1>
@@ -92,7 +101,7 @@ function AppDetailsPage() {
               {dataApp.aboutThisGame}
             </p>
           </div>
-          <div>
+          <div className="light_container">
             <h1 className="title_2 middle_font">Customer Reviews</h1>
             <Reviews appName={app_name}/>
           </div>
