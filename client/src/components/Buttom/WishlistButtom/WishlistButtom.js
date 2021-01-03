@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { Redirect, useLocation } from 'react-router-dom';
-import style from '../Buttom.style';
-import styleWB from './WishlistButtom.style';
 import UserService from '../../../services/user.service';
 
 function WishlistButtom() {
-  const [buttomStyle, setButtomStyle] = useState(style.getStyle(styleWB.primaryColor, styleWB.secundaryColor));
   const [content, setContent] = useState(['Add to wish list']);
   const location = useLocation();
   const handleClick = () => {
@@ -24,18 +21,12 @@ function WishlistButtom() {
       );
     }
     setContent([
-      <img src="/icons/checkBox.icon.svg" alt="+" key="checkBoxIcon" style={style.icon}/>,
+      <img src="/icons/checkBox.icon.svg" alt="+" key="checkBoxIcon"/>,
       'On your list',
     ]);
   };
-  const handleMouseOver = () =>{
-    setButtomStyle(style.getOnMouseOverStyle(styleWB.primaryColor, styleWB.secundaryColor));
-  }
-  const handleMouseOut = () =>{
-    setButtomStyle(style.getStyle(styleWB.primaryColor, styleWB.secundaryColor));
-  }
   return(
-    <div style={buttomStyle} onClick={handleClick} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+    <div className="buttom primary_color_bg" onClick={handleClick}>
       {content}
     </div>
   );

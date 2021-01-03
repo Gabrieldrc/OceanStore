@@ -1,14 +1,97 @@
-/* .app_details_page {
-  background-image: linear-gradient(to bottom right, rgb(2, 16, 105), rgb(60, 50, 92, 0.2), rgb(22,32,45) 99%);
-  padding-top: 5rem;
-}
-.app_details_page_container {
-  margin: auto;
-  width: 900px;
-  padding: 50px;
-  border-top: 1px solid rgb(20, 161, 234);
-  background-image: linear-gradient(rgba(20, 161, 234, 0.5), rgba(20, 161, 234, 0.05),rgba(20, 161, 234, 0));
-}
-.app_details_page_about {
+.app_page {
+  display: flex;
+  flex-direction: column;
   color: white;
-} */
+}
+
+.app_page .title_1 {
+  width: 100%;
+  background-color: #05090D;
+  padding: 10px;
+}
+
+
+.app_page .resume {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #085ad436;
+}
+
+.resume .app_image {
+  width: 100%;
+  height: 50vw;
+  background-image: url("https://www.gameprotv.com/archivos/202010/marvel-s-spider-man-miles-morales-principal.jpg");
+  background-color: black;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.resume .block {
+  width: 100%;
+}
+
+.resume .text_resume{
+  padding: 1rem 0rem 1rem 2rem;
+}
+
+.resume .row {
+  display: grid;
+  grid-template-columns: 30% auto auto;
+  padding: 0rem 1rem 1rem 2rem;
+}
+
+.app_page .buttom_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.app_page .buttom {
+  width: fit-content;
+  text-decoration: none;
+  font-weight: 100;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  color: white;
+}
+
+.app_page .buttom:active {
+  font-weight: 500;
+}
+
+.box_part {
+  white-space: normal;
+  width: 100%;
+  height: 10vh;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1rem 2rem;
+}
+
+.app_page .title_2 {
+  position: relative;
+  width: 100%;
+}
+
+.arrow_displaybox {
+  position: absolute;
+  bottom: 0;
+  right: 2rem;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.app_page .up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.app_page .down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
