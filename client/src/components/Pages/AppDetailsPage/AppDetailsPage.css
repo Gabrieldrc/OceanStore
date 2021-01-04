@@ -128,7 +128,6 @@
   }
   .resume .app_image {
     width: 50vw;
-    
   }
   
   .resume .details {
@@ -139,6 +138,14 @@
   .app_page .app_page_child {
     padding: 3rem;
     padding-bottom: 1rem;
+  }
+  .box_part {
+    width: 80%;
+    height: 100px;
+    margin: auto;
+  }
+  .box_part_displayed {
+    height: auto;
   }
 }
 
