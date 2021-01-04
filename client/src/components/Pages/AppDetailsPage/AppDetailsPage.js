@@ -61,7 +61,7 @@ function AppDetailsPage() {
   {console.log(appDetails)}
   {console.log(app)}
   return(
-    <div className="full_page app_page">
+    <div className="app_page">
       {loadStatus? (
         <>
           <h1 className="title_1 big_font">{appDetails.app_name}</h1>

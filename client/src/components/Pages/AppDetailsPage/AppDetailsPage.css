@@ -118,16 +118,21 @@
   padding-bottom: 1rem;
 }
 
-
-
 @media screen and (min-width: 426px) {
+  .app_page .title_1 {
+    width: 100%;
+    background-color: #085ad436;
+    padding: 10px;
+    border-bottom: 2px solid black;
+  }
   .app_page .resume {
     width: 100%;
     display: flex;
     flex-direction: row;
   }
   .resume .app_image {
-    width: 50vw;
+    width: 50%;
+    height: auto;
   }
   
   .resume .details {
@@ -150,5 +155,32 @@
 }
 
 @media screen and (min-width: 769px) {
+  .app_page {
+    width: 70%;
+    margin: auto;
+  }
   
+  .resume .app_image {
+    width: 60%;
+    height: auto;
+  }
+  
+  .resume .details {
+    width: 40%;
+    padding: 1rem;
+    padding-bottom: 0rem;
+  }
+  .app_page .app_page_child {
+    padding: 3rem;
+    padding-bottom: 1rem;
+  }
+  .box_part {
+    width: 80%;
+    height: 100px;
+    margin: auto;
+  }
+  .box_part_displayed {
+    height: auto;
+  }
+
 }
