@@ -34,13 +34,13 @@
 }
 
 .resume .text_resume{
-  padding: 1rem 0rem 1rem 2rem;
+  padding: 1rem 0rem;
 }
 
 .resume .row {
   display: grid;
   grid-template-columns: 30% auto auto;
-  padding: 0rem 1rem 1rem 2rem;
+  padding-bottom: 1rem;
 }
 
 .app_page .buttom_container {
@@ -66,7 +66,7 @@
 .box_part {
   white-space: normal;
   width: 100%;
-  height: 10vh;
+  height: 20vh;
   overflow: hidden;
   text-overflow: ellipsis;
   padding-top: 1rem;
@@ -76,6 +76,7 @@
   height: auto;
   text-overflow: initial;
   padding-bottom: 2rem;
+  overflow: visible;
 }
 
 .app_page .title_2 {
@@ -109,7 +110,38 @@
 }
 
 .dark_container {
-  padding: 2rem;
-  padding-bottom: 0rem;
   background-image: linear-gradient(to bottom, rgba( 0, 0, 0, 0), rgba( 0, 0, 0, 0.05), rgba( 0, 0, 0, 0.2));
+}
+
+.app_page_child {
+  padding: 2rem;
+  padding-bottom: 1rem;
+}
+
+
+
+@media screen and (min-width: 426px) {
+  .app_page .resume {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .resume .app_image {
+    width: 50vw;
+    
+  }
+  
+  .resume .details {
+    width: 50vw;
+    padding: 3rem;
+    padding-bottom: 0rem;
+  }
+  .app_page .app_page_child {
+    padding: 3rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  
 }

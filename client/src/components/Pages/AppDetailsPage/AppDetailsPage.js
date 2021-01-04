@@ -65,43 +65,43 @@ function AppDetailsPage() {
       {loadStatus? (
         <>
           <h1 className="title_1 big_font">{appDetails.app_name}</h1>
-          <div className="resume light_container">
+          <div className="light_container app_page_child resume">
             <div className="app_image"></div>
-            <div className="block text_resume">
-              <p>
+            <div className="details">
+              <div className="block text_resume">
                 Red hair crookshanks bludger Marauder’s Map Prongs sunshine daisies butter mellow Ludo Bagman. Beaters gobbledegook N.E.W.T., Honeydukes eriseD inferi Wormtail. Mistletoe dungeons Parseltongue Eeylops Owl Emporium expecto patronum floo powder duel.
-              </p>
-            </div>
-            <div className="about">
-              <div className="row rate">
-                <span className="primary_color bold">Reviews:</span> 
-                <StarsRate average={4}/>
-                {userRated()}
               </div>
-              <div className="row developer">
-                <span className="primary_color bold">Developer:</span> 
-                {app.developer}
+              <div>
+                <div className="row rate">
+                  <span className="primary_color bold">Reviews:</span> 
+                  <StarsRate average={4}/>
+                  {userRated()}
+                </div>
+                <div className="row developer">
+                  <span className="primary_color bold">Developer:</span> 
+                  {app.developer}
+                </div>
+                <div className="row categories">
+                  <span className="primary_color bold">Categories:</span>
+                  {app.category}
+                </div>
               </div>
-              <div className="row categories">
-                <span className="primary_color bold">Categories:</span>
-                {app.category}
+              <div className="buttom_container">
+                <WishlistButtom key="wishlistButtom"/>
+                <AddCarButtom/>
               </div>
-            </div>
-            <div className="buttom_container">
-              <WishlistButtom key="wishlistButtom"/>
-              <AddCarButtom/>
             </div>
           </div>
-          <div className="dark_container">
+          <div className="dark_container app_page_child">
             <h1 className="title_2 middle_font display_hide_buttom" onClick={displayAndHideText}>
-              ABOUT THIS APP
+              About this app
               <div className={`arrow_displaybox ${direction}`}></div>
             </h1>
             <p className={`box_part ${showBoxHidedClass}`}>
               {dataApp.aboutThisGame}
             </p>
           </div>
-          <div className="light_container">
+          <div className=" reviews_container light_container app_page_child">
             <h1 className="title_2 middle_font">Customer Reviews</h1>
             <Reviews appName={app_name}/>
           </div>
