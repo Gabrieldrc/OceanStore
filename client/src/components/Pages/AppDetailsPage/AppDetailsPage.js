@@ -85,6 +85,10 @@ function AppDetailsPage() {
                   <span className="primary_color bold">Categories:</span>
                   {app.category}
                 </div>
+                <div className="row">
+                  <span className="primary_color bold">Price:</span> 
+                  {app.price}
+                </div>
               </div>
               <div className="buttom_container">
                 <WishlistButtom key="wishlistButtom"/>
