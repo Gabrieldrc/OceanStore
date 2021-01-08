@@ -1,14 +1,188 @@
-.app_details_page {
-  background-image: linear-gradient(to bottom right, rgb(2, 16, 105), rgb(60, 50, 92, 0.2), rgb(22,32,45) 99%);
-  padding-top: 5rem;
-}
-.app_details_page_container {
-  margin: auto;
-  width: 900px;
-  padding: 50px;
-  border-top: 1px solid rgb(20, 161, 234);
-  background-image: linear-gradient(rgba(20, 161, 234, 0.5), rgba(20, 161, 234, 0.05),rgba(20, 161, 234, 0));
-}
-.app_details_page_about {
+.app_page {
+  flex-direction: column;
   color: white;
+}
+
+.app_page .title_1 {
+  width: 100%;
+  background-color: #05090D;
+  padding: 10px;
+}
+
+.app_page .light_container {
+  background-color: #085ad436;
+}
+
+.app_page .resume {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.resume .app_image {
+  width: 100%;
+  height: 50vw;
+  background-image: url("https://www.gameprotv.com/archivos/202010/marvel-s-spider-man-miles-morales-principal.jpg");
+  background-color: black;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.resume .block {
+  width: 100%;
+}
+
+.resume .text_resume{
+  padding: 1rem 0rem;
+}
+
+.resume .row {
+  display: grid;
+  grid-template-columns: 30% auto auto;
+  padding-bottom: 1rem;
+}
+
+.app_page .buttom_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.app_page .buttom {
+  width: fit-content;
+  text-decoration: none;
+  font-weight: 100;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  color: white;
+}
+
+.app_page .buttom:active {
+  font-weight: 500;
+}
+
+.box_part {
+  white-space: normal;
+  width: 100%;
+  height: 20vh;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 1rem;
+  transition: height 1s ease-in-out;
+}
+.box_part_displayed {
+  height: auto;
+  text-overflow: initial;
+  padding-bottom: 2rem;
+  overflow: visible;
+}
+
+.app_page .title_2 {
+  position: relative;
+  width: 100%;
+}
+
+.arrow_displaybox {
+  position: absolute;
+  bottom: 0;
+  right: 2rem;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transition: transform 0.3s;
+}
+
+.app_page .up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.app_page .down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.app_page .display_hide_buttom {
+  cursor: pointer;
+}
+
+.dark_container {
+  background-image: linear-gradient(to bottom, rgba( 0, 0, 0, 0), rgba( 0, 0, 0, 0.05), rgba( 0, 0, 0, 0.2));
+}
+
+.app_page_child {
+  padding: 2rem;
+  padding-bottom: 1rem;
+}
+
+@media screen and (min-width: 426px) {
+  .app_page .title_1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 15vh;
+    width: 100%;
+    background-color: black;
+  }
+  .app_page .resume {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .resume .app_image {
+    width: 50%;
+    height: auto;
+  }
+  
+  .resume .details {
+    width: 50vw;
+    padding: 3rem;
+    padding-bottom: 0rem;
+  }
+  .app_page .app_page_child {
+    padding: 3rem;
+    padding-bottom: 1rem;
+  }
+  .box_part {
+    width: 80%;
+    height: 100px;
+    margin: auto;
+  }
+  .box_part_displayed {
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .app_page {
+    width: 70%;
+    margin: auto;
+  }
+  
+  .resume .app_image {
+    width: 60%;
+    height: auto;
+  }
+  
+  .resume .details {
+    width: 40%;
+    padding: 1rem;
+    padding-bottom: 0rem;
+  }
+  .app_page .app_page_child {
+    padding: 3rem;
+    padding-bottom: 1rem;
+  }
+  .box_part {
+    width: 80%;
+    height: 100px;
+    margin: auto;
+  }
+  .box_part_displayed {
+    height: auto;
+  }
+
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -6,14 +6,11 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-// import AppStyle from './App.style.js';
 
 import SigninUserPage from '../Pages/SigninUserPage/SigninUserPage';
 import Nav from '../Nav/Nav';
 import StorePage from '../Pages/StorePage/StorePage';
 import HomePage from '../Pages/HomePage/HomePage';
-import NewAppForm from '../Forms/NewAppForm/NewAppForm';
-import Title from '../Title/Title';
 import SignupUserPage from '../Pages/SignupUserPage/SignupUserPage.js';
 import AppDetailsPage from '../Pages/AppDetailsPage/AppDetailsPage.js';
 import Logout from '../Logout/Logout.js';
@@ -21,6 +18,8 @@ import NotFountPage from '../ErrorPages/NotFoundPage/NotFoundPage';
 import Footer from '../Footer/Footer';
 import DevSignupPage from '../Pages/DevSignupPage/DevSignupPage.js';
 import DevSigninPage from '../Pages/DevSigninPage/DevSigninPage';
+import DevDashboard from '../Pages/DevDashboardPage/DevDashboardPage';
+import DevNewAppPage from '../Pages/DevNewAppPage/DevNewAppPage';
 
 
 function App() {
@@ -30,26 +29,23 @@ function App() {
         <Nav/>
         <div className="app_body">
           <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
             <Route exact path="/signup">
               <SignupUserPage />
             </Route>
             <Route exact path="/signin">
               <SigninUserPage />
             </Route>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
             <Route exact path="/store">
               <StorePage />
             </Route>
-            <Route exact path="/sell">
-              <div>
-                <h1 className="title_1 center big_font">Upload an app</h1>
-                <NewAppForm />
-              </div>
-            </Route>
             <Route exact path="/app/:app_name/">
               <AppDetailsPage />
+            </Route>
+            <Route exact path="/dev/apps/new_app">
+              <DevNewAppPage />
             </Route>
             <Route exact path="/logout">
               <Logout />
@@ -62,6 +58,9 @@ function App() {
             </Route>
             <Route exact path="/dev/signin">
               <DevSigninPage />
+            </Route>
+            <Route exact path="/dev/dashboard">
+              <DevDashboard />
             </Route>
             <Route path="*">
               <NotFountPage />

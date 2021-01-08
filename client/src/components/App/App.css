@@ -74,6 +74,10 @@
   font-size: 18px;
 }
 
+.bold {
+  font-weight: 800;
+}
+
 .form_container {
   width: 95vw;
   height: max-content;
@@ -101,18 +105,15 @@
   .app_body {
     min-height: 88vh;
   }
-}
-
-@media screen and (orientation: landscape) {
   .big_font {
-    font-size: 5vh;
+    font-size: 24px;
   }
-
+  
   .middle_font {
-    font-size: 4vh;
+    font-size: 18px;
   }
-
+  
   * {
-    font-size: 2.5vh;
+    font-size: 14px;
   }
 }

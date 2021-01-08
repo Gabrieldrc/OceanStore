@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import './StorePage.css';
 
 import AppGridStore from '../../AppGridStore/AppGridStore';
-import Title from "../../Title/Title";
 import AppService from '../../../services/app.service';
 
 function Store() {

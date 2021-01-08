@@ -118,10 +118,19 @@
     font-size: 50px;
     justify-content: center;
   }
+  .dev_home {
+    background-repeat: space;
+    background-size: 40vw;
+  }
 }
 
 @media screen and (min-width: 769px) {
   .arrows_presentation div:hover {
     background-color: rgba(0, 0, 0, 0.1);
+  }
+  .dev_home {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 30% 3vh;
   }
 }

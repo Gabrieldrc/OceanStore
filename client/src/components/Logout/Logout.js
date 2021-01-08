@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import UserService from '../../services/user.service';
@@ -8,6 +8,7 @@ import { deleteUser } from '../../redux/reducers/currentUser.reducer';
 
 function Logout() {
   const dispatch = useDispatch();
+  const [logoutDone, setLogOutStatus] = useState(undefined)
 
   useEffect(() => {
     (() => {
@@ -16,6 +17,7 @@ function Logout() {
         if (response) {
           dispatch(deleteUser());
           dispatch(logout());
+          setLogOutStatus(true);
         }
       })
       .catch(error => {
@@ -25,9 +27,9 @@ function Logout() {
   },[]);
 
   return (
-    <div>
-      <Redirect exact to="/signin" />
-    </div>
+    <>
+      {logoutDone ? <Redirect exact to="/signin" />: "error"}
+    </>
   );
 }
 
