@@ -34,7 +34,7 @@ function Nav() {
     return routesArray.map((element, index) => {
       if (element.type === 'menu') {
         return (
-        <div className="nav_submenu_container">
+        <div className="nav_submenu_container" key="menu_link">
           <div className="nav_link"
             onClick={() => deploySubMenu()}
           >{element.label === 'User'? username : element.labe}</div>

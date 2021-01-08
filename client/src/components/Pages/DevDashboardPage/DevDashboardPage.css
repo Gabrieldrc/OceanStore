@@ -5,6 +5,13 @@
   width: 100%;
 }
 
+.flex_center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .dashboard .big_item, .dashboard .normal_item {
   display: flex;
   align-items: center;
@@ -20,6 +27,11 @@
 }
 .dashboard .normal_item {
   width: 46%;
+}
+
+.dashboard .icon_notification {
+  width: 40px;
+  height: 40px;
 }
 
 .dashboard .icon_plus {
